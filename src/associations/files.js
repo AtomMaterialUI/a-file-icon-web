@@ -10,9 +10,9 @@ const DEFAULT = {
 };
 
 export function getAssociation(name) {
-  const regexps = lodash.get(iconAssociations, 'associations.associations.regex');
+  const regexps = iconAssociations?.associations?.associations?.regex;
 
-  return lodash.find(regexps, (assoc => new RegExp(assoc.pattern).test(name.toLowerCase()))) || DEFAULT;
+  return regexps.find(assoc => new RegExp(assoc.pattern).test(name.toLowerCase())) || DEFAULT;
 }
 
 export function getFileIconName(assoc = DEFAULT) {
