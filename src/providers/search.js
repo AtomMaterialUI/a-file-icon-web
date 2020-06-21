@@ -1,4 +1,5 @@
 import {getAssociation, getFileIcon, getFileIconName, getFolderAssociation, getFolderIcon, getFolderIconName} from '../associations';
+import select from 'select-dom';
 
 export function injectIconsSearch(target) {
   const $items = select.all('.js-tree-browser-result-anchor', target);

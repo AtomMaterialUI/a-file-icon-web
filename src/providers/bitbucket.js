@@ -1,4 +1,5 @@
 import {getAssociation, getFileIcon, getFileIconName, getFolderAssociation, getFolderIcon, getFolderIconName} from '../associations';
+import select from 'select-dom';
 
 export function injectIconsBitbucket(target) {
   const $items = select.all('.css-lx2ipf', target);

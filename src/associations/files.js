@@ -10,7 +10,7 @@ const DEFAULT = {
 };
 
 export function getAssociation(name) {
-  const regexps = iconAssociations?.associations?.associations?.regex;
+  const regexps = iconAssociations.associations.associations.regex;
 
   return regexps.find(assoc => new RegExp(assoc.pattern).test(name)) || DEFAULT;
 }
