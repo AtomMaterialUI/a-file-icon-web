@@ -1,6 +1,5 @@
-import {get, find} from 'lodash';
-
-const iconAssociations = import('../../public/icon_associations.json');
+import iconAssociations from '../../public/icon_associations.json';
+import * as icons from '../../public/icons/files/index';
 
 const DEFAULT = {
   fileNames: '',
@@ -11,9 +10,9 @@ const DEFAULT = {
 };
 
 export function getAssociation(name) {
-  const regexps = get(iconAssociations, 'associations.associations.regex');
+  const regexps = lodash.get(iconAssociations, 'associations.associations.regex');
 
-  return find(regexps, (assoc => new RegExp(assoc.pattern).test(name.toLowerCase()))) || DEFAULT;
+  return lodash.find(regexps, (assoc => new RegExp(assoc.pattern).test(name.toLowerCase()))) || DEFAULT;
 }
 
 export function getFileIconName(assoc = DEFAULT) {

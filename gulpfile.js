@@ -18,13 +18,8 @@ gulp.task('icons', () => {
       prependUnicode: false
     }))
     .on('glyphs', function (glyphs, options) {
-      gulp.src('assets/iconfont.js.template', {})
-        .pipe(consolidate('underscore', {
-          glyphs: glyphs,
-          fontName: options.fontName,
-          fontDate: new Date().getTime(),
-          extension: 'kigjnkeidpmmhklmcdkkkgdlebbeljmf'
-        }))
+      gulp.src('assets/iconfont.ejs', {})
+        .pipe(consolidate('underscore', {glyphs: glyphs}))
         .pipe(rename('index.js'))
         .pipe(gulp.dest('public/icons/files'));
     });
@@ -43,13 +38,8 @@ gulp.task('folders', () => {
       prependUnicode: false
     }))
     .on('glyphs', function (glyphs, options) {
-      gulp.src('assets/folderIconfont.js.template', {})
-        .pipe(consolidate('underscore', {
-          glyphs: glyphs,
-          fontName: options.fontName,
-          fontDate: new Date().getTime(),
-          extension: 'kigjnkeidpmmhklmcdkkkgdlebbeljmf'
-        }))
+      gulp.src('assets/folderIconfont.ejs', {})
+        .pipe(consolidate('underscore', {glyphs: glyphs}))
         .pipe(rename('index.js'))
         .pipe(gulp.dest('public/icons/folders'));
     });
@@ -59,7 +49,7 @@ gulp.task('assets', () => {
   return gulp.src([
     'iconGenerator/icon_associations.json',
     'iconGenerator/folder_associations.json',
-    'assets/global.css',
+    'assets/global.css'
   ])
     .pipe(copy('public', {prefix: 1}));
 });
