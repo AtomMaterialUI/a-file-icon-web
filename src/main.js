@@ -1,4 +1,4 @@
-import {injectIconsBitbucket, injectIconsGithub, injectIconsSearch} from './providers';
+import {injectIconsBitbucket, injectIconsGithub, injectIconsGithubv2, injectIconsSearch} from './providers';
 import select from 'select-dom';
 
 function init() {
@@ -8,7 +8,10 @@ function init() {
       if (mutation.type === 'childList') {
         const target = mutation.target;
 
-        if (select.exists('.js-tree-browser-result-anchor > .octicon', target)) {
+        if (select.exists('.js-navigation-item > [role="gridcell"]', target)) {
+          injectIconsGithubv2(target);
+        }
+        else if (select.exists('.js-tree-browser-result-anchor > .octicon', target)) {
           injectIconsSearch(target);
         }
         else if (select.exists('.js-navigation-item > .icon', target)) {
