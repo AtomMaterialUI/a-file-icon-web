@@ -1,0 +1,20 @@
+td.icon > svg.octicon-file,
+.rgh-edit-files-faster {
+  display: none;
+}
+
+.js-navigation-item td.icon {
+  font-size: 16px;
+  line-height: 12px;
+}
+
+.octicon-file {
+  height: 16px;
+  width: 20px;
+  margin: 0 1px;
+}
+
+.css-179algp svg {
+  width: 20px;
+  height: 20px;
+}
