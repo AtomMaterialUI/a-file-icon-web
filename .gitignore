@@ -3,3 +3,5 @@ node_modules
 iconGenerator
 public/bundle.js
 public/bundle.js.map
+release
+release.zip
