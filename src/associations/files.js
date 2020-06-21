@@ -12,7 +12,7 @@ const DEFAULT = {
 export function getAssociation(name) {
   const regexps = iconAssociations?.associations?.associations?.regex;
 
-  return regexps.find(assoc => new RegExp(assoc.pattern).test(name.toLowerCase())) || DEFAULT;
+  return regexps.find(assoc => new RegExp(assoc.pattern).test(name)) || DEFAULT;
 }
 
 export function getFileIconName(assoc = DEFAULT) {
