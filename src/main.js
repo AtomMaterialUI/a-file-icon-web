@@ -1,12 +1,9 @@
-import {injectIconsBitbucket, injectIconsGithub, injectIconsGithubv2, injectIconsSearch} from './providers';
+import {injectIconsBitbucket, injectIconsGithubv2, injectIconsSearch} from './providers';
 import select from 'select-dom';
 
 function init() {
   function apply(target) {
-    if (select.exists('.js-navigation-item > .icon', target)) {
-      injectIconsGithub(target);
-    }
-    else if (select.exists('.js-navigation-item > [role="gridcell"]', target)) {
+    if (select.exists('.js-navigation-item > [role="gridcell"]', target)) {
       injectIconsGithubv2(target);
     }
     else if (select.exists('.js-tree-browser-result-anchor > .octicon', target)) {

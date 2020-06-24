@@ -33,6 +33,14 @@ This plugin is a port of the [Atom File Icons](https://github.com/file-icons/ato
 ## Folder Icons
 ![Folder Icons](https://raw.githubusercontent.com/mallowigi/iconGenerator/master/assets/folders.png)
 
+## Build
+
+```
+git clone https://github.com/mallowigi/iconGenerator.git
+npm run build
+npm run release
+```
+
 ## Credits
 
 Special credits to:

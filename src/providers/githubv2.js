@@ -16,7 +16,7 @@ export function injectIconsGithubv2(target) {
       let className = getFileIconName(assoc);
 
       const icon = getFileIcon(className);
-      $icon.outerHTML = icon.default.replace('<svg', '<svg class="octicon octicon-file" width="20" height="20"');
+      $icon.outerHTML = icon.default.replace('<svg', '<svg class="octicon octicon-file"');
 
       if (isSvg) {
         select('svg', item).remove();
@@ -27,7 +27,7 @@ export function injectIconsGithubv2(target) {
       let className = getFolderIconName(assoc);
 
       const icon = getFolderIcon(className);
-      $icon.outerHTML = icon.default.replace('<svg', '<svg class="octicon octicon-file-directory" width="20" height="20"');
+      $icon.outerHTML = icon.default.replace('<svg', '<svg class="octicon octicon-file-directory"');
     }
   });
 }
