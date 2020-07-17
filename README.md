@@ -1,4 +1,4 @@
-# Atom Material Icons Plugin for Google Chrome
+# Atom Material Icons Plugin for Web
 
 <h1 align="center">
   <br>
