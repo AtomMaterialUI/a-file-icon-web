@@ -10,7 +10,7 @@
 </h1>
 
 
-This plugin is a port of the [Atom File Icons](https://github.com/file-icons/atom) for Atom and the icons of the [Material Theme UI](https://github.com/ChrisRM/material-theme-jetbrains) plugin.
+This plugin is a port of the [Atom File Icons](https://github.com/file-icons/atom) for Google Chrome and Mozilla Firefox!
 
 ## Chrome Extension
 <https://chrome.google.com/webstore/detail/atom-file-icons-web/pljfkbaipkidhmaljaaakibigbcmmpnc>
