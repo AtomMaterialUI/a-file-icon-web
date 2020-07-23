@@ -557,9 +557,13 @@
 
     export * as file_haml from './haml.svg';
 
+    export * as file_harbour from './harbour.svg';
+
     export * as file_haskell from './haskell.svg';
 
     export * as file_haxe from './haxe.svg';
+
+    export * as file_hc from './hc.svg';
 
     export * as file_hcl from './hcl.svg';
 
@@ -573,7 +577,15 @@
 
     export * as file_hitachi from './hitachi.svg';
 
+    export * as file_hjson from './hjson.svg';
+
+    export * as file_hoplon from './hoplon.svg';
+
     export * as file_houdini from './houdini.svg';
+
+    export * as file_houndci from './houndci.svg';
+
+    export * as file_hp from './hp.svg';
 
     export * as file_htaccess from './htaccess.svg';
 
@@ -582,6 +594,10 @@
     export * as file_http from './http.svg';
 
     export * as file_husky from './husky.svg';
+
+    export * as file_hy from './hy.svg';
+
+    export * as file_hyper from './hyper.svg';
 
     export * as file_i18n from './i18n.svg';
 
@@ -916,6 +932,8 @@
     export * as file_qt from './qt.svg';
 
     export * as file_quasar from './quasar.svg';
+
+    export * as file_question from './question.svg';
 
     export * as file_r from './r.svg';
 

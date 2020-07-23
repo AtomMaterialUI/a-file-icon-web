@@ -22,7 +22,8 @@
     "prestart:dev": "gulp prepare",
     "start": "sirv public --single",
     "start:dev": "sirv public --single --dev",
-    "release": "gulp release"
+    "release": "gulp release",
+    "webext": "web-ext build --overwrite-dest"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",

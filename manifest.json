@@ -28,7 +28,6 @@
     "32": "icon32.png",
     "48": "icon48.png"
   },
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhpXFtxWWjqVvKJ4W52FYjdZzamJ1F0dBtQn2SlLI9ZR+4P65mTq6dG/Cl2O9H4sSHSCDi/nFz6KJJTLf94r0NMR1AdhKRmIeswWlwzaX05acGiKZfyMGLwJgUYQiJWWv5n5giX8ZY5IHQMfZ/x7lU4Ac5LkRuG1XSgHz41/cL6/mj9QalgqXbHsVwFWDw6yxHpmr8uKaxPtsD6CEc5gDNtg3XgmRV1T58ca9HbWTUIvG/DML2UvVAb3Cxq11NCp+2Y/FBQmdAFp6dPpT5L/bfhrYTyA+cIVRu8ycwp9Ty2w7WHtsGX2vcBvEIOrtFsruSynJorGQEsFfcr6O5ala9QIDAQAB",
   "manifest_version": 2,
   "name": "Atom File Icons Web",
   "permissions": [
@@ -38,8 +37,7 @@
     "https://bitbucket.org/*"
   ],
   "short_name": "Atom File Icons Web",
-  "update_url": "https://clients2.google.com/service/update2/crx",
-  "version": "2.0",
+  "version": "2.0.1",
   "web_accessible_resources": [
     "public/icons/**/*"
   ]

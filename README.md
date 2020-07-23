@@ -38,7 +38,8 @@ This plugin is a port of the [Atom File Icons](https://github.com/file-icons/ato
 ```
 git clone https://github.com/mallowigi/iconGenerator.git
 npm run build
-npm run release
+npm run release (Chrome)
+npm run webext (Firefox)
 ```
 
 ## Credits
