@@ -10,7 +10,7 @@
     "polka": "0.5.2",
     "select-dom": "6.0.2",
     "sirv": "1.0.1",
-    "sirv-cli": "1.0.1"
+    "sirv-cli": "1.0.12"
   },
   "scripts": {
     "clean": "rimraf public",
