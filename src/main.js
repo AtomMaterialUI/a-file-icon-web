@@ -9,7 +9,7 @@ function init() {
     else if (select.exists('.js-tree-browser-result-anchor > .octicon', target)) {
       injectIconsSearch(target);
     }
-    else if (select.exists('.css-lx2ipf > .css-179algp', target)) {
+    else if (select.exists('.css-hix1c1 > [data-qa="repository-directory"]', target)) {
       injectIconsBitbucket(target);
     }
   }
