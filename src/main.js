@@ -15,19 +15,18 @@ function init() {
   }
 
   const observer = new MutationObserver(mutations => {
-    for (let i = 0; i < mutations.length; i++) {
-      const mutation = mutations[i];
+    mutations.forEach(mutation => {
       if (mutation.type === 'childList') {
         const target = mutation.target;
         apply(target);
       }
-    }
+    });
   });
   observer.observe(document.body, {
     attributes: true,
     childList: true,
     characterData: true,
-    subtree: true
+    subtree: true,
   });
 
   // applying on body in case the list is already present
