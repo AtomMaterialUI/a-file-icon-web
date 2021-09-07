@@ -22,7 +22,7 @@
       ]
     }
   ],
-  "description": "Changes GitHub and BitBucket file icons according to their extension or framework",
+  "description": "Changes GitHub, GitLab and BitBucket file icons according to their extension or framework",
   "homepage_url": "https://www.material-theme.com",
   "icons": {
     "128": "icon128.png",
