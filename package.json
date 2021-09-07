@@ -60,7 +60,7 @@
     "underscore": "1.13.1"
   },
   "optionalDependencies": {
-    "minimist": ">=1.2.3",
-    "lodash.template": ">=4.5.0"
+    "lodash.template": ">=4.5.0",
+    "minimist": ">=1.2.3"
   }
 }

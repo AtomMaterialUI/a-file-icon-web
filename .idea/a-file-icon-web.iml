@@ -12,7 +12,10 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/web-ext-artifacts" />
+      <excludeFolder url="file://$MODULE_DIR$/iconGenerator/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/iconGenerator/dist" />
     </content>
+    <content url="file://$MODULE_DIR$/iconGenerator/examples/files" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
