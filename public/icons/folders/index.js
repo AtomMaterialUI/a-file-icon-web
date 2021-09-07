@@ -29,17 +29,31 @@
 
     export * as folder_aurelia from './aurelia.svg';
 
+    export * as folder_automator from './automator.svg';
+
     export * as folder_aws from './aws.svg';
 
     export * as folder_azure_devops from './azure-devops.svg';
+
+    export * as folder_azure_pipelines from './azure-pipelines.svg';
 
     export * as folder_bazaar from './bazaar.svg';
 
     export * as folder_benchmark from './benchmark.svg';
 
+    export * as folder_bitcoin from './bitcoin.svg';
+
+    export * as folder_bloc from './bloc.svg';
+
+    export * as folder_blueprint from './blueprint.svg';
+
     export * as folder_bower from './bower.svg';
 
+    export * as folder_buildkite from './buildkite.svg';
+
     export * as folder_cabal from './cabal.svg';
+
+    export * as folder_cake from './cake.svg';
 
     export * as folder_chef from './chef.svg';
 
@@ -53,7 +67,13 @@
 
     export * as folder_cluster from './cluster.svg';
 
+    export * as folder_cmake from './cmake.svg';
+
+    export * as folder_cnab from './cnab.svg';
+
     export * as folder_components from './components.svg';
+
+    export * as folder_composer from './composer.svg';
 
     export * as folder_config from './config.svg';
 
@@ -71,11 +91,19 @@
 
     export * as folder_css from './css.svg';
 
+    export * as folder_cubit from './cubit.svg';
+
     export * as folder_custom from './custom.svg';
 
     export * as folder_cvs from './cvs.svg';
 
+    export * as folder_cypress from './cypress.svg';
+
+    export * as folder_dapr from './dapr.svg';
+
     export * as folder_db from './db.svg';
+
+    export * as folder_debian from './debian.svg';
 
     export * as folder_debug from './debug.svg';
 
@@ -99,9 +127,17 @@
 
     export * as folder_dropbox from './dropbox.svg';
 
+    export * as folder_dub from './dub.svg';
+
     export * as folder_dump from './dump.svg';
 
+    export * as folder_dvc from './dvc.svg';
+
     export * as folder_e2e from './e2e.svg';
+
+    export * as folder_elastic from './elastic.svg';
+
+    export * as folder_electron from './electron.svg';
 
     export * as folder_emacs from './emacs.svg';
 
@@ -127,6 +163,8 @@
 
     export * as folder_functions from './functions.svg';
 
+    export * as folder_gcloud from './gcloud.svg';
+
     export * as folder_generated from './generated.svg';
 
     export * as folder_git from './git.svg';
@@ -147,9 +185,13 @@
 
     export * as folder_gulp from './gulp.svg';
 
+    export * as folder_haxelib from './haxelib.svg';
+
     export * as folder_helper from './helper.svg';
 
     export * as folder_hook from './hook.svg';
+
+    export * as folder_husky from './husky.svg';
 
     export * as folder_i18n from './i18n.svg';
 
@@ -203,21 +245,31 @@
 
     export * as folder_middleware from './middleware.svg';
 
+    export * as folder_mjml from './mjml.svg';
+
     export * as folder_mocks from './mocks.svg';
 
     export * as folder_modals from './modals.svg';
 
     export * as folder_models from './models.svg';
 
+    export * as folder_mongo from './mongo.svg';
+
     export * as folder_netlify from './netlify.svg';
+
+    export * as folder_next from './next.svg';
 
     export * as folder_node from './node.svg';
 
     export * as folder_notification from './notification.svg';
 
+    export * as folder_nuget from './nuget.svg';
+
     export * as folder_nuxt from './nuxt.svg';
 
     export * as folder_open from './open.svg';
+
+    export * as folder_osx from './osx.svg';
 
     export * as folder_other from './other.svg';
 
@@ -226,6 +278,8 @@
     export * as folder_php from './php.svg';
 
     export * as folder_pipe from './pipe.svg';
+
+    export * as folder_platformio from './platformio.svg';
 
     export * as folder_plugin from './plugin.svg';
 
@@ -242,6 +296,8 @@
     export * as folder_python from './python.svg';
 
     export * as folder_react from './react.svg';
+
+    export * as folder_redis from './redis.svg';
 
     export * as folder_redux_actions from './redux-actions.svg';
 
@@ -284,6 +340,8 @@
     export * as folder_sql from './sql.svg';
 
     export * as folder_src from './src.svg';
+
+    export * as folder_sso from './sso.svg';
 
     export * as folder_stack from './stack.svg';
 
@@ -333,6 +391,8 @@
 
     export * as folder_vm from './vm.svg';
 
+    export * as folder_vs from './vs.svg';
+
     export * as folder_vscode from './vscode.svg';
 
     export * as folder_vue from './vue.svg';
@@ -342,6 +402,8 @@
     export * as folder_web from './web.svg';
 
     export * as folder_webpack from './webpack.svg';
+
+    export * as folder_wine from './wine.svg';
 
     export * as folder_wordpress from './wordpress.svg';
 
