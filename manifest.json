@@ -16,7 +16,9 @@
         "http://github.com/*",
         "https://github.com/*",
         "http://bitbucket.org/*",
-        "https://bitbucket.org/*"
+        "https://bitbucket.org/*",
+        "http://gitlab.com/*",
+        "https://gitlab.com/*"
       ]
     }
   ],
@@ -34,7 +36,9 @@
     "http://github.com/*",
     "https://github.com/*",
     "http://bitbucket.org/*",
-    "https://bitbucket.org/*"
+    "https://bitbucket.org/*",
+    "http://gitlab.com/*",
+    "https://gitlab.com/*"
   ],
   "short_name": "Atom File Icons Web",
   "version": "3.0.0",

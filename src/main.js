@@ -1,4 +1,4 @@
-import {injectIconsBitbucket, injectIconsGithubv2, injectIconsSearch} from './providers';
+import {injectIconsBitbucket, injectIconsGithubv2, injectIconsGitlab, injectIconsSearch} from './providers';
 import select from 'select-dom';
 
 function init() {
@@ -11,6 +11,9 @@ function init() {
     }
     else if (select.exists('.css-hix1c1 > [data-qa="repository-directory"]', target)) {
       injectIconsBitbucket(target);
+    }
+    else if (select.exists('.tree-content-holder [data-qa-selector="file_tree_table"]', target)) {
+      injectIconsGitlab(target);
     }
   }
 
