@@ -9,7 +9,7 @@
     "js-yaml": "4.1.0",
     "polka": "0.5.2",
     "select-dom": "7.1.1",
-    "sirv": "1.0.17",
+    "sirv": "1.0.18",
     "sirv-cli": "1.0.14"
   },
   "scripts": {
