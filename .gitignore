@@ -1,5 +1,6 @@
 node_modules
 iconGenerator
+public
 public/bundle.js
 public/bundle.js.map
 release

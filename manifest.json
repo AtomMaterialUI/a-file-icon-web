@@ -41,7 +41,7 @@
     "https://gitlab.com/*"
   ],
   "short_name": "Atom File Icons Web",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "web_accessible_resources": [
     {
       "resources": [
