@@ -1,6 +1,6 @@
 {
   "name": "atom-material-icons-web",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Atom Material Icons for Github",
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "js-yaml": "4.1.0",
     "polka": "0.5.2",
     "select-dom": "7.1.1",
-    "sirv": "1.0.19",
+    "sirv": "2.0.0",
     "sirv-cli": "1.0.14"
   },
   "scripts": {
