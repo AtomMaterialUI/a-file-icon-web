@@ -61,6 +61,6 @@
   },
   "optionalDependencies": {
     "lodash.template": ">=4.5.0",
-    "minimist": ">=1.2.3"
+    "minimist": ">=1.2.6"
   }
 }
