@@ -1,6 +1,6 @@
 {
   "name": "atom-material-icons-web",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Atom Material Icons for Github",
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
   "license": "MIT",
@@ -28,12 +28,12 @@
     "chrome": "npm run build && npm run release"
   },
   "devDependencies": {
-    "@babel/core": "7.16.0",
-    "@babel/plugin-proposal-class-properties": "7.16.0",
+    "@babel/core": "7.17.9",
+    "@babel/plugin-proposal-class-properties": "7.16.7",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
-    "@babel/plugin-transform-runtime": "7.16.4",
-    "@babel/preset-env": "7.16.4",
-    "@babel/runtime": "7.16.3",
+    "@babel/plugin-transform-runtime": "7.17.0",
+    "@babel/preset-env": "7.16.11",
+    "@babel/runtime": "7.17.9",
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "13.0.6",
