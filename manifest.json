@@ -18,11 +18,13 @@
         "http://bitbucket.org/*",
         "https://bitbucket.org/*",
         "http://gitlab.com/*",
-        "https://gitlab.com/*"
+        "https://gitlab.com/*",
+        "http://gitee.com/*",
+        "https://gitee.com/*"
       ]
     }
   ],
-  "description": "Changes GitHub, GitLab and BitBucket file icons according to their extension or framework",
+  "description": "Changes GitHub, GitLab, Gitee and BitBucket file icons according to their extension or framework",
   "homepage_url": "https://www.material-theme.com",
   "icons": {
     "128": "icon128.png",
@@ -38,7 +40,9 @@
     "http://bitbucket.org/*",
     "https://bitbucket.org/*",
     "http://gitlab.com/*",
-    "https://gitlab.com/*"
+    "https://gitlab.com/*",
+    "http://gitee.com/*",
+    "https://gitee.com/*"
   ],
   "short_name": "Atom File Icons Web",
   "version": "6.0.0",
@@ -53,7 +57,9 @@
         "http://bitbucket.org/*",
         "https://bitbucket.org/*",
         "http://gitlab.com/*",
-        "https://gitlab.com/*"
+        "https://gitlab.com/*",
+        "http://gitee.com/*",
+        "https://gitee.com/*"
       ]
     }
   ]

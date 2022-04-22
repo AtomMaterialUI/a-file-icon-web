@@ -1,4 +1,4 @@
-import {injectIconsBitbucket, injectIconsGithubv2, injectIconsGitlab, injectIconsSearch} from './providers';
+import { injectIconsBitbucket, injectIconsGithubv2, injectIconsGitee, injectIconsGitlab, injectIconsSearch } from './providers';
 import select from 'select-dom';
 
 function init() {
@@ -14,6 +14,9 @@ function init() {
     }
     else if (select.exists('.tree-content-holder [data-qa-selector="file_tree_table"]', target)) {
       injectIconsGitlab(target);
+    }
+    else if (select.exists('.tree-table .tree-item', target)) {
+      injectIconsGitee(target);
     }
   }
 
