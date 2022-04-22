@@ -2,7 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/iconGenerator" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/iconGenerator/examples/folders" vcs="hg4idea" />
   </component>
 </project>
