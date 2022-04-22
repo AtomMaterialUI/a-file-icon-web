@@ -7,7 +7,7 @@ const consolidate = require('gulp-consolidate');
 
 gulp.task('icons', () => {
   return gulp.src('iconGenerator/assets/icons/files/*.svg')
-    .pipe(copy('public', {prefix: 2}))
+    .pipe(copy('public', { prefix: 2 }))
     .pipe(iconFont({
       fontName: 'icons',
       formats: ['eot', 'woff', 'ttf'],
@@ -15,11 +15,11 @@ gulp.task('icons', () => {
       fontHeight: 1000,
       centerHorizontally: true,
       appendCodepoints: true,
-      prependUnicode: false
+      prependUnicode: false,
     }))
     .on('glyphs', function (glyphs, options) {
       gulp.src('assets/iconfont.ejs', {})
-        .pipe(consolidate('underscore', {glyphs: glyphs}))
+        .pipe(consolidate('underscore', { glyphs: glyphs }))
         .pipe(rename('index.js'))
         .pipe(gulp.dest('public/icons/files'));
     });
@@ -27,7 +27,7 @@ gulp.task('icons', () => {
 
 gulp.task('folders', () => {
   return gulp.src('iconGenerator/assets/icons/folders/*.svg')
-    .pipe(copy('public', {prefix: 2}))
+    .pipe(copy('public', { prefix: 2 }))
     .pipe(iconFont({
       fontName: 'folders',
       formats: ['eot', 'woff', 'ttf'],
@@ -35,11 +35,11 @@ gulp.task('folders', () => {
       fontHeight: 1000,
       centerHorizontally: true,
       appendCodepoints: true,
-      prependUnicode: false
+      prependUnicode: false,
     }))
     .on('glyphs', function (glyphs, options) {
       gulp.src('assets/folderIconfont.ejs', {})
-        .pipe(consolidate('underscore', {glyphs: glyphs}))
+        .pipe(consolidate('underscore', { glyphs: glyphs }))
         .pipe(rename('index.js'))
         .pipe(gulp.dest('public/icons/folders'));
     });
@@ -49,15 +49,15 @@ gulp.task('assets', () => {
   return gulp.src([
     'iconGenerator/icon_associations.json',
     'iconGenerator/folder_associations.json',
-    'assets/global.css'
+    'assets/global.css',
   ])
-    .pipe(copy('public', {prefix: 1}));
+    .pipe(copy('public', { prefix: 1 }));
 });
 
-gulp.task('prepare', gulp.series('assets', 'icons', 'folders'));
+gulp.task('prepare', gulp.series('icons', 'folders', 'assets'));
 
 gulp.task('copy', () => {
-  return gulp.src(['*.*', '!release.zip', 'dist/*.css', 'public/**/*'], {allowEmpty: true})
+  return gulp.src(['*.*', '!release.zip', 'dist/*.css', 'public/**/*'], { allowEmpty: true })
     .pipe(copy('release'));
 });
 
@@ -67,4 +67,4 @@ gulp.task('zip', () => {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('release', gulp.series('icons', 'copy', 'zip'));
+gulp.task('release', gulp.series('prepare', 'copy', 'zip'));
