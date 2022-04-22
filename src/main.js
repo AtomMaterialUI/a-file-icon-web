@@ -6,7 +6,7 @@ function init() {
     if (select.exists('.js-navigation-item > [role="gridcell"]', target)) {
       injectIconsGithubv2(target);
     }
-    else if (select.exists('.js-tree-browser-result-anchor > .octicon', target)) {
+    else if (select.exists('.tree-browser-result > .octicon', target)) {
       injectIconsSearch(target);
     }
     else if (select.exists('.css-hix1c1 > [data-qa="repository-directory"]', target)) {

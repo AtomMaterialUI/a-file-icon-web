@@ -2,13 +2,13 @@ import {getAssociation, getFileIcon, getFileIconName, getFolderAssociation, getF
 import select from 'select-dom';
 
 export function injectIconsSearch(target) {
-  const $items = select.all('.js-tree-browser-result-anchor', target);
+  const $items = select.all('.tree-browser-result', target);
 
   $items.forEach(async (item, index) => {
     const isFile = select.exists('.octicon-file', item);
     const isDir = select.exists('.octicon-file-directory', item);
     const isSvg = select.exists('.octicon-file-text', item);
-    const name = select('.js-tree-browser-result-path', item).textContent;
+    const name = select('.tree-browser-result marked-text', item).textContent;
     const $icon = select('.octicon-file', item);
 
     if (isFile || isSvg) {
