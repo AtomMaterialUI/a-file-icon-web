@@ -113,6 +113,26 @@
 					"icon": "/appstore.svg"
 				},
 				{
+					"folderNames": "archetypes,archetype,_archetype,_archetypes,schematic,_schematics",
+					"name": "archetype",
+					"folderColor": "f06292",
+					"iconColor": "f8bbd0",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?(archetypes?|schematics?)",
+					"icon": "/archetype.svg"
+				},
+				{
+					"folderNames": "archive,archives,jar,jars,zip,zips,backups,backup,.archives,_jar,.jars,.zip,_backups",
+					"name": "archives",
+					"folderColor": "795548",
+					"iconColor": "D7CCC8",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?(archives?|jars?|zips?|backups?)",
+					"icon": "/archive.svg"
+				},
+				{
 					"folderNames": "article,articles,.article,.articles,_articles",
 					"name": "article",
 					"folderColor": "1dacd6",
@@ -161,16 +181,6 @@
 					"iconType": "FOLDER",
 					"pattern": "^[\\._]?(mp3|wav|musics?|audio|sounds?)$",
 					"icon": "/audio.svg"
-				},
-				{
-					"folderNames": "archive,archives,jar,jars,zip,zips,backups,backup,.archives,_jar,.jars,.zip,_backups",
-					"name": "archives",
-					"folderColor": "795548",
-					"iconColor": "D7CCC8",
-					"priority": "100",
-					"iconType": "FOLDER",
-					"pattern": "^[\\._]?(archives?|jars?|zips?|backups?)",
-					"icon": "/archive.svg"
 				},
 				{
 					"folderNames": "aurelia_project,.aurelia_project,_aurelia_project",
@@ -503,6 +513,16 @@
 					"icon": "/coverage.svg"
 				},
 				{
+					"folderNames": "crate,crates,.crate,_crates",
+					"name": "crates",
+					"folderColor": "ff7043",
+					"iconColor": "ffccbc",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?(crates?)$",
+					"icon": "/crates.svg"
+				},
+				{
 					"folderNames": "cron,scheduler,.cron,_cron,.scheduler,_scheduler",
 					"name": "cron",
 					"folderColor": "757575",
@@ -823,6 +843,16 @@
 					"icon": "/expo.svg"
 				},
 				{
+					"folderNames": "fastlane,.fastlane,_fastlane",
+					"name": "fastlane",
+					"folderColor": "1e88e5",
+					"iconColor": "e3f2fd",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?(fastlane)$",
+					"icon": "/fastlane.svg"
+				},
+				{
 					"folderNames": "feature,features,feat,feats,.feature,_feat,_feats,.feats",
 					"name": "features",
 					"folderColor": "ef5350",
@@ -1083,13 +1113,13 @@
 					"icon": "/idea.svg"
 				},
 				{
-					"folderNames": "image,images,img,medias,media,.images,_img,_media,.medias,pic,.pics,_pictures",
+					"folderNames": "image,images,img,medias,media,.images,_img,_media,.medias,pic,.pics,_pictures,gallery",
 					"name": "images",
 					"folderColor": "009688",
 					"iconColor": "b2dfdb",
 					"priority": "100",
 					"iconType": "FOLDER",
-					"pattern": "^[\\._]?(images?|img|medias?|pics?|pictures?)$",
+					"pattern": "^[\\._]?(images?|img|medias?|pics?|pictures?|gallery)$",
 					"icon": "/images.svg"
 				},
 				{
@@ -1141,6 +1171,16 @@
 					"iconType": "FOLDER",
 					"pattern": "^[\\._]?(javascripts?|js)$",
 					"icon": "/js.svg"
+				},
+				{
+					"folderNames": "jest,.jest,_jest",
+					"name": "jest",
+					"folderColor": "D81B60",
+					"iconColor": "F8BBD0",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?jest$",
+					"icon": "/jest.svg"
 				},
 				{
 					"folderNames": "jinja,.jinja,_jinja",
@@ -1211,6 +1251,16 @@
 					"iconType": "FOLDER",
 					"pattern": "^[\\._]?(kubernetes|k8s|kuber?|minikube)$",
 					"icon": "/kubernetes.svg"
+				},
+				{
+					"folderNames": "kustomize,.kustomize,kustomizations,_kustomization,.kustomizations",
+					"name": "kustomize",
+					"folderColor": "01579B",
+					"iconColor": "B3E5FC",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?(kustomizations?|kustomize)$",
+					"icon": "/kustomize.svg"
 				},
 				{
 					"folderNames": "layout,layouts,_layout,_layouts,.layout,.layouts",
@@ -1653,13 +1703,23 @@
 					"icon": "/react.svg"
 				},
 				{
-					"folderNames": "redux,.redux,_redux,organisms,_organisms",
+					"folderNames": "coil,recoil,.coil,_recoil",
+					"name": "recoil",
+					"folderColor": "42A5F5",
+					"iconColor": "b3e5fc",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?(recoil|coil)$",
+					"icon": "/recoil.svg"
+				},
+				{
+					"folderNames": "redux,.redux,_redux,organisms,_organisms,flux,.flux",
 					"name": "redux",
 					"folderColor": "7E57C2",
 					"iconColor": "D1C4E9",
 					"priority": "100",
 					"iconType": "FOLDER",
-					"pattern": "^[\\._]?(redux|organisms?)$",
+					"pattern": "^[\\._]?(redux|organisms?|flux)$",
 					"icon": "/redux.svg"
 				},
 				{
@@ -1843,13 +1903,13 @@
 					"icon": "/screens.svg"
 				},
 				{
-					"folderNames": "script,scripts,selector,selectors,.script,_scripts,_selectors,.selectors",
+					"folderNames": "script,scripts,selector,selectors,.script,_scripts,_selectors,.selectors,polyfill,.polyfills",
 					"name": "scripts",
 					"folderColor": "546e7a",
 					"iconColor": "cfd8dc",
 					"priority": "100",
 					"iconType": "FOLDER",
-					"pattern": "^[\\._]?(scripts?|selectors?)$",
+					"pattern": "^[\\._]?(scripts?|selectors?|polyfills?)$",
 					"icon": "/scripts.svg"
 				},
 				{
@@ -1903,13 +1963,13 @@
 					"icon": "/src.svg"
 				},
 				{
-					"folderNames": "sql,mysql,pgsql,maria,.sql,_sql,_mysql,.pgsql,.maria,_mariadb",
+					"folderNames": "sql,mysql,pgsql,maria,.sql,_sql,_mysql,.pgsql,.maria,_mariadb,query,queries",
 					"name": "sql",
 					"folderColor": "0288D1",
 					"iconColor": "b2dfdb",
 					"priority": "100",
 					"iconType": "FOLDER",
-					"pattern": "^[\\._]?(sql|mysql|pgsql|maria(db)?)$",
+					"pattern": "^[\\._]?(sql|mysql|pgsql|maria(db)?|query|queries)$",
 					"icon": "/sql.svg"
 				},
 				{
@@ -1943,6 +2003,16 @@
 					"icon": "/stencil.svg"
 				},
 				{
+					"folderNames": "storage,storages,_storage,.storage,packet,packets,_packets,bucket,buckets,.bucket",
+					"name": "storage",
+					"folderColor": "FF9900",
+					"iconColor": "FFD391",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?(storages?|packets?|buckets?)$",
+					"icon": "/storage.svg"
+				},
+				{
 					"folderNames": "stories,storybook,storybooks,.stories,.storybook,_storybook,__stories__",
 					"name": "storybook",
 					"folderColor": "AD1457",
@@ -1951,6 +2021,16 @@
 					"iconType": "FOLDER",
 					"pattern": "^[\\._]?(stories|storybooks?|__stories__)$",
 					"icon": "/storybook.svg"
+				},
+				{
+					"folderNames": "strategy,strategies,_strategy,.strategies,.strategy,_strategy",
+					"name": "strategy",
+					"folderColor": "1976d2",
+					"iconColor": "4fc3f7",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?(strategy|strategies)$",
+					"icon": "/strategy.svg"
 				},
 				{
 					"folderNames": "css,style,styles,stylesheet,stylesheets,.css,_styles,.styles,.stylesheets,_css",
@@ -1981,6 +2061,16 @@
 					"iconType": "FOLDER",
 					"pattern": "^[\\._]?sublime$",
 					"icon": "/sublime.svg"
+				},
+				{
+					"folderNames": ".supabase,supabase,_supabase",
+					"name": "supabase",
+					"folderColor": "3ECF8E",
+					"iconColor": "B2DFDB",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?supabase$",
+					"icon": "/supabase.svg"
 				},
 				{
 					"folderNames": "svelte,.svelte,_svelte,sapper,.sapper,_sapper",
@@ -2033,13 +2123,13 @@
 					"icon": "/syntax.svg"
 				},
 				{
-					"folderNames": "cli,task,tasks,command,commands,console,consoles,.run,.cli,.tasks,_commands,_cli,_consoles,.command,workflows,.workflows,_workflow",
+					"folderNames": "cli,task,tasks,command,commands,cmd,console,consoles,.run,.cli,.tasks,_commands,_cli,_consoles,.command,workflows,.workflows,_workflow",
 					"name": "tasks",
 					"folderColor": "795774",
 					"iconColor": "CE93D8",
 					"priority": "100",
 					"iconType": "FOLDER",
-					"pattern": "^[\\._]?(cli|tasks?|commands?|consoles?|.run|workflows?)$",
+					"pattern": "^[\\._]?(cli|tasks?|commands?|cmd|consoles?|.run|workflows?)$",
 					"icon": "/tasks.svg"
 				},
 				{
@@ -2303,6 +2393,16 @@
 					"icon": "/wine.svg"
 				},
 				{
+					"folderNames": "woocommerce,.woocommerce,_woocommerce",
+					"name": "woocommerce",
+					"folderColor": "7f54b3",
+					"iconColor": "d7cae8",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?woocommerce$",
+					"icon": "/woocommerce.svg"
+				},
+				{
 					"folderNames": "wp-admin,wp-content,wp-includes,.wp-admin,_wp-content,.wp-includes",
 					"name": "wordpress",
 					"folderColor": "21759b",
@@ -2311,6 +2411,16 @@
 					"iconType": "FOLDER",
 					"pattern": "^[\\._]?wp-(admin|content|includes)$",
 					"icon": "/wordpress.svg"
+				},
+				{
+					"folderNames": "xstate,_xstate,machine,_machine,.machines",
+					"name": "xstate",
+					"folderColor": "009CB9",
+					"iconColor": "e1f5fe",
+					"priority": "100",
+					"iconType": "FOLDER",
+					"pattern": "^[\\._]?(xstate|machines?)$",
+					"icon": "/xstate.svg"
 				},
 				{
 					"folderNames": "yarn,.yarn,_yarn",

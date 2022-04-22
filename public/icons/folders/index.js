@@ -19,6 +19,8 @@
 
     export * as folder_appstore from './appstore.svg';
 
+    export * as folder_archetype from './archetype.svg';
+
     export * as folder_archive from './archive.svg';
 
     export * as folder_article from './article.svg';
@@ -97,6 +99,8 @@
 
     export * as folder_coverage from './coverage.svg';
 
+    export * as folder_crates from './crates.svg';
+
     export * as folder_css from './css.svg';
 
     export * as folder_cubit from './cubit.svg';
@@ -161,6 +165,8 @@
 
     export * as folder_expo from './expo.svg';
 
+    export * as folder_fastlane from './fastlane.svg';
+
     export * as folder_firebase from './firebase.svg';
 
     export * as folder_fixtures from './fixtures.svg';
@@ -221,6 +227,8 @@
 
     export * as folder_java from './java.svg';
 
+    export * as folder_jest from './jest.svg';
+
     export * as folder_jinja from './jinja.svg';
 
     export * as folder_job from './job.svg';
@@ -236,6 +244,8 @@
     export * as folder_kotlin from './kotlin.svg';
 
     export * as folder_kubernetes from './kubernetes.svg';
+
+    export * as folder_kustomize from './kustomize.svg';
 
     export * as folder_layouts from './layouts.svg';
 
@@ -323,6 +333,8 @@
 
     export * as folder_react from './react.svg';
 
+    export * as folder_recoil from './recoil.svg';
+
     export * as folder_redis from './redis.svg';
 
     export * as folder_redux_actions from './redux-actions.svg';
@@ -379,13 +391,19 @@
 
     export * as folder_stencil from './stencil.svg';
 
+    export * as folder_storage from './storage.svg';
+
     export * as folder_storybook from './storybook.svg';
+
+    export * as folder_strategy from './strategy.svg';
 
     export * as folder_styles from './styles.svg';
 
     export * as folder_stylus from './stylus.svg';
 
     export * as folder_sublime from './sublime.svg';
+
+    export * as folder_supabase from './supabase.svg';
 
     export * as folder_svelte from './svelte.svg';
 
@@ -449,6 +467,10 @@
 
     export * as folder_wine from './wine.svg';
 
+    export * as folder_woocommerce from './woocommerce.svg';
+
     export * as folder_wordpress from './wordpress.svg';
+
+    export * as folder_xstate from './xstate.svg';
 
     export * as folder_yarn from './yarn.svg';

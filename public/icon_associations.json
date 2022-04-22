@@ -27,11 +27,11 @@
 			],
 			"regex": [
 				{
-					"fileNames": "main.yml,workflow.yaml,ci.yaml",
+					"fileNames": "main.yml,workflow.yaml,ci.yaml,config.yml",
 					"name": "GitHub Actions",
 					"priority": "1000",
 					"iconType": "FILE",
-					"pattern": "(main|workflow|ci)\\.ya?ml$",
+					"pattern": "(main|workflow|ci|release|build|config)\\.ya?ml$",
 					"color": "78909C",
 					"icon": "/icons/files/github.svg"
 				},
@@ -142,6 +142,24 @@
 					"pattern": ".*[bB]undle\\.properties$",
 					"color": "7986cb",
 					"icon": "/icons/files/i18n.svg"
+				},
+				{
+					"fileNames": "MaterialThemeBundle.java",
+					"name": "Java Bundles",
+					"priority": "1000",
+					"iconType": "FILE",
+					"pattern": ".*[bB]undle\\.java$",
+					"color": "c792ea",
+					"icon": "/icons/files/i18nJava.svg"
+				},
+				{
+					"fileNames": "MaterialThemeBundle.kt",
+					"name": "Kotlin Bundles",
+					"priority": "1000",
+					"iconType": "FILE",
+					"pattern": ".*[bB]undle\\.kt$",
+					"color": "497CE3",
+					"icon": "/icons/files/i18nKotlin.svg"
 				},
 				{
 					"fileNames": ".eleventy.js,.11ty.js,.eleventyignore,.11tyignore",
@@ -293,12 +311,12 @@
 					"icon": "/icons/files/ae.svg"
 				},
 				{
-					"fileNames": "*.ai,*.ait",
+					"fileNames": "*.ai,*.ait,*.aia",
 					"name": "Adobe Illustrator",
 					"color": "EA7130",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.(ait?)$",
+					"pattern": ".*\\.(ai[ta]?)$",
 					"url": "https://www.adobe.com/il_en/products/catalog.html",
 					"icon": "/icons/files/ai.svg"
 				},
@@ -313,12 +331,12 @@
 					"icon": "/icons/files/indesign.svg"
 				},
 				{
-					"fileNames": "*.psb,*.psd",
+					"fileNames": "*.psb,*.psd,*.atn",
 					"name": "Adobe Photoshop",
 					"color": "1E9CEF",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.(psb|psd)$",
+					"pattern": ".*\\.(psb|psd|atn)$",
 					"url": "https://www.adobe.com/il_en/products/catalog.html",
 					"icon": "/icons/files/psd.svg"
 				},
@@ -461,6 +479,16 @@
 					"pattern": ".*\\.ampl$",
 					"url": "https://ampl.com/",
 					"icon": "/icons/files/ampl.svg"
+				},
+				{
+					"fileNames": "amplify.yml,amplify.yaml",
+					"name": "Amplify",
+					"color": "FFAF38",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^amplify\\.ya?ml$",
+					"url": "https://docs.aws.amazon.com/amplify/index.html",
+					"icon": "/icons/files/amplify.svg"
 				},
 				{
 					"fileNames": "*.muse",
@@ -1149,6 +1177,15 @@
 					"icon": "/icons/files/authors.svg"
 				},
 				{
+					"fileNames": ".all-contributorsrc",
+					"name": "Contributors",
+					"color": "F78AE0",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "\\.all-?contributorsrc$",
+					"icon": "/icons/files/authors.svg"
+				},
+				{
 					"fileNames": "*.ahk,*.ahkl",
 					"name": "AutoHotKey",
 					"color": "6AAB20",
@@ -1298,6 +1335,16 @@
 					"icon": "/icons/files/ballerina.svg"
 				},
 				{
+					"fileNames": "bandit.yaml,bandit.yml,.bandit.yml",
+					"name": "Bandit",
+					"color": "ffca28",
+					"url": "https://bandit.readthedocs.io/en/latest/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^\\.?bandit\\.ya?ml$",
+					"icon": "/icons/files/bandit.svg"
+				},
+				{
 					"fileNames": "*.bas,*.vb,*.vbs",
 					"name": "Basic",
 					"color": "7963E6",
@@ -1336,6 +1383,16 @@
 					"iconType": "FILE",
 					"pattern": ".*\\.(bzl|bazel)$",
 					"icon": "/icons/files/bazel.svg"
+				},
+				{
+					"fileNames": ".bazelignore",
+					"name": "Bazel Ignore",
+					"color": "808080",
+					"url": "https://bazel.build/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "\\.bazelignore$",
+					"icon": "/icons/files/bazelignore.svg"
 				},
 				{
 					"fileNames": ".bazelrc,bazel.rc",
@@ -1448,13 +1505,13 @@
 					"icon": "/icons/files/bintray.svg"
 				},
 				{
-					"fileNames": "*.bison,*.y,*.yy,*.yacc",
+					"fileNames": "*.bison,*.y,*.yy,*.yacc,*.ypp",
 					"name": "Bison",
 					"color": "795548",
 					"url": "https://www.gnu.org/software/bison/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.(bison|yy?|yacc)$",
+					"pattern": ".*\\.(bison|yy?|yacc|ypp)$",
 					"icon": "/icons/files/bison.svg"
 				},
 				{
@@ -1908,6 +1965,16 @@
 					"icon": "/icons/files/casc.svg"
 				},
 				{
+					"fileNames": "*.catala,*.catala_en,*.catala_ru,*.catala_ja",
+					"name": "Catala",
+					"color": "A1887F",
+					"url": "https://catala-lang.org/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.catala.*$",
+					"icon": "/icons/files/catala.svg"
+				},
+				{
 					"fileNames": "*.cddl",
 					"name": "CDDL",
 					"color": "0ea568",
@@ -1973,8 +2040,8 @@
 					"color": "7A8387",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^(CHANGELOG|changelog)(\\.(md|txt))?$",
-					"icon": "/icons/files/log.svg"
+					"pattern": "^(CHANGELOG|changelog)(\\.(md|txt|yml))?$",
+					"icon": "/icons/files/changelog.svg"
 				},
 				{
 					"fileNames": "*.chpl,*.chapel",
@@ -2215,6 +2282,16 @@
 					"icon": "/icons/files/cname.svg"
 				},
 				{
+					"fileNames": "bundle.json",
+					"name": "CNAB",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "bundle\\.json$",
+					"color": "2EC4B6",
+					"url": "https://cnab.io/",
+					"icon": "/icons/files/cnab.svg"
+				},
+				{
 					"fileNames": ".coarc,.coafile",
 					"name": "Coala",
 					"priority": "100",
@@ -2315,12 +2392,12 @@
 					"icon": "/icons/files/codemirror.svg"
 				},
 				{
-					"fileNames": "codeowners",
+					"fileNames": "codeowners,CODEOWNERS",
 					"name": "Codeowners",
 					"color": "afb42b",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^codeowners$",
+					"pattern": "^(codeowners|CODEOWNERS)$",
 					"url": "https://github.blog/2017-07-06-introducing-code-owners/",
 					"icon": "/icons/files/codeowners.svg"
 				},
@@ -2644,6 +2721,16 @@
 					"icon": "/icons/files/csound.svg"
 				},
 				{
+					"fileNames": ".cspell,.cspell.json,.cspell.yaml,.cspell.yml,cspell.config.js,cspell.config.yaml",
+					"name": "CSpell",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^\\.?cspell(\\.config)?(\\.(json|[cm]?js|ya?ml))?$",
+					"url": "https://cspell.org/",
+					"color": "b41900",
+					"icon": "/icons/files/cspell.svg"
+				},
+				{
 					"fileNames": ".csscomb.json",
 					"name": "CSSComb",
 					"color": "FFB74D",
@@ -2804,13 +2891,13 @@
 					"icon": "/icons/files/csproj.svg"
 				},
 				{
-					"fileNames": "*.vcxproj",
+					"fileNames": "*.vcxproj,*.vcxproj.filters",
 					"name": "C++ Project",
 					"color": "4DB6AC",
 					"url": "https://www.cplusplus.com/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.vcxproj$",
+					"pattern": ".*\\.vcxproj(\\.filters)?$",
 					"icon": "/icons/files/vcxproj.svg"
 				},
 				{
@@ -2864,6 +2951,16 @@
 					"icon": "/icons/files/dart.svg"
 				},
 				{
+					"fileNames": ".pubignore",
+					"name": "Dart Pubignore",
+					"color": "808080",
+					"url": "https://dart.dev/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^\\.pubignore$",
+					"icon": "/icons/files/dartignore.svg"
+				},
+				{
 					"fileNames": "*.darcspatch,*.dpatch",
 					"name": "Darcs",
 					"color": "83ff00",
@@ -2874,13 +2971,13 @@
 					"icon": "/icons/files/darcs.svg"
 				},
 				{
-					"fileNames": "*.darcspatch,*.dpatch",
+					"fileNames": ".boringignore",
 					"name": "Darcs BoringIgnore",
 					"color": "808080",
 					"url": "http://darcs.net/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.d(arcs)?patch$",
+					"pattern": "^\\.boringignore$",
 					"icon": "/icons/files/boringignore.svg"
 				},
 				{
@@ -3011,13 +3108,13 @@
 					"icon": "/icons/files/detekt.svg"
 				},
 				{
-					"fileNames": "devcontainer.json",
+					"fileNames": "devcontainer.json,.devcontainer.json",
 					"name": "DevContainer",
 					"color": "5590bf",
 					"url": "https://github.com/microsoft/vscode-dev-containers",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^devcontainer\\.json$",
+					"pattern": "^\\.?devcontainer\\.json$",
 					"icon": "/icons/files/devcontainer.svg"
 				},
 				{
@@ -3140,13 +3237,13 @@
 					"icon": "/icons/files/doclets.svg"
 				},
 				{
-					"fileNames": "Dockerfile,dockerfile,dev.dockerfile,prodDockerfile",
+					"fileNames": "Dockerfile,dockerfile,dev.dockerfile,prodDockerfile,Dockerfile.dev",
 					"name": "Docker",
 					"color": "1e9cef",
 					"url": "https://www.docker.com/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.?[dD]ockerfile$",
+					"pattern": ".*[dD]ockerfile.*$",
 					"icon": "/icons/files/docker.svg"
 				},
 				{
@@ -3410,13 +3507,13 @@
 					"icon": "/icons/files/dylan.svg"
 				},
 				{
-					"fileNames": "*.dylib,*.bundle",
+					"fileNames": "*.dylib,*.bundle,*.pkg",
 					"name": "Dylib",
 					"color": "497CE3",
 					"url": "https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/UsingDynamicLibraries.html",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.(dylib|bundle)$",
+					"pattern": ".*\\.(dylib|bundle|pkg)$",
 					"icon": "/icons/files/dylib.svg"
 				},
 				{
@@ -3438,6 +3535,26 @@
 					"pattern": ".*\\.eup$",
 					"url": "https://www.g2.com/products/autodesk-eagle/reviews",
 					"icon": "/icons/files/eagle.svg"
+				},
+				{
+					"fileNames": "earthfile,Earthfile",
+					"name": "Earthly",
+					"color": "00d6ff",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^[eE]arthfile$",
+					"url": "https://earthly.dev/",
+					"icon": "/icons/files/earthly.svg"
+				},
+				{
+					"fileNames": ".earthlyignore",
+					"name": "Earthlyignore",
+					"color": "808080",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^\\.earthlyignore$",
+					"url": "https://earthly.dev/",
+					"icon": "/icons/files/earthlyignore.svg"
 				},
 				{
 					"fileNames": "*.eb",
@@ -3590,13 +3707,13 @@
 					"icon": "/icons/files/elastic.svg"
 				},
 				{
-					"fileNames": "*.ex,*.eex,*.exs,*.elixir,*.leex",
+					"fileNames": "*.ex,*.eex,*.exs,*.elixir,*.leex,*.heex",
 					"name": "Elixir",
 					"color": "C792EA",
 					"url": "https://elixir-lang.org/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.(ex|eex|exs|elixir|leex)$",
+					"pattern": ".*\\.(ex|eex|exs|elixir|leex|heex)$",
 					"icon": "/icons/files/ex.svg"
 				},
 				{
@@ -3890,13 +4007,13 @@
 					"icon": "/icons/files/fasta.svg"
 				},
 				{
-					"fileNames": "Fastfile,Appfile",
+					"fileNames": "Fastfile,Appfile,Gymfile,Matchfile,Pluginfile",
 					"name": "Fastlane",
 					"color": "00BCD4",
 					"url": "https://fastlane.tools/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^(Fast|App)file$",
+					"pattern": "^(Fast|App|Gym|Match|Plugin)file$",
 					"icon": "/icons/files/fastlane.svg"
 				},
 				{
@@ -4007,6 +4124,16 @@
 					"iconType": "FILE",
 					"pattern": "^firebase\\.json$",
 					"icon": "/icons/files/firebase.svg"
+				},
+				{
+					"fileNames": "*.fba",
+					"name": "FitBit",
+					"color": "00a9b9",
+					"url": "https://dev.fitbit.com/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.fba$",
+					"icon": "/icons/files/fitbit.svg"
 				},
 				{
 					"fileNames": "*.bolt",
@@ -4429,6 +4556,16 @@
 					"icon": "/icons/files/gdb.svg"
 				},
 				{
+					"fileNames": "Gemfile.lock,gemfile.lock",
+					"name": "Gemfile",
+					"color": "e53935",
+					"url": "https://bundler.io/gemfile.html",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^[Gg]emfile\\.lock$",
+					"icon": "/icons/files/gemfile.svg"
+				},
+				{
 					"fileNames": "*.kid",
 					"name": "Genshi",
 					"color": "34d3fb",
@@ -4459,14 +4596,14 @@
 					"icon": "/icons/files/gentoo.svg"
 				},
 				{
-					"fileNames": "Gemfile.lock,gemfile.lock",
-					"name": "Gemfile",
-					"color": "e53935",
-					"url": "https://bundler.io/gemfile.html",
+					"fileNames": "*.geojson,*.geo.json",
+					"name": "GeoJSON",
+					"color": "64B5F6",
+					"url": "https://geojson.org//",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^[Gg]emfile\\.lock$",
-					"icon": "/icons/files/gemfile.svg"
+					"pattern": ".*\\.(geojson|geo\\.json)$",
+					"icon": "/icons/files/geojson.svg"
 				},
 				{
 					"fileNames": "*.ghostscript",
@@ -4629,13 +4766,13 @@
 					"icon": "/icons/files/gnuplot.svg"
 				},
 				{
-					"fileNames": "go.mod,go.sub",
+					"fileNames": "go.mod,go.sub,go.sum,go.work",
 					"name": "Go Config",
 					"color": "82AAFF",
 					"url": "https://pkg.go.dev/go.uber.org/config",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^go\\.(mod|sub)$",
+					"pattern": "^go\\.(mod|sub|sum|work)$",
 					"icon": "/icons/files/go.svg"
 				},
 				{
@@ -4679,6 +4816,16 @@
 					"icon": "/icons/files/gosu.svg"
 				},
 				{
+					"fileNames": "*.api",
+					"name": "Go-Zero",
+					"color": "5cbc6a",
+					"url": "https://github.com/zeromicro/go-zero",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^\\.api$",
+					"icon": "/icons/files/goctl.svg"
+				},
+				{
 					"fileNames": ".goreleaser.yaml,.goreleaser.yml",
 					"name": "GoReleaser",
 					"color": "4fd0fc",
@@ -4709,13 +4856,13 @@
 					"icon": "/icons/files/gradle.svg"
 				},
 				{
-					"fileNames": "gradlew",
+					"fileNames": "gradlew,gradlew.bat",
 					"name": "Gradlew",
 					"color": "26A2C1",
 					"url": "https://gradle.org/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "gradlew$",
+					"pattern": "^gradlew(\\.bat)?$",
 					"icon": "/icons/files/gradle.svg"
 				},
 				{
@@ -4887,6 +5034,16 @@
 					"iconType": "FILE",
 					"pattern": ".*\\.haml(c|.deface)?$",
 					"icon": "/icons/files/haml.svg"
+				},
+				{
+					"fileNames": "hardhat.config.js,hardhat.config.mjs,hardhat.config.ts",
+					"name": "Hardhat",
+					"color": "F0D50C",
+					"url": "https://hardhat.org/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^hardhat\\.config\\.([cm]?js|ts)$",
+					"icon": "/icons/files/hardhat.svg"
 				},
 				{
 					"fileNames": "hasura.config.yml",
@@ -5214,6 +5371,16 @@
 					"priority": "100",
 					"iconType": "FILE",
 					"pattern": ".*\\.huskyrc(\\.[cm]?js|\\.json|\\.ya?ml)?$",
+					"icon": "/icons/files/husky.svg"
+				},
+				{
+					"fileNames": "pre-commit,post-commit,pre-push,post-push,pre-merge,post-merge",
+					"name": "Husky Hooks",
+					"color": "7f7f7f",
+					"url": "https://typicode.github.io/husky/#/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^(pre|post)-(checkout|commit|merge|rebase|push)(\\.sh)?",
 					"icon": "/icons/files/husky.svg"
 				},
 				{
@@ -5665,6 +5832,16 @@
 					"icon": "/icons/files/theme.svg"
 				},
 				{
+					"fileNames": "*.jfd",
+					"name": "JFormDesigner",
+					"color": "FFA726",
+					"url": "https://www.formdev.com/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.jfd$",
+					"icon": "/icons/files/jfd.svg"
+				},
+				{
 					"fileNames": "*.jinja,*.jinja2,*.j2,*.jnj,*.jnj2",
 					"name": "Jinja",
 					"color": "D52A29",
@@ -5933,6 +6110,15 @@
 					"icon": "/icons/files/key.svg"
 				},
 				{
+					"fileNames": "publishToken,publishToken.xml,publishToken.txt,publishToken.md",
+					"name": "PublishToken",
+					"color": "26a69a",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "publishToken.*",
+					"icon": "/icons/files/key.svg"
+				},
+				{
 					"fileNames": "*.hypr,*.hypr.live",
 					"name": "Kibo",
 					"color": "ffd003",
@@ -6022,6 +6208,16 @@
 					"icon": "/icons/files/knockout.svg"
 				},
 				{
+					"fileNames": "*.kk",
+					"name": "Koka",
+					"color": "111111",
+					"url": "https://github.com/koka-lang/koka",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.kk$",
+					"icon": "/icons/files/koka.svg"
+				},
+				{
 					"fileNames": "kubernetes.yml,kubernetes.dev.yaml",
 					"name": "Kubernetes",
 					"color": "64B5F6",
@@ -6060,6 +6256,16 @@
 					"pattern": ".*\\.(csl|kusto)$",
 					"url": "https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/",
 					"icon": "/icons/files/kusto.svg"
+				},
+				{
+					"fileNames": "kustomize.yaml,kustomization.yml,kustomization.yaml",
+					"name": "Kustomize",
+					"color": "01579B",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^kustomiz(ation|e)\\.ya?ml$",
+					"url": "https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/",
+					"icon": "/icons/files/kustomize.svg"
 				},
 				{
 					"fileNames": "*.lvproj,*.lvlib",
@@ -6297,7 +6503,7 @@
 					"url": "https://github.com/okonet/lint-staged",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.lintstagedrc\\.(json|yml)$",
+					"pattern": ".*\\.lintstagedrc(\\.(json|yml))?$",
 					"icon": "/icons/files/lint-staged.svg"
 				},
 				{
@@ -6331,6 +6537,26 @@
 					"icon": "/icons/files/lisp.svg"
 				},
 				{
+					"fileNames": "init.changelog.xml,*.changelog.xml,*.changelog.yml,*.changelog.yaml,*.changelog.json,*.changelog.sql",
+					"name": "Liquibase",
+					"color": "2962ff",
+					"url": "https://www.liquibase.org/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.changelog\\.(xml|ya?ml|json|sql)$",
+					"icon": "/icons/files/liquibase.svg"
+				},
+				{
+					"fileNames": "liquibase.properties",
+					"name": "Liquibase Properties",
+					"color": "90CAF9",
+					"url": "https://www.liquibase.org/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "liquibase\\.properties$",
+					"icon": "/icons/files/liquibase_props.svg"
+				},
+				{
 					"fileNames": "*.ls,*._ls,Slakefile",
 					"name": "LiveScript",
 					"priority": "100",
@@ -6341,13 +6567,13 @@
 					"icon": "/icons/files/livescript.svg"
 				},
 				{
-					"fileNames": "*.ll,*.bc",
+					"fileNames": "*.ll,*.bc,.clang-format",
 					"name": "LLVM",
 					"color": "93012c",
 					"url": "https://llvm.org/docs/index.html",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.(ll|bc)$",
+					"pattern": ".*\\.(ll|bc|clang-format)$",
 					"icon": "/icons/files/llvm.svg"
 				},
 				{
@@ -6361,13 +6587,13 @@
 					"icon": "/icons/files/log.svg"
 				},
 				{
-					"fileNames": "*.rpt,*.bug-report,*.fdl,*.tests",
+					"fileNames": "*.rpt,*.bug-report,*.fdl",
 					"name": "Log (2)",
 					"color": "7A8387",
 					"url": "https://en.wikipedia.org/wiki/Log_file",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.(rpt|bug-report|fdl|tests)$",
+					"pattern": ".*\\.(rpt|bug-report|fdl)$",
 					"icon": "/icons/files/log.svg"
 				},
 				{
@@ -6409,6 +6635,16 @@
 					"iconType": "FILE",
 					"pattern": ".*\\.lslp?$",
 					"icon": "/icons/files/lsl.svg"
+				},
+				{
+					"fileNames": "*.luau",
+					"name": "Luau",
+					"color": "00a2ff",
+					"url": "https://luau-lang.org/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.luau$",
+					"icon": "/icons/files/luau.svg"
 				},
 				{
 					"fileNames": "Lakefile",
@@ -6581,6 +6817,16 @@
 					"icon": "/icons/files/markup.svg"
 				},
 				{
+					"fileNames": "master.json,master.js,master.ts,master.mjs",
+					"name": "Master UI",
+					"color": "e6a345",
+					"url": "https://master.co/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^master\\.([cm]?js|json|ts)$",
+					"icon": "/icons/files/master.svg"
+				},
+				{
 					"fileNames": "materialize.js,materialize.css,materialize.min.js,materialize.min.css",
 					"name": "Materialize",
 					"color": "ee6e73",
@@ -6631,12 +6877,12 @@
 					"icon": "/icons/files/mathjax.svg"
 				},
 				{
-					"fileNames": "pom.xml",
+					"fileNames": "pom.xml,.flattened-pom.xml",
 					"name": "Maven",
 					"color": "F13C6F",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^pom\\.xml$",
+					"pattern": "^(\\.flattened-)?pom\\.xml$",
 					"url": "https://maven.apache.org/",
 					"icon": "/icons/files/maven.svg"
 				},
@@ -7201,6 +7447,16 @@
 					"icon": "/icons/files/nasm.svg"
 				},
 				{
+					"fileNames": ".ncurc,.ncurc.js,.ncurc.mjs,.ncurc.json,.ncurc.yml",
+					"name": "NCU",
+					"color": "DCE775",
+					"url": "https://github.com/raineorshine/npm-check-updates",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^\\.ncurc\\.(json|[cm]?js|ya?ml)$",
+					"icon": "/icons/files/ncu.svg"
+				},
+				{
 					"fileNames": "*.ndproj",
 					"name": "NDepend",
 					"color": "4376c2",
@@ -7681,6 +7937,16 @@
 					"icon": "/icons/files/nmap.svg"
 				},
 				{
+					"fileNames": "*.noc",
+					"name": "Noc",
+					"color": "6fa0bb",
+					"url": "https://github.com/noc-lang/noc",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.noc$",
+					"icon": "/icons/files/noc.svg"
+				},
+				{
 					"fileNames": "server.js,server.ts,app.js,app.ts,app.es6,main.js,main.ts,main.es6",
 					"name": "Node",
 					"color": "73B923",
@@ -7850,6 +8116,16 @@
 					"icon": "/icons/files/nsri.svg"
 				},
 				{
+					"fileNames": ".nsriignore",
+					"name": "NSRI Ignore",
+					"color": "808080",
+					"url": "https://www.nrin.nl/projects/nsri",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^\\.nsriignore$",
+					"icon": "/icons/files/nsriignore.svg"
+				},
+				{
 					"fileNames": "*.nu,Nukefile",
 					"name": "Nuke",
 					"color": "4DB6AC",
@@ -7887,6 +8163,16 @@
 					"priority": "100",
 					"iconType": "FILE",
 					"pattern": ".*\\.(nupkg|nuspec|snupkg|psmdcp)$",
+					"icon": "/icons/files/nuget.svg"
+				},
+				{
+					"fileNames": "nuget.config",
+					"name": "NuGet Config",
+					"color": "AB7967",
+					"url": "https://www.nuget.org/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "nuget\\.config$",
 					"icon": "/icons/files/nuget.svg"
 				},
 				{
@@ -8680,6 +8966,16 @@
 					"icon": "/icons/files/play.svg"
 				},
 				{
+					"fileNames": "playwright.config.js,playwright.config.mjs,playwright.config.ts",
+					"name": "Playwright",
+					"color": "2EAD33",
+					"url": "https://playwright.dev",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^playwright\\.config\\.([cm]?js|ts)$",
+					"icon": "/icons/files/platformio.svg"
+				},
+				{
 					"fileNames": "*.plist",
 					"name": "PList",
 					"color": "2AA3C1",
@@ -8688,6 +8984,16 @@
 					"pattern": ".*\\.plist$",
 					"url": "https://en.wikipedia.org/wiki/Property_list",
 					"icon": "/icons/files/plist.svg"
+				},
+				{
+					"fileNames": "plopfile.js,plopfile.mjs,plopfile.ts",
+					"name": "Plop",
+					"color": "00BFA5",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^plopfile\\.([cm]?js|ts)$",
+					"url": "https://plopjs.com/",
+					"icon": "/icons/files/plopfile.svg"
 				},
 				{
 					"fileNames": "ecosystem.conf.js,ecosystem.config.ini,ecosystem.conf.json,ecosystem.conf.yml",
@@ -8728,6 +9034,16 @@
 					"iconType": "FILE",
 					"pattern": ".*\\.(pod6?|p6l|nqp)$",
 					"icon": "/icons/files/pod.svg"
+				},
+				{
+					"fileNames": "poetry.lock,pyproject.toml",
+					"name": "Poetry",
+					"color": "1976D2",
+					"url": "https://python-poetry.org/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^(poetry\\.lock|pyproject\\.toml)$",
+					"icon": "/icons/files/poetry.svg"
 				},
 				{
 					"fileNames": "*.pogo",
@@ -8790,11 +9106,11 @@
 					"icon": "/icons/files/postcss.svg"
 				},
 				{
-					"fileNames": ".postcssrc,postcss.config.js,postcss.config.json",
+					"fileNames": ".postcssrc,postcss.config.js,postcss.config.json,.postcssrc.yml,.postcssrc.yaml,postcssrc.config.ts,.postcssrc.json",
 					"name": "PostCSS Config",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^(\\.postcssrc|postcss\\.config\\.[cm]?js(on)?)$",
+					"pattern": "^(\\.postcssrc|postcss\\.config)(\\.[cm]?js|ts|json|ya?ml)?$",
 					"color": "D33534",
 					"url": "https://postcss.org/",
 					"icon": "/icons/files/postcss.svg"
@@ -9030,6 +9346,16 @@
 					"icon": "/icons/files/protractor.svg"
 				},
 				{
+					"fileNames": "publiccode.yml,publiccode.yaml",
+					"name": "Public Code",
+					"color": "90A4AE",
+					"url": "https://yml.publiccode.tools/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^publiccode\\.ya?ml$",
+					"icon": "/icons/files/publiccode.svg"
+				},
+				{
 					"fileNames": "*.puz,*.pub",
 					"name": "Publisher",
 					"color": "26A69A",
@@ -9096,7 +9422,7 @@
 					"url": "https://pypi.org/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^requirements\\.(in|txt)$",
+					"pattern": "^requirements.*\\.(in|txt)$",
 					"icon": "/icons/files/pypi.svg"
 				},
 				{
@@ -9130,23 +9456,23 @@
 					"icon": "/icons/files/pytyped.svg"
 				},
 				{
-					"fileNames": "python-config.json,pythonconfig.json,pyproject.toml",
+					"fileNames": "python-config.json,pythonconfig.json",
 					"name": "Python Config",
 					"color": "FFCB6B",
 					"url": "https://www.python.org/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^(python-?config\\.json|pyproject\\.toml)$",
+					"pattern": "^(python-?config\\.json)$",
 					"icon": "/icons/files/pythonconfig.svg"
 				},
 				{
-					"fileNames": "poetry.lock,.coveragerc,MANIFEST.in,.python-version",
+					"fileNames": ".coveragerc,MANIFEST.in,.python-version",
 					"name": "Python Config (2)",
 					"color": "FFCB6B",
 					"url": "https://www.python.org/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^(poetry\\.lock|MANIFEST\\.in|\\.python-version|\\.coveragerc)$",
+					"pattern": "^(MANIFEST\\.in|\\.python-version|\\.coveragerc)$",
 					"icon": "/icons/files/pythonconfig.svg"
 				},
 				{
@@ -9208,6 +9534,16 @@
 					"iconType": "FILE",
 					"pattern": ".*\\.(qvw|qvd)$",
 					"icon": "/icons/files/qlikview.svg"
+				},
+				{
+					"fileNames": "*.qml,*.qmlproject,*.qbs,*.qmldir",
+					"name": "Qodana",
+					"color": "ff318c",
+					"url": "https://www.jetbrains.com/qodana/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^qodana\\.ya?ml$",
+					"icon": "/icons/files/qodana.svg"
 				},
 				{
 					"fileNames": "*.qml,*.qmlproject,*.qbs,*.qmldir",
@@ -9278,6 +9614,146 @@
 					"iconType": "FILE",
 					"pattern": "^rails$",
 					"icon": "/icons/files/rails.svg"
+				},
+				{
+					"fileNames": "users_channel.rb",
+					"name": "Rails Channel",
+					"color": "A1887F",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*_channel\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railschannel.svg"
+				},
+				{
+					"fileNames": "users_concern.rb",
+					"name": "Rails Concern",
+					"color": "00897B",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*_concern\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railsconcern.svg"
+				},
+				{
+					"fileNames": "users_controller.rb",
+					"name": "Rails Controller",
+					"color": "EC407A",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*_controller\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railscontroller.svg"
+				},
+				{
+					"fileNames": "database\\.yml,database.yml",
+					"name": "Rails Database",
+					"color": "F78C6C",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "database\\.ya?ml$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/db.svg"
+				},
+				{
+					"fileNames": "user_factory.rb",
+					"name": "Rails Factory",
+					"color": "FF8A65",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*_factory\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railsfactory.svg"
+				},
+				{
+					"fileNames": "user_fixture.rb",
+					"name": "Rails Fixture",
+					"color": "9E9D24",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*_fixture\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railsfixture.svg"
+				},
+				{
+					"fileNames": "users_helper.rb",
+					"name": "Rails Helper",
+					"color": "AB47BC",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*_helper\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railshelper.svg"
+				},
+				{
+					"fileNames": "users_job.rb",
+					"name": "Rails Job",
+					"color": "7E57C2",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*_job\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railsjob.svg"
+				},
+				{
+					"fileNames": "users_mailer.rb",
+					"name": "Rails Mailer",
+					"color": "42a5f5",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*_mailer\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railsmailer.svg"
+				},
+				{
+					"fileNames": "routes.rb",
+					"name": "Rails Routing",
+					"color": "43A047",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^routes\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/angularrouting.svg"
+				},
+				{
+					"fileNames": "users_schema.rb",
+					"name": "Rails Schema",
+					"color": "#4FC3F7",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*_schema\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railsschema.svg"
+				},
+				{
+					"fileNames": "user_serializer.rb",
+					"name": "Rails Serializer",
+					"color": "fbc02d",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*_serializer\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railsserializer.svg"
+				},
+				{
+					"fileNames": "users_service.rb",
+					"name": "Rails Service",
+					"color": "FDD835",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*_service\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railsservice.svg"
+				},
+				{
+					"fileNames": "seed.rb",
+					"name": "Rails Seed",
+					"color": "#EF5350",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^seed\\.rb$",
+					"url": "https://rubyonrails.org/",
+					"icon": "/icons/files/railsseed.svg"
 				},
 				{
 					"fileNames": "*.rake",
@@ -9368,6 +9844,26 @@
 					"pattern": "^\\.readthedocs\\.ya?ml$",
 					"url": "https://readthedocs.org/",
 					"icon": "/icons/files/readthedocs.svg"
+				},
+				{
+					"fileNames": "atom.js,atoms.ts,icons.atoms.js,bla.selector.js,bla.selectors.ts",
+					"name": "Recoil",
+					"color": "42A5F5",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.?(atoms?|selectors?)\\.([cm]?js|ts)$",
+					"url": "https://recoiljs.org/",
+					"icon": "/icons/files/recoil.svg"
+				},
+				{
+					"fileNames": "remix.config.js,remix.config.mjs,remix.config.ts",
+					"name": "Remix",
+					"color": "64B5F6",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^remix\\.config\\.([cm]?js|ts)$",
+					"url": "https://remix.run/",
+					"icon": "/icons/files/remix.svg"
 				},
 				{
 					"fileNames": "*.rql,*.restql",
@@ -9570,24 +10066,44 @@
 					"icon": "/icons/files/regex.svg"
 				},
 				{
-					"fileNames": ".rehyperc,.rehypeignore",
+					"fileNames": ".rehyperc,.rehyperc.js,.rehyperc.mjs,.rehyperc.ts,.rehyperc.json,.rehyperc.yml",
 					"name": "Rehype",
 					"color": "d8a303",
 					"url": "https://github.com/rehypejs/rehype",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^\\.rehype(rc|ignore)$",
+					"pattern": "^\\.rehyperc(\\.[cm]?js|ts|json|ya?ml)?$",
 					"icon": "/icons/files/rehype.svg"
 				},
 				{
-					"fileNames": ".remarkrc,.remarkignore",
+					"fileNames": ".rehypeignore",
+					"name": "Rehype Ignore",
+					"color": "808080",
+					"url": "https://github.com/rehypejs/rehype",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^\\.rehypeignore$",
+					"icon": "/icons/files/rehypeignore.svg"
+				},
+				{
+					"fileNames": ".remarkrc,.remarkrc.js,.remarkrc.mjs,.remarkrc.ts,.remarkrc.json,.remarkrc.yml",
 					"name": "Remark",
 					"color": "d90303",
 					"url": "https://remark.js.org/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^\\.remark(rc|ignore)$",
+					"pattern": "^\\.remarkrc(\\.[cm]?js|ts|json|ya?ml)?$",
 					"icon": "/icons/files/remark.svg"
+				},
+				{
+					"fileNames": ".remarkignore",
+					"name": "Remark Ignore",
+					"color": "808080",
+					"url": "https://remark.js.org/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^\\.remarkignore$",
+					"icon": "/icons/files/remarkignore.svg"
 				},
 				{
 					"fileNames": ".renovaterc,renovate.json",
@@ -9630,14 +10146,24 @@
 					"icon": "/icons/files/rst.svg"
 				},
 				{
-					"fileNames": ".retextrc,.retextignore",
+					"fileNames": ".retextrc,.retextrc.js,.retextrc.mjs,.retextrc.ts,.retextrc.json,.retextrc.yml",
 					"name": "Retext",
 					"color": "03d803",
+					"url": "https://github.com/retextjs/retext",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "^\\.retext(rc|ignore)$",
-					"url": "https://github.com/retextjs/retext",
+					"pattern": "^\\.retextrc(\\.[cm]?js|ts|json|ya?ml)?$",
 					"icon": "/icons/files/retext.svg"
+				},
+				{
+					"fileNames": ".retextignore",
+					"name": "Retext Ignore",
+					"color": "808080",
+					"url": "https://github.com/retextjs/retext",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^\\.retextignore$",
+					"icon": "/icons/files/retextignore.svg"
 				},
 				{
 					"fileNames": "*.rex,*.rexx,*.pprx",
@@ -9848,6 +10374,16 @@
 					"icon": "/icons/files/rust.svg"
 				},
 				{
+					"fileNames": "*.ron",
+					"name": "Rust Object Notation",
+					"color": "8d684c",
+					"url": "https://docs.rs/ron/latest/ron/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.ron$",
+					"icon": "/icons/files/ron.svg"
+				},
+				{
 					"fileNames": "*.rust-toolchain",
 					"name": "Rust Toolchain",
 					"color": "8d684c",
@@ -9886,6 +10422,16 @@
 					"pattern": ".*\\.sac$",
 					"url": "http://www.sac-home.org/",
 					"icon": "/icons/files/sac.svg"
+				},
+				{
+					"fileNames": "*.safariextz,*.binarycookies,*.webarchive",
+					"name": "Safari",
+					"color": "42A5F5",
+					"url": "https://support.apple.com/en-il/guide/safari/welcome/mac",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.(webarchive|binarycookies|safariextz)$",
+					"icon": "/icons/files/safari.svg"
 				},
 				{
 					"fileNames": "*.sage,*.sagews",
@@ -10245,6 +10791,16 @@
 					"iconType": "FILE",
 					"pattern": ".*\\.ss$",
 					"icon": "/icons/files/silverstripe.svg"
+				},
+				{
+					"fileNames": "*.sy",
+					"name": "SiYuan",
+					"color": "d23e31",
+					"url": "https://b3log.org/siyuan/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.sy$",
+					"icon": "/icons/files/siyuan.svg"
 				},
 				{
 					"fileNames": "*.sketch",
@@ -10647,6 +11203,16 @@
 					"icon": "/icons/files/stencil.svg"
 				},
 				{
+					"fileNames": "steadybit.yml,.steadybit.yaml,steadybit.yaml",
+					"name": "Steadybit",
+					"color": "e53935",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "\\.?steadybit\\.ya?ml$",
+					"url": "https://www.steadybit.com/",
+					"icon": "/icons/files/steadybit.svg"
+				},
+				{
 					"fileNames": "stitches.config.ts,.stitches.config.cjs,.stitches.config.js",
 					"name": "Stitches",
 					"color": "9e8cfc",
@@ -10705,6 +11271,16 @@
 					"iconType": "FILE",
 					"pattern": "\\.stylelintignore(\\.json)?$",
 					"icon": "/icons/files/stylelintignore.svg"
+				},
+				{
+					"fileNames": ".styleguiderc,styleguide.config.js,styleguide.config.json,.styleguiderc.js,.styleguiderc.json,.styleguiderc.yaml",
+					"name": "Styleguidist",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^(\\.styleguiderc(\\.([cm]?js|json|ya?ml))?|styleguide\\.config\\.[cm]?js(on)?)$",
+					"color": "00acc1",
+					"url": "https://react-styleguidist.js.org/",
+					"icon": "/icons/files/styleguidist.svg"
 				},
 				{
 					"fileNames": "*.st.css",
@@ -10797,13 +11373,23 @@
 					"icon": "/icons/files/sss.svg"
 				},
 				{
-					"fileNames": "*.svelte,*.svx",
+					"fileNames": "supabase.js,supabase.py,supabase.ts",
+					"name": "Supabase",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "supabase\\.(js|ts|py)$",
+					"color": "3ECF8E",
+					"url": "https://app.supabase.io/",
+					"icon": "/icons/files/supabase.svg"
+				},
+				{
+					"fileNames": "*.svelte,*.svx,*.svelte-kit",
 					"name": "Svelte",
 					"color": "ff5722",
 					"url": "https://svelte.dev/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.(svelte|svx)",
+					"pattern": ".*\\.(svelte(-kit)?|svx)",
 					"icon": "/icons/files/svelte.svg"
 				},
 				{
@@ -11094,7 +11680,7 @@
 					"color": "E79627",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.?(test|spec)\\.[cm](js|es6)$",
+					"pattern": ".*\\.?(test|spec)\\.[cm]?(js|es6)$",
 					"icon": "/icons/files/testjs.svg"
 				},
 				{
@@ -11321,6 +11907,16 @@
 					"icon": "/icons/files/todo.svg"
 				},
 				{
+					"fileNames": "*.toit",
+					"name": "Toit",
+					"color": "fac864",
+					"url": "https://toit.io/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.toit$",
+					"icon": "/icons/files/toit.svg"
+				},
+				{
 					"fileNames": "tox.ini",
 					"name": "Tox",
 					"color": "8ba97b",
@@ -11369,6 +11965,16 @@
 					"iconType": "FILE",
 					"pattern": ".*\\.tuc$",
 					"icon": "/icons/files/tuc.svg"
+				},
+				{
+					"fileNames": "turbo.json",
+					"name": "Turborepo",
+					"color": "d81b60",
+					"url": "https://turborepo.org/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^turbo\\.json$",
+					"icon": "/icons/files/turborepo.svg"
 				},
 				{
 					"fileNames": "*.tu",
@@ -11611,6 +12217,16 @@
 					"icon": "/icons/files/vala.svg"
 				},
 				{
+					"fileNames": "*.css.ts",
+					"name": "Vanilla Extract",
+					"color": "ff5c93",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.css\\.ts$",
+					"url": "https://vanilla-extract.style/",
+					"icon": "/icons/files/vanillaextract.svg"
+				},
+				{
 					"fileNames": "vapor.yml,vapor.yaml",
 					"name": "Vapor",
 					"color": "25c4f2",
@@ -11740,14 +12356,24 @@
 					"icon": "/icons/files/vbproj.svg"
 				},
 				{
-					"fileNames": "*.vssettings,*.vstemplate,*.lsproj,*.modelproj,*.njsproj,*.wmaproj,*.sln,*.suo",
+					"fileNames": "*.vssettings,*.vstemplate,*.vsconfig,*.lsproj,*.modelproj,*.njsproj,*.wmaproj,*.sln,*.suo,*.rc",
 					"name": "Visual Studio",
 					"color": "7963E6",
 					"url": "https://visualstudio.microsoft.com/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": ".*\\.(vssettings|vstemplate|lsproj|modelproj|njsproj|wmaproj|sln|suo)$",
+					"pattern": ".*\\.(vssettings|vsconfig|vstemplate|lsproj|modelproj|njsproj|wmaproj|sln|suo|rc)$",
 					"icon": "/icons/files/vs.svg"
+				},
+				{
+					"fileNames": "vitest.config.js,vitest.config.ts",
+					"name": "Vitest",
+					"color": "729B1B",
+					"url": "https://vitest.dev/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": "^vitest\\.config\\.[jt]s$",
+					"icon": "/icons/files/vitest.svg"
 				},
 				{
 					"fileNames": "vite.config.js,vite.config.ts",
@@ -12330,6 +12956,16 @@
 					"icon": "/icons/files/xmake.svg"
 				},
 				{
+					"fileNames": "*.machine.js,*.machine.mjs,*.machine.ts,*.machine.cjs",
+					"name": "XState",
+					"color": "1FB8D4",
+					"url": "https://xstate.js.org/",
+					"priority": "100",
+					"iconType": "FILE",
+					"pattern": ".*\\.machine\\.([cm]?js|ts)$",
+					"icon": "/icons/files/xstate.svg"
+				},
+				{
 					"fileNames": "*.xtend",
 					"name": "Xtend",
 					"color": "7E57C2",
@@ -12430,13 +13066,13 @@
 					"icon": "/icons/files/yara.svg"
 				},
 				{
-					"fileNames": ".yarnrc, yarn.json, yarn.js",
+					"fileNames": ".yarnrc,yarn.json,yarn.js,.yarnrc.yml",
 					"name": "Yarn",
 					"color": "1E9CEF",
 					"url": "https://yarnpkg.com/",
 					"priority": "100",
 					"iconType": "FILE",
-					"pattern": "(\\.yarnrc|yarn.js(on)?)",
+					"pattern": "(\\.yarnrc(\\.yml)?|yarn.js(on)?)",
 					"icon": "/icons/files/yarn.svg"
 				},
 				{
@@ -12711,12 +13347,12 @@
 					"icon": "/icons/files/svg.svg"
 				},
 				{
-					"fileNames": "*.ld,*.ldif,*.lds,*.ld,*.ini,*.cnf,*.config,*.cfg,*.mcf,*.kys",
+					"fileNames": "*.ld,*.ldif,*.lds,*.ld,*.ini,*.cnf,*.config,*.cfg,*.mcf,*.kys,*.props",
 					"name": "Preferences",
 					"color": "E79627",
 					"priority": "10",
 					"iconType": "FILE",
-					"pattern": ".*\\.(ldif|lds?|ini|cnf|config|cfg|mcf|kys)$",
+					"pattern": ".*\\.(ldif|lds?|ini|cnf|config|cfg|mcf|kys|props)$",
 					"icon": "/icons/files/preferences.svg"
 				},
 				{
@@ -13088,12 +13724,12 @@
 					"icon": "/icons/files/typeScript.svg"
 				},
 				{
-					"fileNames": "*.class,*.o,*.out,*.ko,*.pyo,*.pyc",
-					"name": "Class",
+					"fileNames": "*.o,*.out,*.ko,*.pyo,*.pyc",
+					"name": "Binary Object",
 					"color": "7A8387",
 					"priority": "1",
 					"iconType": "FILE",
-					"pattern": ".*\\.(class|o|out|ko|py[oc])$",
+					"pattern": ".*\\.(o|out|ko|py[oc])$",
 					"icon": "/icons/files/class.svg"
 				},
 				{
@@ -13149,7 +13785,7 @@
 					"url": "https://en.wikipedia.org/wiki/Markdown",
 					"priority": "1",
 					"iconType": "FILE",
-					"pattern": ".*\\.(md|markdown|mk?down|mkd|pmd|jmd)$",
+					"pattern": ".*\\.(md|MD|markdown|mk?down|mkd|pmd|jmd)$",
 					"icon": "/icons/files/markdown.svg"
 				},
 				{
