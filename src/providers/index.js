@@ -3,3 +3,4 @@ export * from './search';
 export * from './githubv2';
 export * from './gitlab';
 export * from './gitee';
+export * from './pullRequests';

@@ -1,4 +1,4 @@
-import { injectIconsBitbucket, injectIconsGithubv2, injectIconsGitee, injectIconsGitlab, injectIconsSearch } from './providers';
+import { injectIconsBitbucket, injectIconsGitee, injectIconsGithubv2, injectIconsGitlab, injectIconsPullRequests, injectIconsSearch } from './providers';
 import select from 'select-dom';
 
 function init() {
@@ -8,6 +8,9 @@ function init() {
     }
     else if (select.exists('.tree-browser-result > .octicon', target)) {
       injectIconsSearch(target);
+    }
+    else if (select.exists('.ActionList-item-visual > .octicon', target)) {
+      injectIconsPullRequests(target);
     }
     else if (select.exists('.css-hix1c1 > [data-qa="repository-directory"]', target)) {
       injectIconsBitbucket(target);
