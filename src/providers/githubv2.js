@@ -8,7 +8,7 @@ export function injectIconsGithubv2(target) {
     const isFile = select.exists('.octicon-file', item);
     const isDir = select.exists('.octicon-file-directory-fill', item);
     const isSvg = select.exists('.octicon-file-text', item);
-    const name = select('.js-navigation-open', item).textContent;
+    const name = select('.js-navigation-open', item)?.textContent;
     const $icon = select('.octicon', item);
 
     if (isFile || isSvg) {

@@ -9,7 +9,7 @@ export function injectIconsGitlab(target) {
     const isDir = select.exists('.folder-icon', item);
     // const isSvg = select.exists('.gl-icon', item);
 
-    const name = select('.tree-item-link > span:last-child', item).textContent;
+    const name = select('.tree-item-link > span:last-child', item)?.textContent;
     const $icon = select('.tree-item-link > span:first-child', item);
 
     if (isFile) {

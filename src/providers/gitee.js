@@ -9,7 +9,7 @@ export function injectIconsGitee(target) {
     const isFile = select.exists('.icon-file', item);
     const isDir = select.exists('.icon-folders', item);
     // const isSvg = select.exists('.icon-svg', item);
-    const name = select('.tree-list-item > a', item).textContent;
+    const name = select('.tree-list-item > a', item)?.textContent;
     const $icon = select('.iconfont', item);
 
     if (isFile) {

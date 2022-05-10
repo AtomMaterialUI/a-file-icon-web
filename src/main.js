@@ -24,7 +24,7 @@ function init() {
     mutations.forEach(mutation => {
       if (mutation.type === 'childList') {
         const target = mutation.target;
-        apply(target);
+        setTimeout(() => apply(target), 100);
       }
     });
   });
@@ -36,7 +36,7 @@ function init() {
   });
 
   // applying on body in case the list is already present
-  apply(document.body);
+  setTimeout(() => apply(document.body), 100);
 }
 
 document.addEventListener('pjax:end', init);

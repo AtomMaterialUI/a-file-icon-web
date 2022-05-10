@@ -7,7 +7,7 @@ export function injectIconsBitbucket(target) {
   $items.forEach(async (item, index) => {
     const isFile = select.exists('[aria-label="File,"]', item);
     const isDir = select.exists('[aria-label="Directory,"]', item);
-    const name = select('.css-15qk21d', item).textContent;
+    const name = select('.css-15qk21d', item)?.textContent;
     const $icon = select('.css-x5ykhp', item);
 
     if (isFile) {

@@ -8,7 +8,7 @@ export function injectIconsSearch(target) {
     const isFile = select.exists('.octicon-file', item);
     const isDir = select.exists('.octicon-file-directory', item);
     const isSvg = select.exists('.octicon-file-text', item);
-    const name = select('.tree-browser-result marked-text', item).textContent;
+    const name = select('.tree-browser-result marked-text', item)?.textContent;
     const $icon = select('.octicon-file', item);
 
     if (isFile || isSvg) {
