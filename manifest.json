@@ -1,6 +1,6 @@
 {
   "author": "Elior Boukhobza (mallowigi)",
-  "browser_action": {
+  "action": {
     "default_icon": "icon128.png",
     "default_title": "Atom File Icons"
   },
@@ -32,9 +32,9 @@
     "32": "icon32.png",
     "48": "icon48.png"
   },
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Atom File Icons Web",
-  "permissions": [
+  "host_permissions": [
     "http://github.com/*",
     "https://github.com/*",
     "http://bitbucket.org/*",
@@ -47,6 +47,20 @@
   "short_name": "Atom File Icons Web",
   "version": "6.0.0",
   "web_accessible_resources": [
-    "public/icons/**/*"
+    {
+      "resources": [
+        "public/icons/**/*"
+      ],
+      "matches": [
+        "http://github.com/*",
+        "https://github.com/*",
+        "http://bitbucket.org/*",
+        "https://bitbucket.org/*",
+        "http://gitlab.com/*",
+        "https://gitlab.com/*",
+        "http://gitee.com/*",
+        "https://gitee.com/*"
+      ]
+    }
   ]
 }
