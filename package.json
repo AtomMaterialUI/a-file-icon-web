@@ -29,7 +29,7 @@
     "chrome": "npm run build && cp chrome/manifest.json . && npm run release"
   },
   "devDependencies": {
-    "@babel/core": "7.17.10",
+    "@babel/core": "7.18.2",
     "@babel/plugin-proposal-class-properties": "7.16.7",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "@babel/plugin-transform-runtime": "7.17.10",
