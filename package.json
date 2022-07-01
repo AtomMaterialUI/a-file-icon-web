@@ -59,7 +59,7 @@
     "rollup-plugin-svg": "2.0.0",
     "rollup-plugin-terser": "7.0.2",
     "underscore": "1.13.4",
-    "web-ext": "6.8.0"
+    "web-ext": "7.1.0"
   },
   "optionalDependencies": {
     "lodash.template": "4.5.0",
