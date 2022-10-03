@@ -2,6 +2,8 @@ import { injectIconsBitbucket, injectIconsGitee, injectIconsGithubv2, injectIcon
 import select from 'select-dom';
 
 function init() {
+  console.log('calling init');
+
   function apply(target) {
     if (select.exists('.js-navigation-item > [role="gridcell"]', target)) {
       injectIconsGithubv2(target);
@@ -42,5 +44,5 @@ function init() {
   setTimeout(() => apply(document.body), 100);
 }
 
-document.addEventListener('pjax:end', init);
+document.addEventListener('turbo:load', init);
 init();

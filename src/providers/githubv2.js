@@ -1,8 +1,9 @@
 import select from 'select-dom';
-import {getAssociation, getFileIcon, getFileIconName, getFolderAssociation, getFolderIcon, getFolderIconName} from '../associations';
+import { getAssociation, getFileIcon, getFileIconName, getFolderAssociation, getFolderIcon, getFolderIconName } from '../associations';
 
 export function injectIconsGithubv2(target) {
   const $items = select.all('.js-navigation-item', target);
+  const isDark = select('html').dataset['colorMode'] === 'dark';
 
   $items.forEach(async (item, index) => {
     const isFile = select.exists('.octicon-file', item);
@@ -15,7 +16,7 @@ export function injectIconsGithubv2(target) {
       let assoc = getAssociation(name);
       let className = getFileIconName(assoc);
 
-      const icon = getFileIcon(className);
+      const icon = getFileIcon(className, isDark);
       $icon.outerHTML = icon.default.replace('<svg', '<svg class="octicon octicon-file" width="20" height="20"');
 
       if (isSvg) {

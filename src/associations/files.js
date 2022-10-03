@@ -35,6 +35,7 @@ export function getFileIconName(assoc = DEFAULT) {
   }`;
 }
 
-export function getFileIcon(iconName) {
-  return icons[`file_${iconName}`];
+export function getFileIcon(iconName, isDark = false) {
+  const darkIcon = icons[`file_${iconName}${isDark ? '_dark' : ''}`];
+  return darkIcon ?? icons[`file_${iconName}`];
 }
