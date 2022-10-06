@@ -10,7 +10,16 @@ import {
 } from '~providers';
 
 const apply = (target: ParentNode) => {
-  if (select.exists('.js-navigation-item > [role="gridcell"]', target)) {
+  if (window.location.hostname.includes('bitbucket')) {
+    injectIconsBitbucket(target);
+  }
+  else if (window.location.hostname.includes('gitlab')) {
+    injectIconsGitlab(target);
+  }
+  else if (window.location.hostname.includes('gitee')) {
+    injectIconsGitee(target);
+  }
+  else if (select.exists('.js-navigation-item > [role="gridcell"]', target)) {
     injectIconsGithub(target);
   }
   else if (select.exists('.tree-browser-result > .octicon', target)) {
@@ -19,15 +28,7 @@ const apply = (target: ParentNode) => {
   else if (select.exists('.ActionList-item-visual > .octicon', target)) {
     injectIconsPullRequests(target);
   }
-  else if (select.exists('.css-hix1c1 > [data-qa="repository-directory"]', target)) {
-    injectIconsBitbucket(target);
-  }
-  else if (select.exists('.tree-content-holder [data-qa-selector="file_tree_table"]', target)) {
-    injectIconsGitlab(target);
-  }
-  else if (select.exists('.tree-table .tree-item', target)) {
-    injectIconsGitee(target);
-  }
+
 };
 
 const init = () => {
