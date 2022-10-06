@@ -1,17 +1,20 @@
-export class LinkedList {
-  constructor() {
-    this.nodes = [];
-  }
+type LinkedNode<T> = {
+  value: T,
+  next: LinkedNode<T> | null;
+}
 
-  get size() {
+export class NodeLinkedList<T> {
+  private nodes: LinkedNode<T>[] = [];
+
+  get size(): number {
     return this.nodes.length;
   }
 
-  get head() {
+  get head(): LinkedNode<T> | null {
     return this.size ? this.nodes[0] : null;
   }
 
-  get tail() {
+  get tail(): LinkedNode<T> | null {
     return this.size ? this.nodes[this.size - 1] : null;
   }
 
@@ -38,7 +41,7 @@ export class LinkedList {
     return this.nodes[index];
   }
 
-  remove(index) {
+  remove(index): LinkedNode<T>[] {
     const previousNode = this.nodes[index - 1];
     const nextNode = this.nodes[index + 1] || null;
 
@@ -53,7 +56,7 @@ export class LinkedList {
     this.nodes = [];
   }
 
-  find(fn) {
+  find(fn): T | null {
     let node = this.head;
     while (node) {
       if (node.value && fn(node.value)) {

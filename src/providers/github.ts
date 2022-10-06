@@ -1,7 +1,8 @@
 import select from 'select-dom';
-import { getAssociation, getFileIcon, getFileIconName, getFolderAssociation, getFolderIcon, getFolderIconName } from '../associations';
+import { getAssociation, getFileIconName, getFileIcon } from '~associations/files';
+import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
 
-export function injectIconsGithubv2(target) {
+export const injectIconsGithub = (target: ParentNode) => {
   const $items = select.all('.js-navigation-item', target);
   const isDark = select('html').dataset['colorMode'] === 'dark';
 
@@ -17,7 +18,7 @@ export function injectIconsGithubv2(target) {
       let className = getFileIconName(assoc);
 
       const icon = getFileIcon(className, isDark);
-      $icon.outerHTML = icon.default.replace('<svg', '<svg class="octicon octicon-file" width="20" height="20"');
+      $icon.outerHTML = icon.replace('<svg', '<svg class="octicon octicon-file" width="20" height="20"');
 
       if (isSvg) {
         select('svg', item).remove();
@@ -28,7 +29,8 @@ export function injectIconsGithubv2(target) {
       let className = getFolderIconName(assoc);
 
       const icon = getFolderIcon(className);
-      $icon.outerHTML = icon.default.replace('<svg', '<svg class="octicon octicon-file-directory" width="20" height="20"');
+      $icon.outerHTML =
+        icon.default.replace('<svg', '<svg class="octicon octicon-file-directory" width="20" height="20"');
     }
   });
-}
+};
