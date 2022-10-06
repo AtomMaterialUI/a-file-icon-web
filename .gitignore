@@ -365,3 +365,5 @@ keys.json
 
 # typescript
 .tsbuildinfo
+
+public/icons
