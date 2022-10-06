@@ -10,30 +10,33 @@
 </h1>
 
 
-This plugin is a port of the [Atom File Icons](https://github.com/file-icons/atom) for Google Chrome and Mozilla Firefox!
+This plugin is a port of the [Atom File Icons](https://github.com/file-icons/atom) for Google Chrome and Mozilla
+Firefox!
 
 ## Chrome Extension
+
 <https://chrome.google.com/webstore/detail/atom-file-icons-web/pljfkbaipkidhmaljaaakibigbcmmpnc>
 
 ## Firefox Extension
-<https://addons.mozilla.org/en-US/firefox/addon/atom-file-icons-web/>
 
+<https://addons.mozilla.org/en-US/firefox/addon/atom-file-icons-web/>
 
 ## Features
 
 - Replaces **file icons** with their relevant logo icons
-  - According to their extension (Java, PHP, Ruby...)
-  - According to the framework (Android, NPM, RSpec...)
-  - According to the program used with (Babel, Docker, CircleCI...)
+    - According to their extension (Java, PHP, Ruby...)
+    - According to the framework (Android, NPM, RSpec...)
+    - According to the program used with (Babel, Docker, CircleCI...)
 - Replaces **directories**:
-  - With a common pattern: src, main, app, img, docs...
-  - With a specific pattern: node_modules, .vscode, .git...
-
+    - With a common pattern: src, main, app, img, docs...
+    - With a specific pattern: node_modules, .vscode, .git...
 
 ## File Icons
+
 ![File Icons](https://raw.githubusercontent.com/mallowigi/iconGenerator/master/assets/files.png)
 
 ## Folder Icons
+
 ![Folder Icons](https://raw.githubusercontent.com/mallowigi/iconGenerator/master/assets/folders.png)
 
 ## Build
@@ -46,11 +49,31 @@ npm run release (Chrome)
 npm run webext (Firefox)
 ```
 
+## Scripts
+
+- `clean`: Clear up the `public` folder
+- `icons` and `folders`:
+    - Copy icons from `iconGenerator` to `public`
+    - Uses `assets/iconfont.ejs` and `assets/folderIconfont.ejs` to generate the `index.ts` that contains the imports of
+      the svg icons
+- `convert`: Generates `icon_associations.json` and `folder_associations.json` from `iconGenerator`'s xml files
+- `build`: Runs `clean`, `convert`, `public` and build the source files (TODO: use plasmo)
+- `prepare`: Runs `icons`, `folders` and `assets`
+- `public`: Runs `gulp prepare` - prepares the public folder
+- `dev`: Runs `build` with watch
+- `start`: Runs `dev` and serve contents of `public`
+- `release`: Build the extension for Chrome
+- `webext`: Build the extension for Firefox
+- `firefox`: Generate Firefox's Manifest and run `build` and `webext`
+- `chrome`: Generate Chrome's Manifest and run `build` and `webext`
+
 ## Credits
 
 Special credits to:
+
 - The [Material Theme UI plugin](https://www.material-theme.com) for the implementation
-- [Atom File Icons](https://github.com/file-icons/atom) and [Sublime Text A File Icon](https://github.com/SublimeText/AFileIcon) for the idea
+- [Atom File Icons](https://github.com/file-icons/atom)
+  and [Sublime Text A File Icon](https://github.com/SublimeText/AFileIcon) for the idea
 - [Scientifics Study Vectors](https://www.svgrepo.com/svg/121720/atom) for the plugin icon
 - [File-Icons](https://github.com/file-icons/source/blob/master/charmap.md)
 - [FontAwesome 4.7.0](https://fontawesome.com/v4.7.0/cheatsheet/)

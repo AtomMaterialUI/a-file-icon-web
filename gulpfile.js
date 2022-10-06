@@ -20,7 +20,7 @@ gulp.task('icons', () => {
     .on('glyphs', function (glyphs, options) {
       gulp.src('assets/iconfont.ejs', {})
         .pipe(consolidate('underscore', { glyphs: glyphs }))
-        .pipe(rename('index.js'))
+        .pipe(rename('index.ts'))
         .pipe(gulp.dest('public/icons/files'));
     });
 });
@@ -40,7 +40,7 @@ gulp.task('folders', () => {
     .on('glyphs', function (glyphs, options) {
       gulp.src('assets/folderIconfont.ejs', {})
         .pipe(consolidate('underscore', { glyphs: glyphs }))
-        .pipe(rename('index.js'))
+        .pipe(rename('index.ts'))
         .pipe(gulp.dest('public/icons/folders'));
     });
 });

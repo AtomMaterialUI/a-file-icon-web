@@ -1,4 +1,6 @@
 import select from 'select-dom';
+import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
+import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
 
 export const injectIconsPullRequests = target => {
   const $items = select.all('.ActionList-item', target);
@@ -10,23 +12,23 @@ export const injectIconsPullRequests = target => {
     const name = select('.ActionList-item-label', item)?.textContent;
     const $icon = select('.octicon-file', item);
 
-    // if (name && isFile || isSvg) {
-    //   let assoc = getAssociation(name.trim());
-    //   let className = getFileIconName(assoc);
-    //
-    //   const icon = getFileIcon(className);
-    //   $icon.innerHTML = icon.default;
-    //
-    //   if (isSvg) {
-    //     select('svg', item).remove();
-    //   }
-    // }
-    // else if (name && isDir) {
-    //   let assoc = getFolderAssociation(name.trim());
-    //   let className = getFolderIconName(assoc);
-    //
-    //   const icon = getFolderIcon(className);
-    //   $icon.innerHTML = icon.default;
-    // }
+    if (name && isFile || isSvg) {
+      let assoc = getAssociation(name.trim());
+      let className = getFileIconName(assoc);
+
+      const icon = getFileIcon(className);
+      $icon.innerHTML = icon;
+
+      if (isSvg) {
+        select('svg', item).remove();
+      }
+    }
+    else if (name && isDir) {
+      let assoc = getFolderAssociation(name.trim());
+      let className = getFolderIconName(assoc);
+
+      const icon = getFolderIcon(className);
+      $icon.innerHTML = icon;
+    }
   });
 };

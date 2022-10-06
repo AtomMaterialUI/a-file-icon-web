@@ -1,4 +1,6 @@
 import select from 'select-dom';
+import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
+import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
 
 export const injectIconsGitee = target => {
   const $items = select.all('.tree-item', target);
@@ -11,20 +13,20 @@ export const injectIconsGitee = target => {
     const name = select('.tree-list-item > a', item)?.textContent;
     const $icon = select('.iconfont', item);
 
-    // if (isFile) {
-    //   let assoc = getAssociation(name);
-    //   let className = getFileIconName(assoc);
-    //
-    //   const icon = getFileIcon(className);
-    //   $icon.outerHTML = icon.default.replace('<i', '<svg class="octicon octicon-file" width="20" height="20"');
-    // }
-    // else if (isDir) {
-    //   let assoc = getFolderAssociation(name);
-    //   let className = getFolderIconName(assoc);
-    //
-    //   const icon = getFolderIcon(className);
-    //   $icon.outerHTML =
-    //     icon.default.replace('<i', '<svg class="octicon octicon-file-directory" width="20" height="20"');
-    // }
+    if (isFile) {
+      let assoc = getAssociation(name);
+      let className = getFileIconName(assoc);
+
+      const icon = getFileIcon(className);
+      $icon.outerHTML = icon.replace('<i', '<svg class="octicon octicon-file" width="20" height="20"');
+    }
+    else if (isDir) {
+      let assoc = getFolderAssociation(name);
+      let className = getFolderIconName(assoc);
+
+      const icon = getFolderIcon(className);
+      $icon.outerHTML =
+        icon.replace('<i', '<svg class="octicon octicon-file-directory" width="20" height="20"');
+    }
   });
 };

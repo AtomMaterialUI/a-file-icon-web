@@ -30,7 +30,7 @@ export const injectIconsGithub = (target: ParentNode) => {
 
       const icon = getFolderIcon(className);
       $icon.outerHTML =
-        icon.default.replace('<svg', '<svg class="octicon octicon-file-directory" width="20" height="20"');
+        icon.replace('<svg', '<svg class="octicon octicon-file-directory" width="20" height="20"');
     }
   });
 };
