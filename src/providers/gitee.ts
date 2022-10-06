@@ -1,6 +1,7 @@
 import select from 'select-dom';
 import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
 import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
+import { bigger } from '~associations/utils';
 
 export const injectIconsGitee = target => {
   const $items = select.all('.tree-item', target);
@@ -16,15 +17,14 @@ export const injectIconsGitee = target => {
       let className = getFileIconName(assoc);
 
       const icon = getFileIcon(className);
-      $icon.outerHTML = icon.replace('<i', '<svg class="octicon octicon-file" width="20" height="20"');
+      $icon.outerHTML = bigger(icon);
     }
     else if (isDir) {
       let assoc = getFolderAssociation(name);
       let className = getFolderIconName(assoc);
 
       const icon = getFolderIcon(className);
-      $icon.outerHTML =
-        icon.replace('<i', '<svg class="octicon octicon-file-directory" width="20" height="20"');
+      $icon.outerHTML = bigger(icon);
     }
   });
 };

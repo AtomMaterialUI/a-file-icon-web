@@ -39,6 +39,12 @@ const init = () => {
       }
     });
   });
+  observer.observe(document.body, {
+    attributes: true,
+    childList: true,
+    characterData: true,
+    subtree: true,
+  });
 
   // applying on body in case the list is already present
   setTimeout(() => apply(document.body), 100);
