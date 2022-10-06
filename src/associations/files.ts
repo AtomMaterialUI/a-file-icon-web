@@ -9,7 +9,7 @@ type RawFileIconAssociation = {
   icon: string;
   name: string;
   pattern: string;
-  iconType: 'FILE' | 'FOLDER';
+  iconType: 'FILE';
   priority: string;
   iconColor: string;
   url?: string;
@@ -29,6 +29,10 @@ const DEFAULT: FileIconAssociation = {
 };
 
 const makeFileIconAssociation = (json: RawFileIconAssociation): FileIconAssociation => {
+  if (!json) {
+    return DEFAULT;
+  }
+
   return {
     enabled: true,
     fileNames: json.fileNames,

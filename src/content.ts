@@ -1,26 +1,33 @@
 import type { PlasmoContentScript } from 'plasmo';
 import select from 'select-dom';
-import { injectIconsGithub } from '~providers';
+import {
+  injectIconsGithub,
+  injectIconsSearch,
+  injectIconsBitbucket,
+  injectIconsGitlab,
+  injectIconsPullRequests,
+  injectIconsGitee,
+} from '~providers';
 
 const apply = (target: ParentNode) => {
   if (select.exists('.js-navigation-item > [role="gridcell"]', target)) {
     injectIconsGithub(target);
   }
-  // else if (select.exists('.tree-browser-result > .octicon', target)) {
-  //   injectIconsSearch(target);
-  // }
-  // else if (select.exists('.ActionList-item-visual > .octicon', target)) {
-  //   injectIconsPullRequests(target);
-  // }
-  // else if (select.exists('.css-hix1c1 > [data-qa="repository-directory"]', target)) {
-  //   injectIconsBitbucket(target);
-  // }
-  // else if (select.exists('.tree-content-holder [data-qa-selector="file_tree_table"]', target)) {
-  //   injectIconsGitlab(target);
-  // }
-  // else if (select.exists('.tree-table .tree-item', target)) {
-  //   injectIconsGitee(target);
-  // }
+  else if (select.exists('.tree-browser-result > .octicon', target)) {
+    injectIconsSearch(target);
+  }
+  else if (select.exists('.ActionList-item-visual > .octicon', target)) {
+    injectIconsPullRequests(target);
+  }
+  else if (select.exists('.css-hix1c1 > [data-qa="repository-directory"]', target)) {
+    injectIconsBitbucket(target);
+  }
+  else if (select.exists('.tree-content-holder [data-qa-selector="file_tree_table"]', target)) {
+    injectIconsGitlab(target);
+  }
+  else if (select.exists('.tree-table .tree-item', target)) {
+    injectIconsGitee(target);
+  }
 };
 
 const init = () => {

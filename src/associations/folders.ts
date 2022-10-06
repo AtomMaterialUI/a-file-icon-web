@@ -9,7 +9,7 @@ type RawFolderIconAssociation = {
   icon: string;
   name: string;
   pattern: string;
-  iconType: 'FILE' | 'FOLDER';
+  iconType: 'FOLDER';
   priority: string;
   folderColor: string;
   folderIconColor: string;
@@ -30,6 +30,9 @@ const DEFAULT: FolderIconAssociation = {
 };
 
 const makeFolderIconAssociation = (json: RawFolderIconAssociation): FolderIconAssociation => {
+  if (!json) {
+    return DEFAULT;
+  }
   return {
     folderNames: json.folderNames,
     enabled: true,

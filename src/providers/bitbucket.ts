@@ -4,6 +4,7 @@ import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associa
 import { bigger } from '~associations/utils';
 
 export const injectIconsBitbucket = target => {
+  console.log('buk');
   const $items = select.all('.css-134uz78', target);
 
   $items.forEach(async (item, index) => {
@@ -11,6 +12,7 @@ export const injectIconsBitbucket = target => {
     const isDir = select.exists('[aria-label="Directory,"]', item);
     const name = select('.css-15qk21d', item)?.textContent;
     const $icon = select('.css-x5ykhp', item);
+    console.log('name', name, isFile, isDir);
 
     if (isFile) {
       let assoc = getAssociation(name);
