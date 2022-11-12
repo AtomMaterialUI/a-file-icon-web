@@ -15,21 +15,18 @@
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
-  "engines": {
-    "node": ">= 16.0.0 < 17.0.0"
-  },
   "scripts": {
     "clean": "rimraf public",
     "icons": "gulp icons",
     "folders": "gulp folders",
     "convert": "npm --prefix iconGenerator run convert",
-    "build": "npm run clean && npm run convert && npm run public && rollup -c",
+    "build": "npm run clean && npm run convert && npm run public && npm run plasmo:build",
     "autobuild": "rollup -c -w",
     "public": "gulp prepare",
     "dev": "run-p start:dev autobuild",
     "prestart:dev": "gulp prepare",
     "plasmo:dev": "plasmo dev",
-    "plasmo:build": "plasmo build",
+    "plasmo:build": "plasmo build --zip",
     "start": "sirv public --single",
     "start:dev": "sirv public --single --dev",
     "release": "gulp release",
@@ -79,6 +76,10 @@
     "typescript": "4.8.2"
   },
   "manifest": {
+    "name": "Atom Material Icons",
+    "description": "Atom Material Icons for GitHub, BitBucket, Gitee and GitLab",
+    "author": "Elior Boukhobza (Mallowigi)",
+    "homepage_url": "https://www.material-theme.com",
     "host_permissions": [
       "http://github.com/*",
       "https://github.com/*",
