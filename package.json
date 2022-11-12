@@ -1,6 +1,6 @@
 {
   "name": "atom-material-icons-web",
-  "version": "7.0.2",
+  "version": "7.0.3",
   "description": "Atom Material Icons for GitHub",
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
   "license": "MIT",
@@ -42,7 +42,7 @@
     "@babel/runtime": "7.18.9",
     "@rollup/plugin-commonjs": "22.0.1",
     "@rollup/plugin-json": "4.1.0",
-    "@rollup/plugin-node-resolve": "13.3.0",
+    "@rollup/plugin-node-resolve": "15.0.1",
     "gulp": "4.0.2",
     "gulp-clean": "0.4.0",
     "gulp-clean-css": "4.3.0",
