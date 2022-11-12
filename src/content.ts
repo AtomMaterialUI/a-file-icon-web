@@ -7,6 +7,7 @@ import {
   injectIconsGitlab,
   injectIconsPullRequests,
   injectIconsGitee,
+  injectIconsGithubCodeView,
 } from '~providers';
 
 const apply = (target: ParentNode) => {
@@ -28,7 +29,9 @@ const apply = (target: ParentNode) => {
   else if (select.exists('.ActionList-item-visual > .octicon', target)) {
     injectIconsPullRequests(target);
   }
-
+  else if (select.exists('.react-directory-filename-column', target)) {
+    injectIconsGithubCodeView(target);
+  }
 };
 
 const init = () => {

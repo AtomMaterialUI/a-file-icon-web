@@ -60,7 +60,9 @@ export function getAssociation(name: string): FileIconAssociation {
 }
 
 function searchInCache(name: string): FileIconAssociation | null {
-  return cache.find((assoc: FileIconAssociation) => assoc.name !== 'Default' && assoc.pattern.test(name));
+  return cache.find((assoc: FileIconAssociation) => {
+    return assoc.priority >= 100 && assoc.pattern.test(name);
+  });
 }
 
 export function getFileIconName(assoc: FileIconAssociation = DEFAULT) {

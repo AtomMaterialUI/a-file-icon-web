@@ -60,7 +60,9 @@ export function getFolderAssociation(name: string): FolderIconAssociation {
 }
 
 function searchInCache(name): FolderIconAssociation | null {
-  return cache.find((assoc: FolderIconAssociation) => assoc.name !== 'Default' && assoc.pattern.test(name));
+  return cache.find((assoc: FolderIconAssociation) => {
+    return assoc.priority >= 100 && assoc.pattern.test(name);
+  });
 }
 
 export function getFolderIconName(assoc: FolderIconAssociation = DEFAULT) {
