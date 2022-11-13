@@ -16,6 +16,10 @@ const Container = styled.main`
   color: var(--fg, #b0bec5);
 `;
 
+function delay(lazyComponent: Promise<any>): Promise<any> {
+  return new Promise(resolve => setTimeout(resolve, 1000)).then(() => lazyComponent);
+}
+
 const Panel = lazy(() => delay(import('~popup/Panel/Panel')));
 
 const Popup = () => (
@@ -31,7 +35,4 @@ const Popup = () => (
 
 export default Popup;
 
-function delay(lazyComponent: Promise<any>): Promise<any> {
-  return new Promise(resolve => setTimeout(resolve, 1000)).then(() => lazyComponent);
-}
 

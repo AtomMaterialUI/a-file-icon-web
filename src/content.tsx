@@ -1,4 +1,5 @@
 import type { PlasmoContentScript } from 'plasmo';
+import { useCallback, useEffect, useState } from 'react';
 import select from 'select-dom';
 import {
   injectIconsGithub,
@@ -9,6 +10,12 @@ import {
   injectIconsGitee,
   injectIconsGithubCodeView,
 } from '~providers';
+
+import createCache from '@emotion/cache';
+import { CacheProvider, Global } from '@emotion/react';
+import { GlobalStyles } from '~Global.styled';
+import { FabPopup } from '~content/FabPopup';
+import { Fab } from '~content/Fab';
 
 const apply = (target: ParentNode) => {
   if (window.location.hostname.includes('bitbucket')) {
@@ -54,8 +61,15 @@ const init = () => {
   setTimeout(() => apply(document.body), 100);
 };
 
-document.addEventListener('turbo:load', init);
-init();
+const styleElement = document.createElement('style');
+
+const styleCache = createCache({
+  key: 'plasmo-emotion-cache',
+  prepend: true,
+  container: styleElement,
+});
+
+export const getStyle = () => styleElement;
 
 export const config: PlasmoContentScript = {
   css: [
@@ -72,3 +86,45 @@ export const config: PlasmoContentScript = {
     'https://gitee.com/*',
   ],
 };
+
+const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const close = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  const toggleOpen = useCallback(() => {
+    setIsOpen(true);
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('turbo:load', init);
+    init();
+  }, []);
+
+  useEffect(() => {
+    // close on clicking on the document
+    if (isOpen) {
+      const listener = (event: MouseEvent) => {
+        const target = event.target as HTMLElement;
+        if (!target.closest('plasmo-csui')) close();
+      };
+
+      document.addEventListener('click', listener);
+      return () => document.removeEventListener('click', listener);
+    }
+  }, [isOpen]);
+
+  return (
+    <CacheProvider value={styleCache}>
+      <Global styles={GlobalStyles} />
+
+      <Fab onClick={toggleOpen} />
+
+      {isOpen && <FabPopup />}
+    </CacheProvider>
+  );
+};
+
+export default App;

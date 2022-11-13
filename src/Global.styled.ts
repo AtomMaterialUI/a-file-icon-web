@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
 
 export const GlobalStyles = css`
+  :host,
+  :host :root,
   :root {
     --bg: #263238;
     --fg: #b0bec5;
