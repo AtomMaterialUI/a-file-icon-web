@@ -1,28 +1,37 @@
-import { useState } from 'react';
+import { Global } from '@emotion/react';
+import styled from '@emotion/styled';
+import { lazy, Suspense } from 'react';
+import { GlobalStyles } from '~Global.styled';
+import { Loading } from '~popup/Loading/Loading';
 
-function IndexPopup() {
-  const [data, setData] = useState('');
+const Container = styled.main`
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--bg, #263238);
+  color: var(--fg, #b0bec5);
+`;
 
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        padding: 16,
-      }}>
-      <h2>
-        Welcome to your{' '}
-        <a href='https://www.plasmo.com' target='_blank'>
-          Plasmo
-        </a>{' '}
-        Extension!
-      </h2>
-      <input onChange={(e) => setData(e.target.value)} value={data} />
-      <a href='https://docs.plasmo.com' target='_blank'>
-        View Docs
-      </a>
-    </div>
-  );
+const Panel = lazy(() => delay(import('~popup/Panel/Panel')));
+
+const Popup = () => (
+  <>
+    <Global styles={GlobalStyles} />
+    <Suspense fallback={<Loading />}>
+      <Container>
+        <Panel />
+      </Container>
+    </Suspense>
+  </>
+);
+
+export default Popup;
+
+function delay(lazyComponent: Promise<any>): Promise<any> {
+  return new Promise(resolve => setTimeout(resolve, 1000)).then(() => lazyComponent);
 }
 
-export default IndexPopup;
