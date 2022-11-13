@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 const StyledFooter = styled.footer`
   grid-area: footer;
-  text-align: right;
+  text-align: center;
 
   a {
     text-decoration: none;
