@@ -94,13 +94,15 @@ const App = () => {
     setIsOpen(false);
   }, []);
 
-  const toggleOpen = useCallback(() => {
+  const open = useCallback(() => {
     setIsOpen(true);
   }, []);
 
   useEffect(() => {
     document.addEventListener('turbo:load', init);
     init();
+
+    return () => document.removeEventListener('turbo:load', init);
   }, []);
 
   useEffect(() => {
@@ -120,7 +122,7 @@ const App = () => {
     <CacheProvider value={styleCache}>
       <Global styles={GlobalStyles} />
 
-      <Fab onClick={toggleOpen} />
+      <Fab onClick={open} />
 
       {isOpen && <FabPopup />}
     </CacheProvider>

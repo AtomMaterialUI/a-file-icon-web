@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
-import { useStorage } from '@plasmohq/storage/hook';
 import { Checkbox } from '~popup/Components/Checkbox';
 import { Range } from '~popup/Components/Range';
 import { ColorPicker } from '~popup/Components/ColorPicker';
+import { useMonochrome, useIconSize, useIconColor } from '~common/selectors';
 
 const Container = styled.div`
 `;
@@ -13,17 +13,17 @@ const Section = styled.section`
 `;
 
 const Form = () => {
-  const [isEnabled, setIsEnabled] = useStorage('atom:isEnabled', true);
-  const [iconSize, setIconSize] = useStorage<number>('atom:iconSize', 16);
-  const [accentColor, setAccentColor] = useStorage<string | null>('atom:accentColor', null);
+  const { isEnabled, setIsEnabled } = useMonochrome();
+  const { iconSize, setIconSize } = useIconSize();
+  const { accentColor, setAccentColor } = useIconColor();
 
   return (
     <Container>
       <section>
         <Checkbox
           isChecked={isEnabled ?? true}
-          text='Enabled'
-          id='isEnabled'
+          text='Monochrome'
+          id='isMonochrome'
           setChecked={setIsEnabled}
         />
       </section>
@@ -41,8 +41,8 @@ const Form = () => {
         <ColorPicker
           value={accentColor ?? null}
           setValue={setAccentColor}
-          text='Accent Color'
-          id='accentColor'
+          text='Icon Color'
+          id='iconColor'
         />
       </section>
     </Container>
