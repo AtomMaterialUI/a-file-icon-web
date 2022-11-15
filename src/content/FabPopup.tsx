@@ -8,11 +8,11 @@ const slideIn = keyframes`
     opacity: 0;
   }
   80% {
-    height: 400px;
+    height: 200px;
   }
   to {
     opacity: 1;
-    height: 400px;
+    height: 200px;
   }
 `;
 
@@ -21,7 +21,7 @@ const PanelContainer = styled.div`
   bottom: 5rem;
   right: 2rem;
   width: 300px;
-  height: 400px;
+  height: 200px;
   background-color: var(--bg, #263238);
   color: var(--fg, #b0bec5);
   border: none;

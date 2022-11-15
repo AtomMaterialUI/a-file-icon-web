@@ -17,7 +17,7 @@ const Container = styled.main`
 `;
 
 function delay(lazyComponent: Promise<any>): Promise<any> {
-  return new Promise(resolve => setTimeout(resolve, 1000)).then(() => lazyComponent);
+  return new Promise(resolve => setTimeout(resolve, 500)).then(() => lazyComponent);
 }
 
 const Panel = lazy(() => delay(import('~popup/Panel/Panel')));
