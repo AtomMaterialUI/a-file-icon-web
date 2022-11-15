@@ -2,6 +2,7 @@ import select from 'select-dom';
 import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
 import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
 import { bigger } from '~associations/utils';
+import { AbstractProvider } from '~providers/AbstractProvider';
 
 export const injectIconsGitlab = target => {
   const $items = select.all('.tree-item', target);
@@ -32,3 +33,30 @@ export const injectIconsGitlab = target => {
     }
   });
 };
+
+export class GitLabProvider extends AbstractProvider {
+  public get dirClass(): string {
+    return '.folder-icon';
+  }
+
+  public get fileClass(): string {
+    return '.file-icon';
+  }
+
+  public get iconClass(): string {
+    return '.tree-item-link > span:first-child';
+  }
+
+  public get itemsClass(): string {
+    return '.tree-item';
+  }
+
+  public get nameClass(): string {
+    return '.tree-item-link > span:last-child';
+  }
+
+  public get svgClass(): string | undefined {
+    return undefined;
+  }
+
+}

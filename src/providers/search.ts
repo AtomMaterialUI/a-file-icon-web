@@ -1,6 +1,7 @@
 import select from 'select-dom';
 import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
 import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
+import { AbstractProvider } from '~providers/AbstractProvider';
 
 export const injectIconsSearch = target => {
   const $items = select.all('.tree-browser-result', target);
@@ -32,3 +33,30 @@ export const injectIconsSearch = target => {
     }
   });
 };
+
+export class GitHubSearchProvider extends AbstractProvider {
+  public get dirClass(): string {
+    return '.octicon-file-directory';
+  }
+
+  public get fileClass(): string {
+    return '.octicon-file';
+  }
+
+  public get iconClass(): string {
+    return '.octicon-file';
+  }
+
+  public get itemsClass(): string {
+    return '.tree-browser-result';
+  }
+
+  public get nameClass(): string {
+    return '.tree-browser-result marked-text';
+  }
+
+  public get svgClass(): string | undefined {
+    return '.octicon-file-text';
+  }
+
+}

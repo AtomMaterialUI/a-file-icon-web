@@ -1,6 +1,7 @@
 import select from 'select-dom';
 import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
 import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
+import { AbstractProvider } from '~providers/AbstractProvider';
 
 export const injectIconsPullRequests = target => {
   const $items = select.all('.ActionList-item', target);
@@ -32,3 +33,30 @@ export const injectIconsPullRequests = target => {
     }
   });
 };
+
+export class PullRequestsProvider extends AbstractProvider {
+  public get dirClass(): string {
+    return '.octicon-file-directory';
+  }
+
+  public get fileClass(): string {
+    return '.octicon-file';
+  }
+
+  public get iconClass(): string {
+    return '.octicon-file';
+  }
+
+  public get itemsClass(): string {
+    return '.ActionList-item';
+  }
+
+  public get nameClass(): string {
+    return '.ActionList-item-label';
+  }
+
+  public get svgClass(): string | undefined {
+    return '.octicon-file-text';
+  }
+
+}

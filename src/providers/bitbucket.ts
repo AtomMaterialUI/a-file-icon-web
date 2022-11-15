@@ -2,6 +2,7 @@ import select from 'select-dom';
 import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
 import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
 import { bigger } from '~associations/utils';
+import { AbstractProvider } from './AbstractProvider';
 
 export const injectIconsBitbucket = target => {
   const $items = select.all('.css-134uz78', target);
@@ -28,3 +29,30 @@ export const injectIconsBitbucket = target => {
     }
   });
 };
+
+export class BitBucketProvider extends AbstractProvider {
+  public get dirClass(): string {
+    return '[aria-label="Directory,"]';
+  }
+
+  public get fileClass(): string {
+    return '[aria-label="File,"]';
+  }
+
+  public get iconClass(): string {
+    return '.css-x5ykhp';
+  }
+
+  public get itemsClass(): string {
+    return '.css-134uz78';
+  }
+
+  public get nameClass(): string {
+    return '.css-15qk21d';
+  }
+
+  public get svgClass(): string | undefined {
+    return undefined;
+  }
+
+}

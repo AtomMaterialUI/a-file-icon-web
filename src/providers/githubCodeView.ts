@@ -1,6 +1,7 @@
 import select from 'select-dom';
 import { getAssociation, getFileIconName, getFileIcon } from '~associations/files';
 import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
+import { AbstractProvider } from '~providers/AbstractProvider';
 
 export const injectIconsGithubCodeView = (target: ParentNode) => {
   const $items = select.all('.react-directory-filename-column', target);
@@ -30,3 +31,30 @@ export const injectIconsGithubCodeView = (target: ParentNode) => {
     }
   });
 };
+
+export class GitHubCodeViewProvider extends AbstractProvider {
+  public get dirClass(): string {
+    return '.icon-directory';
+  }
+
+  public get fileClass(): string {
+    return '.octicon-file';
+  }
+
+  public get iconClass(): string {
+    return 'svg';
+  }
+
+  public get itemsClass(): string {
+    return '.react-directory-filename-column';
+  }
+
+  public get nameClass(): string {
+    return '.react-directory-truncate';
+  }
+
+  public get svgClass(): string | undefined {
+    return '.octicon-file-text';
+  }
+
+}

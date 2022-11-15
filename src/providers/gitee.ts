@@ -2,6 +2,7 @@ import select from 'select-dom';
 import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
 import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
 import { bigger } from '~associations/utils';
+import { AbstractProvider } from '~providers/AbstractProvider';
 
 export const injectIconsGitee = target => {
   const $items = select.all('.tree-item', target);
@@ -28,3 +29,30 @@ export const injectIconsGitee = target => {
     }
   });
 };
+
+export class GiteeProvider extends AbstractProvider {
+  public get dirClass(): string {
+    return '.icon-folders';
+  }
+
+  public get fileClass(): string {
+    return '.icon-file';
+  }
+
+  public get iconClass(): string {
+    return '.iconfont';
+  }
+
+  public get itemsClass(): string {
+    return '.tree-item';
+  }
+
+  public get nameClass(): string {
+    return '.tree-list-item > a';
+  }
+
+  public get svgClass(): string | undefined {
+    return undefined;
+  }
+
+}

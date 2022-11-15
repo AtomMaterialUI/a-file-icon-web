@@ -1,7 +1,8 @@
 import { useStorage } from '@plasmohq/storage/hook';
+import { MONOCHROME, ICON_SIZE, ICON_COLOR } from '~common/constants';
 
 export const useMonochrome = () => {
-  const [isEnabled, setIsEnabled] = useStorage('atom:isMonochrome', true);
+  const [isEnabled, setIsEnabled] = useStorage(MONOCHROME, true);
 
   return {
     isEnabled,
@@ -10,7 +11,7 @@ export const useMonochrome = () => {
 };
 
 export const useIconSize = () => {
-  const [iconSize, setIconSize] = useStorage<number>('atom:iconSize', 6);
+  const [iconSize, setIconSize] = useStorage<number>(ICON_SIZE, 20);
 
   return {
     iconSize,
@@ -19,7 +20,7 @@ export const useIconSize = () => {
 };
 
 export const useIconColor = () => {
-  const [accentColor, setAccentColor] = useStorage<string | null>('atom:accentColor', null);
+  const [accentColor, setAccentColor] = useStorage<string | null>(ICON_COLOR, null);
 
   return {
     accentColor,
