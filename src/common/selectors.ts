@@ -2,7 +2,7 @@ import { useStorage } from '@plasmohq/storage/hook';
 import { MONOCHROME, ICON_SIZE, ICON_COLOR } from '~common/constants';
 
 export const useMonochrome = () => {
-  const [isEnabled, setIsEnabled] = useStorage(MONOCHROME, true);
+  const [isEnabled, setIsEnabled] = useStorage({ key: MONOCHROME, area: 'sync' }, false);
 
   return {
     isEnabled,
@@ -11,7 +11,7 @@ export const useMonochrome = () => {
 };
 
 export const useIconSize = () => {
-  const [iconSize, setIconSize] = useStorage<number>(ICON_SIZE, 20);
+  const [iconSize, setIconSize] = useStorage<number>({ key: ICON_SIZE, area: 'sync' }, 20);
 
   return {
     iconSize,

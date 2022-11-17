@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { Checkbox, Range } from '~popup/Components';
-import { useMonochrome, useIconSize, useIconColor } from '~common/selectors';
+import { Checkbox, Range } from '~common/Components';
+import { useMonochrome, useIconSize } from '~common/selectors';
 
 const Section = styled.section`
   display: block;
@@ -10,13 +10,13 @@ const Section = styled.section`
 const Form = () => {
   const { isEnabled, setIsEnabled } = useMonochrome();
   const { iconSize, setIconSize } = useIconSize();
-  const { accentColor, setAccentColor } = useIconColor();
+  // const { accentColor, setAccentColor } = useIconColor();
 
   return (
     <>
       <section>
         <Checkbox
-          isChecked={isEnabled ?? true}
+          isChecked={isEnabled ?? false}
           text='Monochrome'
           id='isMonochrome'
           setChecked={setIsEnabled}

@@ -87,7 +87,6 @@ const Section = styled.section`
 
 export const Checkbox = ({ id, isChecked, setChecked, text }) => {
   const handleChange = (e) => {
-    console.log(e.target.checked);
     setChecked(e.target.checked);
   };
 

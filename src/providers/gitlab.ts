@@ -6,7 +6,6 @@ import { AbstractProvider } from '~providers/AbstractProvider';
 
 export const injectIconsGitlab = target => {
   const $items = select.all('.tree-item', target);
-  console.log('items', $items);
 
   $items.forEach(async (item, index) => {
     const isFile = select.exists('.file-icon', item);

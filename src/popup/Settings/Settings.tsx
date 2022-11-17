@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import Form from '~popup/Settings/Form';
+import Form from '~content/Settings/Form';
 
 const Container = styled.main`
   position: relative;
@@ -81,7 +81,7 @@ const Settings = () => {
       </Title>
 
       <Grid>
-        <Form></Form>
+        <Form />
       </Grid>
     </Container>
   );
