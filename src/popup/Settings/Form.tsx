@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Checkbox } from '~popup/Components/Checkbox';
+import { Checkbox, Range } from '~popup/Components';
 import { useMonochrome, useIconSize, useIconColor } from '~common/selectors';
 
 const Container = styled.div`
@@ -26,14 +26,14 @@ const Form = () => {
         />
       </section>
 
-      {/*<section>*/}
-      {/*  <Range*/}
-      {/*    id='iconSize'*/}
-      {/*    label='Icon Size'*/}
-      {/*    value={iconSize ?? 16}*/}
-      {/*    setValue={setIconSize}*/}
-      {/*  />*/}
-      {/*</section>*/}
+      <section>
+        <Range
+          id='iconSize'
+          label='Icon Size'
+          value={iconSize ?? 16}
+          setValue={setIconSize}
+        />
+      </section>
 
       {/*<section>*/}
       {/*  <ColorPicker*/}

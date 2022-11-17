@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import type { FC } from 'react';
 
 const Section = styled.section`
   display: block;
@@ -65,7 +66,16 @@ const Section = styled.section`
   }
 `;
 
-export const Range = ({ label, value, setValue, id }) => {
+type Props = {
+  label: string;
+  value: number;
+  setValue: (value: number) => void;
+  id: string;
+  min?: number;
+  max?: number
+}
+
+export const Range: FC<Props> = ({ label, value, setValue, id, min = 10, max = 30 }) => {
   const handleChange = (event) => {
     setValue(parseInt(event.target.value));
   };
@@ -74,8 +84,8 @@ export const Range = ({ label, value, setValue, id }) => {
     <Section>
       <label htmlFor={id}>{label}: <output>{value}</output></label>
       <input type='range'
-             min='10'
-             max='22'
+             min={min}
+             max={max}
              id={id}
              value={value}
              onChange={handleChange} />

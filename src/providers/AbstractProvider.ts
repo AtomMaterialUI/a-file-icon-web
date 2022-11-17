@@ -2,6 +2,7 @@ import { getAssociation, getFileIconName, getFileIcon } from '~associations/file
 import { bigger, wrapSvg } from '~associations/utils';
 import { getFolderAssociation, getFolderIconName, getFolderIcon } from '~associations/folders';
 import select from 'select-dom';
+import { iconSize } from '~common/storage';
 
 export type IconProvider = {
   dirClass: string;
@@ -32,7 +33,7 @@ export abstract class AbstractProvider implements IconProvider {
   injectIcons = async () => {
     const $items = select.all(this.itemsClass, this.target);
     const isDark = select('html').dataset['colorMode'] === 'dark';
-    // const size = Number(await iconSize() || 20);
+    const size = Number(await iconSize() || 20);
     // const color = await iconColor();
 
     $items.forEach(async (item, index) => {
@@ -50,7 +51,7 @@ export abstract class AbstractProvider implements IconProvider {
         const svg = getFolderIcon(className);
         const icon = await wrapSvg(svg);
 
-        $icon.outerHTML = bigger(icon, 20);
+        $icon.outerHTML = bigger(icon, size);
       }
       else if (isFile || isSvg) {
         let assoc = getAssociation(name);
@@ -59,7 +60,7 @@ export abstract class AbstractProvider implements IconProvider {
         const svg = getFileIcon(className, isDark);
         const icon = await wrapSvg(svg);
 
-        $icon.outerHTML = bigger(icon, 20);
+        $icon.outerHTML = bigger(icon, size);
       }
     });
   };

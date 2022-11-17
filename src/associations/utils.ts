@@ -7,7 +7,7 @@ export const bigger = (svg, size = 20) => {
 };
 
 export const wrapSvg = async (svg) => {
-  let css = `display: flex; align-items: center;`;
+  let css = `display: flex; align-items: center; margin-right: 1em`;
   if (await isMonochrome()) {
     css += `filter: grayscale(1);`;
   }
