@@ -35,6 +35,10 @@ export const injectIconsSearch = target => {
 };
 
 export class GitHubSearchProvider extends AbstractProvider {
+  public get styles(): string {
+    return '';
+  }
+
   public get dirClass(): string {
     return '.octicon-file-directory';
   }

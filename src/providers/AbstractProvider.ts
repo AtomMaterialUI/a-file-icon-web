@@ -30,6 +30,8 @@ export abstract class AbstractProvider implements IconProvider {
 
   abstract get svgClass(): string | undefined;
 
+  abstract get styles(): string;
+
   injectIcons = async () => {
     const $items = select.all(this.itemsClass, this.target);
     const isDark = select('html').dataset['colorMode'] === 'dark';
@@ -49,7 +51,7 @@ export abstract class AbstractProvider implements IconProvider {
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
-        const icon = await wrapSvg(svg);
+        const icon = await wrapSvg(svg, this.styles);
 
         $icon.outerHTML = bigger(icon, size);
       }
@@ -58,7 +60,7 @@ export abstract class AbstractProvider implements IconProvider {
         let className = getFileIconName(assoc);
 
         const svg = getFileIcon(className, isDark);
-        const icon = await wrapSvg(svg);
+        const icon = await wrapSvg(svg, this.styles);
 
         $icon.outerHTML = bigger(icon, size);
       }

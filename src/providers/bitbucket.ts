@@ -55,4 +55,8 @@ export class BitBucketProvider extends AbstractProvider {
     return undefined;
   }
 
+  public get styles(): string {
+    return 'margin-right: 1em';
+  }
+
 }

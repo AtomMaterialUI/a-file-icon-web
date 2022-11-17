@@ -61,4 +61,8 @@ export class GitHubProvider extends AbstractProvider {
     return '.octicon-file-text';
   }
 
+  public get styles(): string {
+    return '';
+  }
+
 }

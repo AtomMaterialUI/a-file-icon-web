@@ -1,7 +1,7 @@
 import { Storage } from '@plasmohq/storage';
 import { MONOCHROME, ICON_SIZE, ICON_COLOR } from '~common/constants';
 
-const storage = new Storage();
+const storage = new Storage({ area: 'sync' });
 
 export const isMonochrome = async () => {
   return await storage.get(MONOCHROME);

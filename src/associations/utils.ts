@@ -6,8 +6,8 @@ export const bigger = (svg, size = 20) => {
     .replace('height="16px"', `height="${size}px"`);
 };
 
-export const wrapSvg = async (svg) => {
-  let css = `display: flex; align-items: center; margin-right: 1em`;
+export const wrapSvg = async (svg, styles = '') => {
+  let css = `display: flex; align-items: center; ${styles}`;
   if (await isMonochrome()) {
     css += `filter: grayscale(1);`;
   }
