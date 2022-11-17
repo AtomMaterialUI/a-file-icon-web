@@ -54,7 +54,7 @@ export class GitHubCodeViewProvider extends AbstractProvider {
   }
 
   public get svgClass(): string | undefined {
-    return '.octicon-file-text';
+    return '.octicon-file';
   }
 
   public get styles(): string {

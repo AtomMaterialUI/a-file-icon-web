@@ -6,14 +6,14 @@ export const bigger = (svg, size = 20) => {
     .replace('height="16px"', `height="${size}px"`);
 };
 
-export const wrapSvg = async (svg, styles = '', size = 20) => {
+export const wrapSvg = async (svg, styles = '', size = 20, className = '') => {
   // let css = `display: flex; align-items: center; ${styles}`;
   let css = `${styles}`;
   if (await isMonochrome()) {
     css += `filter: grayscale(1);`;
   }
 
-  return `<span class='atomIcon' style='${css}'>${svg}</span>`;
+  return `<span class='atomIcon ${className}' style='${css}'>${svg}</span>`;
 };
 
 export const withColor = (svg, color) => {
