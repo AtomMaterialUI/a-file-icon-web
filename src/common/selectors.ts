@@ -13,9 +13,14 @@ export const useMonochrome = () => {
 export const useIconSize = () => {
   const [iconSize, setIconSize] = useStorage<number>({ key: ICON_SIZE, area: 'sync' }, 20);
 
+  const handleIconChange = (v) => {
+    document.body.dataset['atomIconSize'] = v;
+    setIconSize(v);
+  };
+
   return {
     iconSize,
-    setIconSize,
+    setIconSize: handleIconChange,
   };
 };
 

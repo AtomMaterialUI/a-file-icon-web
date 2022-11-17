@@ -73,6 +73,9 @@
     "description": "Atom Material Icons for GitHub, BitBucket, Gitee and GitLab",
     "author": "Elior Boukhobza (Mallowigi)",
     "homepage_url": "https://www.material-theme.com",
+    "permissions": [
+      "storage"
+    ],
     "host_permissions": [
       "http://github.com/*",
       "https://github.com/*",

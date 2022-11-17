@@ -51,18 +51,18 @@ export abstract class AbstractProvider implements IconProvider {
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
-        const icon = await wrapSvg(svg, this.styles);
+        const icon = await wrapSvg(svg, this.styles, size);
 
-        $icon.outerHTML = bigger(icon, size);
+        if ($icon.parentNode) $icon.outerHTML = bigger(icon, size);
       }
       else if (isFile || isSvg) {
         let assoc = getAssociation(name);
         let className = getFileIconName(assoc);
 
         const svg = getFileIcon(className, isDark);
-        const icon = await wrapSvg(svg, this.styles);
+        const icon = await wrapSvg(svg, this.styles, size);
 
-        $icon.outerHTML = bigger(icon, size);
+        if ($icon.parentNode) $icon.outerHTML = bigger(icon, size);
       }
     });
   };

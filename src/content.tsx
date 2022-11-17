@@ -14,6 +14,21 @@ const apply = (target: ParentNode) => {
   provider.injectIcons();
 };
 
+const applyCssIcons = () => {
+  // append css
+  const css = document.createElement('style');
+  css.innerHTML = '';
+  // for i from 10 to 30
+  for (let i = 10; i <= 30; i++) {
+    // .icon-10:before { content: "\e900"; }
+    css.innerHTML += `body["atomIconSize=${i}"] .atomIcon { 
+       width: ${i}px;
+    } `;
+  }
+
+  document.head.appendChild(css);
+};
+
 const init = () => {
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -29,6 +44,8 @@ const init = () => {
     characterData: true,
     subtree: true,
   });
+  // TODO this doesnt work
+  // applyCssIcons();
 
   // applying on body in case the list is already present
   setTimeout(() => apply(document.body), 100);
