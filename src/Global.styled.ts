@@ -82,8 +82,8 @@ export const GlobalStyles = css`
     line-height: 1.5;
     color: var(--fg);
     min-width: 450px;
-    min-height: 200px;
-    max-height: 300px;
+    min-height: 300px;
+    max-height: 400px;
   }
 
   h1, h2, h3, h4, h5, h6 {

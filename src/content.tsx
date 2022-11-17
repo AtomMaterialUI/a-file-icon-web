@@ -67,8 +67,8 @@ const App = () => {
     setIsOpen(false);
   }, []);
 
-  const open = useCallback(() => {
-    setIsOpen(true);
+  const toggle = useCallback(() => {
+    setIsOpen(open => !open);
   }, []);
 
   useEffect(() => {
@@ -95,7 +95,7 @@ const App = () => {
     <CacheProvider value={styleCache}>
       <Global styles={GlobalStyles} />
 
-      <Fab onClick={open} />
+      <Fab onClick={toggle} />
 
       {isOpen && <FabPopup />}
     </CacheProvider>
