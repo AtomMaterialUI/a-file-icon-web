@@ -1,12 +1,18 @@
 import { useStorage } from '@plasmohq/storage/hook';
-import { MONOCHROME, ICON_SIZE, ICON_COLOR } from '~common/constants';
+import { MONOCHROME, ICON_SIZE, ICON_COLOR, CSS_VAR_ICON_SIZE, CSS_VAR_MONOCHROME } from '~common/constants';
+import { changeCssVariable } from '~associations/utils';
 
 export const useMonochrome = () => {
-  const [isEnabled, setIsEnabled] = useStorage({ key: MONOCHROME, area: 'sync' }, false);
+  const [isMonochrome, setIsMonochrome] = useStorage({ key: MONOCHROME, area: 'sync' }, false);
+
+  const handleChange = (v) => {
+    changeCssVariable(CSS_VAR_MONOCHROME, v ? 'grayscale(1)' : 'none');
+    setIsMonochrome(v);
+  };
 
   return {
-    isEnabled,
-    setIsEnabled,
+    isMonochrome,
+    setIsMonochrome: handleChange,
   };
 };
 
@@ -14,7 +20,7 @@ export const useIconSize = () => {
   const [iconSize, setIconSize] = useStorage<number>({ key: ICON_SIZE, area: 'sync' }, 20);
 
   const handleIconChange = (v) => {
-    document.body.dataset['atomIconSize'] = v;
+    changeCssVariable(CSS_VAR_ICON_SIZE, `${v}px`);
     setIconSize(v);
   };
 

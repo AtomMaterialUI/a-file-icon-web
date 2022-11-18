@@ -1,20 +1,10 @@
-/*td.icon > svg.octicon-file,*/
-/*.rgh-edit-files-faster {*/
-/*  display: none;*/
-/*}*/
+:root {
+  --atom-icon-size: 20px;
+  --atom-monochrome: none;
+}
 
-/*.js-navigation-item td.icon {*/
-/*  font-size: 16px;*/
-/*  line-height: 12px;*/
-/*}*/
-
-/*.octicon-file {*/
-/*  height: 16px;*/
-/*  margin: 0 1px;*/
-/*  width: 20px;*/
-/*}*/
-
-.css-179algp svg {
-  height: 20px;
-  width: 20px;
+.atomIcon {
+  width: var(--atom-icon-size);
+  height: var(--atom-icon-size);
+  filter: var(--atom-monochrome);
 }

@@ -19,6 +19,7 @@ const Section = styled.section`
     filter: none;
     position: absolute;
     opacity: 0;
+    background: var(--bg);
 
     & + label {
       position: relative;
