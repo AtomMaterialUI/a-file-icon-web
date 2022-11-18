@@ -1,7 +1,7 @@
 import select from 'select-dom';
 import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
 import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
-import { bigger } from '~associations/utils';
+import { removeSize } from '~associations/utils';
 import { AbstractProvider } from '~providers/AbstractProvider';
 
 export const injectIconsGitlab = target => {
@@ -19,7 +19,7 @@ export const injectIconsGitlab = target => {
       let className = getFileIconName(assoc);
 
       const icon = getFileIcon(className);
-      $icon.innerHTML = bigger(icon, 20);
+      $icon.innerHTML = removeSize(icon);
       $icon.style.verticalAlign = '-3px';
     }
     else if (isDir) {
@@ -27,7 +27,7 @@ export const injectIconsGitlab = target => {
       let className = getFolderIconName(assoc);
 
       const icon = getFolderIcon(className);
-      $icon.innerHTML = bigger(icon, 20);
+      $icon.innerHTML = removeSize(icon);
       $icon.style.verticalAlign = '-6px';
     }
   });

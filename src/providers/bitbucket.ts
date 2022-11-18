@@ -1,7 +1,7 @@
 import select from 'select-dom';
 import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
 import { getFolderIconName, getFolderAssociation, getFolderIcon } from '~associations/folders';
-import { bigger } from '~associations/utils';
+import { removeSize } from '~associations/utils';
 import { AbstractProvider } from './AbstractProvider';
 
 export const injectIconsBitbucket = target => {
@@ -18,14 +18,14 @@ export const injectIconsBitbucket = target => {
       let className = getFileIconName(assoc);
 
       const icon = getFileIcon(className);
-      $icon.innerHTML = bigger(icon);
+      $icon.innerHTML = removeSize(icon);
     }
     else if (isDir) {
       let assoc = getFolderAssociation(name);
       let className = getFolderIconName(assoc);
 
       const icon = getFolderIcon(className);
-      $icon.innerHTML = bigger(icon);
+      $icon.innerHTML = removeSize(icon);
     }
   });
 };

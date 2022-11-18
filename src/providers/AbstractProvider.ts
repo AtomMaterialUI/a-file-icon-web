@@ -1,5 +1,5 @@
 import { getAssociation, getFileIconName, getFileIcon } from '~associations/files';
-import { bigger, wrapSvg } from '~associations/utils';
+import { removeSize, wrapSvg } from '~associations/utils';
 import { getFolderAssociation, getFolderIconName, getFolderIcon } from '~associations/folders';
 import select from 'select-dom';
 import { iconSize } from '~common/storage';
@@ -51,18 +51,18 @@ export abstract class AbstractProvider implements IconProvider {
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
-        const icon = await wrapSvg(svg, this.styles, size, 'octicon octicon-file-directory icon-directory');
+        const icon = await wrapSvg(svg, this.styles, 'octicon octicon-file-directory icon-directory');
 
-        if ($icon.parentNode) $icon.outerHTML = bigger(icon, size);
+        if ($icon.parentNode) $icon.outerHTML = removeSize(icon);
       }
       else if (isFile || isSvg) {
         let assoc = getAssociation(name);
         let className = getFileIconName(assoc);
 
         const svg = getFileIcon(className, isDark);
-        const icon = await wrapSvg(svg, this.styles, size, 'octicon octicon-file');
+        const icon = await wrapSvg(svg, this.styles, 'octicon octicon-file');
 
-        if ($icon.parentNode) $icon.outerHTML = bigger(icon, size);
+        if ($icon.parentNode) $icon.outerHTML = removeSize(icon);
       }
       // else {
       //   let assoc = getAssociation(name);
