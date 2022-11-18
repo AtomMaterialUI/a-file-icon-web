@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Footer } from './Footer';
 import Settings from '~popup/Settings/Settings';
+import { Alert } from '~popup/Panel/Alert';
 
 const StyledPanel = styled.div`
   padding-top: 2.5rem;
@@ -14,6 +15,7 @@ const StyledPanel = styled.div`
 
 const Panel = () => (
   <StyledPanel>
+    <Alert />
     <Settings />
     <Footer />
   </StyledPanel>

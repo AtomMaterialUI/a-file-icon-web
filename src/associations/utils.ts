@@ -7,5 +7,6 @@ export const wrapSvg = async (svg, styles = '', className = '') =>
 
 export const withColor = (svg, color) => svg.replaceAll(/fill="(.*)"/g, `fill="${color}"`);
 
-export const changeCssVariable = (property: string, value: string) =>
+export const changeCssVariable = (property: string, value: string) => {
   document.documentElement.style.setProperty(property, value);
+};

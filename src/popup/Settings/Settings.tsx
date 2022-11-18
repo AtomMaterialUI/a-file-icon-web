@@ -69,22 +69,20 @@ const Right = styled.div`
   border: 1px solid var(--hl);
 `;
 
-const Settings = () => {
-  return (
-    <Container>
-      <Title>
-        <h4>Atom Material Icons</h4>
+const Settings = () => (
+  <Container>
+    <Title>
+      <h4>Atom Material Icons</h4>
 
-        <h1>
-          <small>Settings</small>
-        </h1>
-      </Title>
+      <h1>
+        <small>Settings</small>
+      </h1>
+    </Title>
 
-      <Grid>
-        <Form />
-      </Grid>
-    </Container>
-  );
-};
+    <Grid>
+      <Form />
+    </Grid>
+  </Container>
+);
 
 export default Settings;
