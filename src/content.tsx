@@ -7,6 +7,7 @@ import { GlobalStyles } from '~Global.styled';
 import { FabPopup } from '~content/FabPopup';
 import { Fab } from '~content/Fab';
 import { createProvider } from '~providers/ProviderFactory';
+import { useMonochrome, useIconSize } from '~common/selectors';
 
 const apply = (target: ParentNode) => {
   const provider = createProvider(target);
@@ -44,8 +45,6 @@ const init = () => {
     characterData: true,
     subtree: true,
   });
-  // TODO this doesnt work
-  // applyCssIcons();
 
   // applying on body in case the list is already present
   setTimeout(() => apply(document.body), 100);
@@ -79,6 +78,8 @@ export const config: PlasmoContentScript = {
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isMonochrome, setIsMonochrome } = useMonochrome();
+  const { iconSize, setIconSize } = useIconSize();
 
   const close = useCallback(() => {
     setIsOpen(false);
@@ -89,11 +90,13 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    setIsMonochrome(isMonochrome);
+    setIconSize(iconSize);
     document.addEventListener('turbo:load', init);
     init();
 
     return () => document.removeEventListener('turbo:load', init);
-  }, []);
+  }, [isMonochrome, setIsMonochrome, useIconSize, setIconSize]);
 
   useEffect(() => {
     // close on clicking on the document
