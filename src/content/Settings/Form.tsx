@@ -9,7 +9,7 @@ const Section = styled.section`
 
 const Form = () => {
   const { isMonochrome, setIsMonochrome } = useMonochrome();
-  const { iconSize, setIconSize } = useIconSize();
+  const { localIconSize, setIconSize } = useIconSize();
   // const { accentColor, setAccentColor } = useIconColor();
 
   return (
@@ -27,7 +27,7 @@ const Form = () => {
         <Range
           id='iconSize'
           label='Icon Size'
-          value={iconSize ?? 16}
+          value={localIconSize ?? 20}
           setValue={setIconSize}
         />
       </section>

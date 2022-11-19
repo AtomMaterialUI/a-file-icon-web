@@ -1,20 +1,35 @@
 import { useStorage } from '@plasmohq/storage/hook';
 import { MONOCHROME, ICON_SIZE, ICON_COLOR, CSS_VAR_ICON_SIZE, CSS_VAR_MONOCHROME, ALERT } from '~common/constants';
 import { changeCssVariable } from '~associations/utils';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const useMonochrome = () => {
   const { showAlert } = useAlert();
   const [isMonochrome, setIsMonochrome] = useStorage({ key: MONOCHROME, area: 'sync' }, false);
+  const [localMonochrome, setLocalMonochrome] = useState(isMonochrome);
+  let timeoutRef = useRef<NodeJS.Timeout>(null);
 
   const handleChange = (v) => {
+    setLocalMonochrome(v);
     changeCssVariable(CSS_VAR_MONOCHROME, v ? 'grayscale(1)' : 'none');
-    setIsMonochrome(v);
-    showAlert();
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      setIsMonochrome(v);
+      showAlert();
+    }, 100);
   };
+
+  useEffect(() => {
+    setLocalMonochrome(isMonochrome);
+  }, [isMonochrome]);
 
   return {
     isMonochrome,
+    localMonochrome,
     setIsMonochrome: handleChange,
   };
 };
@@ -22,22 +37,30 @@ export const useMonochrome = () => {
 export const useIconSize = () => {
   const { showAlert } = useAlert();
   const [iconSize, setIconSize] = useStorage<number>({ key: ICON_SIZE, area: 'sync' }, 20);
+  const [localIconSize, setLocalIconSize] = useState(iconSize);
   let timeoutRef = useRef<NodeJS.Timeout>(null);
 
   const handleIconChange = (v) => {
-    setIconSize(v);
+    setLocalIconSize(v);
+    changeCssVariable(CSS_VAR_ICON_SIZE, `${v}px`);
+
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
 
     timeoutRef.current = setTimeout(() => {
-      changeCssVariable(CSS_VAR_ICON_SIZE, `${v}px`);
+      setIconSize(v);
       showAlert();
     }, 600);
   };
 
+  useEffect(() => {
+    setLocalIconSize(iconSize);
+  }, [iconSize]);
+
   return {
     iconSize,
+    localIconSize,
     setIconSize: handleIconChange,
   };
 };
