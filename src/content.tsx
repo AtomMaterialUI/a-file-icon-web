@@ -8,6 +8,8 @@ import { FabPopup } from '~content/FabPopup';
 import { Fab } from '~content/Fab';
 import { createProvider } from '~providers/ProviderFactory';
 import { useMonochrome, useIconSize } from '~common/selectors';
+import { changeCssVariable } from '~associations/utils';
+import { CSS_VAR_MONOCHROME, CSS_VAR_ICON_SIZE } from '~common/constants';
 
 const styleElement = document.createElement('style');
 
@@ -41,8 +43,8 @@ let oldHref = window.location.href;
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isMonochrome, setIsMonochrome } = useMonochrome();
-  const { iconSize, setIconSize } = useIconSize();
+  const { isMonochrome } = useMonochrome();
+  const { iconSize } = useIconSize();
 
   const close = useCallback(() => {
     setIsOpen(false);
@@ -55,7 +57,6 @@ const App = () => {
   const apply = useCallback((target: ParentNode) => {
     if (mapCache.has(target)) return;
 
-    console.log('apply', target, mapCache.size);
     const provider = createProvider(target);
     mapCache.set(target, provider);
     if (!provider) return;
@@ -64,7 +65,6 @@ const App = () => {
   }, []);
 
   const init = useCallback(() => {
-    console.log('on init');
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (oldHref !== window.location.href) {
@@ -89,9 +89,9 @@ const App = () => {
   }, [apply]);
 
   useEffect(() => {
-    console.log('use Effect init');
-    setIsMonochrome(isMonochrome);
-    setIconSize(iconSize);
+    changeCssVariable(CSS_VAR_MONOCHROME, isMonochrome ? 'grayscale(1)' : 'none');
+    changeCssVariable(CSS_VAR_ICON_SIZE, `${iconSize}px`);
+
     document.addEventListener('turbo:load', init);
     init();
 
@@ -99,11 +99,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    console.log('use Effect listener');
     // close on clicking on the document
     if (isOpen) {
       const listener = (event: MouseEvent) => {
-        console.log('onCloseListener');
         const target = event.target as HTMLElement;
         if (!target.closest('plasmo-csui')) close();
       };

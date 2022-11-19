@@ -22,11 +22,18 @@ export const useMonochrome = () => {
 export const useIconSize = () => {
   const { showAlert } = useAlert();
   const [iconSize, setIconSize] = useStorage<number>({ key: ICON_SIZE, area: 'sync' }, 20);
+  let timeoutRef = useRef<NodeJS.Timeout>(null);
 
   const handleIconChange = (v) => {
-    changeCssVariable(CSS_VAR_ICON_SIZE, `${v}px`);
     setIconSize(v);
-    showAlert();
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      changeCssVariable(CSS_VAR_ICON_SIZE, `${v}px`);
+      showAlert();
+    }, 600);
   };
 
   return {

@@ -5,6 +5,22 @@
 
 .atomIcon {
   width: var(--atom-icon-size);
-  height: var(--atom-icon-size);
+  /*height: var(--atom-icon-size);*/
   filter: var(--atom-monochrome);
+}
+
+/* Github */
+.Box-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Box-row > div:first-child {
+  display: flex;
+  width: auto !important;
+}
+
+.atomIcon.octicon {
+  display: block;
 }
