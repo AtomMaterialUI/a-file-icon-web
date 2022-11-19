@@ -51,7 +51,7 @@ export abstract class AbstractProvider implements IconProvider {
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
-        const icon = await wrapSvg(svg, this.styles, 'octicon octicon-file-directory icon-directory');
+        const icon = await wrapSvg(svg, this.styles, `octicon ${this.dirClass}`);
 
         if ($icon.parentNode) $icon.outerHTML = removeSize(icon);
       }
@@ -60,7 +60,7 @@ export abstract class AbstractProvider implements IconProvider {
         let className = getFileIconName(assoc);
 
         const svg = getFileIcon(className, isDark);
-        const icon = await wrapSvg(svg, this.styles, 'octicon octicon-file');
+        const icon = await wrapSvg(svg, this.styles, `octicon ${this.fileClass}`);
 
         if ($icon.parentNode) $icon.outerHTML = removeSize(icon);
       }

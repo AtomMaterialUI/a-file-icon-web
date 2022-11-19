@@ -10,11 +10,18 @@
   filter: var(--atom-monochrome);
 }
 
-/* Github */
+/* GitHub */
 .Box-row {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+/* GitLab */
+.tree-item-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
 }
 
 .rgh-quick-file-edit,
@@ -27,6 +34,7 @@
   display: flex;
 }
 
+/* GitHub CodeView */
 .react-directory-filename-column {
   gap: 16px !important;
 }

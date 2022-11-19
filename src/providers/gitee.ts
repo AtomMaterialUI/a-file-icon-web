@@ -55,4 +55,8 @@ export class GiteeProvider extends AbstractProvider {
     return undefined;
   }
 
+  public get styles(): string {
+    return '';
+  }
+
 }

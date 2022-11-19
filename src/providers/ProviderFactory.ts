@@ -3,10 +3,10 @@ import select from 'select-dom';
 import type { IconProvider } from '~providers/AbstractProvider';
 import { GitHubSearchProvider } from '~providers/search';
 import { GitHubProvider } from '~providers/github';
-import { GiteeProvider } from '~providers/gitee';
 import { GitLabProvider } from '~providers/gitlab';
 import { BitBucketProvider } from '~providers/bitbucket';
 import { PullRequestsProvider } from '~providers/pullRequests';
+import { GiteeProvider } from '~providers/gitee';
 
 export const createProvider = (target: ParentNode): IconProvider => {
   if (window.location.hostname.includes('bitbucket')) {

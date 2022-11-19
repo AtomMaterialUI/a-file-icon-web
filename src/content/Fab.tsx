@@ -23,7 +23,8 @@ const FabStyles = styled.button`
 `;
 
 export const Fab = ({ onClick }) => (
-  <FabStyles onClick={onClick} id='atom-fab'>
+  <FabStyles title='Atom Material Icons Settings'
+             onClick={onClick} id='atom-fab'>
     <img src={Logo} alt='Logo' />
   </FabStyles>
 );

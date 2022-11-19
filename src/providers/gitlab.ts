@@ -58,4 +58,8 @@ export class GitLabProvider extends AbstractProvider {
     return undefined;
   }
 
+  public get styles(): string {
+    return '';
+  }
+
 }

@@ -55,7 +55,7 @@ const App = () => {
   }, []);
 
   const apply = useCallback((target: ParentNode) => {
-    if (mapCache.has(target)) return;
+    // if (mapCache.has(target)) return;
 
     const provider = createProvider(target);
     mapCache.set(target, provider);

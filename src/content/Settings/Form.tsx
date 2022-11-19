@@ -8,7 +8,7 @@ const Section = styled.section`
 `;
 
 const Form = () => {
-  const { isMonochrome, setIsMonochrome } = useMonochrome();
+  const { localMonochrome, setIsMonochrome } = useMonochrome();
   const { localIconSize, setIconSize } = useIconSize();
   // const { accentColor, setAccentColor } = useIconColor();
 
@@ -16,7 +16,7 @@ const Form = () => {
     <>
       <section>
         <Checkbox
-          isChecked={isMonochrome ?? false}
+          isChecked={localMonochrome ?? false}
           text='Monochrome'
           id='isMonochrome'
           setChecked={setIsMonochrome}
