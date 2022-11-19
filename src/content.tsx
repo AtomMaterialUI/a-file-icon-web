@@ -96,7 +96,7 @@ const App = () => {
     init();
 
     return () => document.removeEventListener('turbo:load', init);
-  }, []);
+  }, [isMonochrome, iconSize]);
 
   useEffect(() => {
     // close on clicking on the document
