@@ -1,12 +1,12 @@
 import { GitHubCodeViewProvider } from '~providers/githubCodeView';
 import select from 'select-dom';
 import type { IconProvider } from '~providers/AbstractProvider';
-import { PullRequestsProvider } from '~providers/pullRequests';
 import { GitHubSearchProvider } from '~providers/search';
 import { GitHubProvider } from '~providers/github';
 import { GiteeProvider } from '~providers/gitee';
 import { GitLabProvider } from '~providers/gitlab';
 import { BitBucketProvider } from '~providers/bitbucket';
+import { PullRequestsProvider } from '~providers/pullRequests';
 
 export const createProvider = (target: ParentNode): IconProvider => {
   if (window.location.hostname.includes('bitbucket')) {

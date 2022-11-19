@@ -36,7 +36,7 @@ export const injectIconsPullRequests = target => {
 
 export class PullRequestsProvider extends AbstractProvider {
   public get dirClass(): string {
-    return '.octicon-file-directory';
+    return '.cYHWZr';
   }
 
   public get fileClass(): string {
@@ -44,7 +44,7 @@ export class PullRequestsProvider extends AbstractProvider {
   }
 
   public get iconClass(): string {
-    return '.octicon-file';
+    return '.ActionList-item-visual svg';
   }
 
   public get itemsClass(): string {
@@ -56,7 +56,11 @@ export class PullRequestsProvider extends AbstractProvider {
   }
 
   public get svgClass(): string | undefined {
-    return '.octicon-file-text';
+    return undefined;
+  }
+
+  public get styles(): string {
+    return '';
   }
 
 }
