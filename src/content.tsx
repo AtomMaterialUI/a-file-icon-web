@@ -9,47 +9,6 @@ import { Fab } from '~content/Fab';
 import { createProvider } from '~providers/ProviderFactory';
 import { useMonochrome, useIconSize } from '~common/selectors';
 
-const apply = (target: ParentNode) => {
-  const provider = createProvider(target);
-  if (!provider) return;
-  provider.injectIcons();
-};
-
-const applyCssIcons = () => {
-  // append css
-  const css = document.createElement('style');
-  css.innerHTML = '';
-  // for i from 10 to 30
-  for (let i = 10; i <= 30; i++) {
-    // .icon-10:before { content: "\e900"; }
-    css.innerHTML += `body["atomIconSize=${i}"] .atomIcon { 
-       width: ${i}px;
-    } `;
-  }
-
-  document.head.appendChild(css);
-};
-
-const init = () => {
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.type === 'childList') {
-        const target = mutation.target as ParentNode;
-        setTimeout(() => apply(target), 100);
-      }
-    });
-  });
-  observer.observe(document.body, {
-    attributes: true,
-    childList: true,
-    characterData: true,
-    subtree: true,
-  });
-
-  // applying on body in case the list is already present
-  setTimeout(() => apply(document.body), 100);
-};
-
 const styleElement = document.createElement('style');
 
 const styleCache = createCache({
@@ -76,6 +35,10 @@ export const config: PlasmoContentScript = {
   ],
 };
 
+const mapCache = new Map();
+
+let oldHref = window.location.href;
+
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMonochrome, setIsMonochrome } = useMonochrome();
@@ -89,19 +52,58 @@ const App = () => {
     setIsOpen(open => !open);
   }, []);
 
+  const apply = useCallback((target: ParentNode) => {
+    if (mapCache.has(target)) return;
+
+    console.log('apply', target, mapCache.size);
+    const provider = createProvider(target);
+    mapCache.set(target, provider);
+    if (!provider) return;
+
+    provider.injectIcons();
+  }, []);
+
+  const init = useCallback(() => {
+    console.log('on init');
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (oldHref !== window.location.href) {
+          oldHref = window.location.href;
+          mapCache.clear();
+        }
+        if (mutation.type === 'childList') {
+          const target = mutation.target as ParentNode;
+          apply(target);
+        }
+      });
+    });
+    observer.observe(document.body, {
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true,
+    });
+
+    // applying on body in case the list is already present
+    setTimeout(() => apply(document.body), 100);
+  }, [apply]);
+
   useEffect(() => {
+    console.log('use Effect init');
     setIsMonochrome(isMonochrome);
     setIconSize(iconSize);
     document.addEventListener('turbo:load', init);
     init();
 
     return () => document.removeEventListener('turbo:load', init);
-  }, [isMonochrome, setIsMonochrome, useIconSize, setIconSize]);
+  }, []);
 
   useEffect(() => {
+    console.log('use Effect listener');
     // close on clicking on the document
     if (isOpen) {
       const listener = (event: MouseEvent) => {
+        console.log('onCloseListener');
         const target = event.target as HTMLElement;
         if (!target.closest('plasmo-csui')) close();
       };
