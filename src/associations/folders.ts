@@ -54,7 +54,8 @@ export function getFolderAssociation(name: string): FolderIconAssociation {
     return cached;
   }
 
-  let foundAssoc = makeFolderIconAssociation(regexps.find(assoc => new RegExp(assoc.pattern).test(name.toLowerCase())));
+  let foundAssoc = makeFolderIconAssociation(regexps.find(assoc => new RegExp(assoc.pattern.replace('^', ''), 'g')
+    .test(name.toLowerCase())));
   cache.put(foundAssoc);
   return foundAssoc ?? DEFAULT;
 }

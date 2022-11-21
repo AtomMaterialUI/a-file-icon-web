@@ -5,8 +5,8 @@ import { GitHubSearchProvider } from '~providers/search';
 import { GitHubProvider } from '~providers/github';
 import { GitLabProvider } from '~providers/gitlab';
 import { BitBucketProvider } from '~providers/bitbucket';
-import { PullRequestsProvider } from '~providers/pullRequests';
 import { GiteeProvider } from '~providers/gitee';
+import { PullRequestsProvider } from '~providers/pullRequests';
 
 export const createProvider = (target: ParentNode): IconProvider => {
   if (window.location.hostname.includes('bitbucket')) {
