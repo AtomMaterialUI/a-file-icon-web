@@ -22,6 +22,9 @@ export const createProvider = (target: ParentNode): IconProvider => {
   else if (window.location.hostname.includes('azure')) {
     return new AzureProvider(target);
   }
+    // else if (window.location.hostname.includes('codesandbox')) {
+    //   return new CodeSandboxProvider(target);
+  // }
   else if (select.exists('.js-navigation-item > [role="gridcell"]', target)) {
     return new GitHubProvider(target);
   }
