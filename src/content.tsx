@@ -34,6 +34,8 @@ export const config: PlasmoContentScript = {
     'https://gitlab.com/*',
     'http://gitee.com/*',
     'https://gitee.com/*',
+    'http://dev.azure.com/*',
+    'https://dev.azure.com/*',
   ],
 };
 

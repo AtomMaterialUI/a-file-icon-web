@@ -1,6 +1,6 @@
 {
   "name": "atom-material-icons-web",
-  "version": "9.0.0",
+  "version": "10.0.0",
   "description": "Atom Material Icons for GitHub",
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
   "license": "MIT",
@@ -81,7 +81,9 @@
       "http://gitlab.com/*",
       "https://gitlab.com/*",
       "http://gitee.com/*",
-      "https://gitee.com/*"
+      "https://gitee.com/*",
+      "http://dev.azure.com/*",
+      "https://dev.azure.com/*"
     ]
   },
   "peerDependencies": {

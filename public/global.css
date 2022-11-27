@@ -2,6 +2,7 @@
   --atom-icon-size: 20px;
   --atom-monochrome: none;
 }
+
 .octicon-pencil,
 .atomIcon,
 .atomIcon svg {
@@ -43,5 +44,13 @@
   display: flex;
   align-items: center !important;
   gap: 8px;
-  margin: 0.5em 0 ;
+  margin: 0.5em 0;
+}
+
+/* Azure */
+.bolt-table-cell-content,
+.bolt-table-cell-content > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

@@ -7,6 +7,7 @@ import { GitLabProvider } from '~providers/gitlab';
 import { BitBucketProvider } from '~providers/bitbucket';
 import { GiteeProvider } from '~providers/gitee';
 import { PullRequestsProvider } from '~providers/pullRequests';
+import { AzureProvider } from '~providers/azure';
 
 export const createProvider = (target: ParentNode): IconProvider => {
   if (window.location.hostname.includes('bitbucket')) {
@@ -17,6 +18,9 @@ export const createProvider = (target: ParentNode): IconProvider => {
   }
   else if (window.location.hostname.includes('gitee')) {
     return new GiteeProvider(target);
+  }
+  else if (window.location.hostname.includes('azure')) {
+    return new AzureProvider(target);
   }
   else if (select.exists('.js-navigation-item > [role="gridcell"]', target)) {
     return new GitHubProvider(target);

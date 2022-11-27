@@ -11,7 +11,7 @@
 }
 
 /* GitHub */
-.Box-row {
+.js-details-container .Box-row {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -44,4 +44,12 @@
   align-items: center !important;
   gap: 8px;
   margin: 0.5em 0 ;
+}
+
+/* Azure */
+.bolt-table-cell-content,
+.bolt-table-cell-content > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
