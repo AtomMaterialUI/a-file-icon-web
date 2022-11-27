@@ -53,3 +53,15 @@
   align-items: center;
   gap: 8px;
 }
+
+
+/* Azure */
+.bolt-table-cell-content,
+.bolt-table-cell-content > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.fabric-icon:not(.bolt-tree-expand-button)::before {
+  display: none;
+}
