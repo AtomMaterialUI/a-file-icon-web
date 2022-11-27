@@ -49,6 +49,10 @@ const makeFolderIconAssociation = (json: RawFolderIconAssociation): FolderIconAs
 export function getFolderAssociation(name: string): FolderIconAssociation {
   const regexps = iconAssociations.associations.associations.regex as RawFolderIconAssociation[];
 
+  // if (!name) {
+  //   debugger;
+  // }
+
   const cached = searchInCache(name);
   if (cached) {
     return cached;

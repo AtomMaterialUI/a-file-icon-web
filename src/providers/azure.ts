@@ -18,7 +18,7 @@ export class AzureProvider extends AbstractProvider {
   }
 
   public get nameClass(): string {
-    return '.bolt-table-cell-content > .text-ellipsis';
+    return '.bolt-table-cell-content .text-ellipsis';
   }
 
   public get svgClass(): string | undefined {
