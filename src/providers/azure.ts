@@ -19,7 +19,7 @@ export class AzureProvider extends AbstractProvider {
   }
 
   public get itemsClass(): string {
-    return '.bolt-table-cell';
+    return '.bolt-table-row';
   }
 
   public get nameClass(): string {
