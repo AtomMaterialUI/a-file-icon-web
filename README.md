@@ -4,20 +4,30 @@
   <br>
     <img src="https://raw.githubusercontent.com/mallowigi/a-file-icon-idea/master/src/main/resources/META-INF/pluginIcon.svg?sanitize=true" alt="logo" width="200">
   <br><br>
-  Atom Material File Icons
+  Atom Material File Icons for Web
   <br>
   <br>
 </h1>
 
 
 This plugin is a port of the [Atom File Icons](https://github.com/file-icons/atom) for Google Chrome and Mozilla
-Firefox!
+Firefox.
+
+It replaces the icons and folder icons with better suited icons, related to the file type, framework or language.
+
+Works on the following websites:
+
+- [GitHub](https://github.com)
+- [GitLab](https://gitlab.com)
+- [Bitbucket](https://bitbucket.org)
+- [Gitee](https://gitee.com)
+- [Azure](https://dev.azure.com)
 
 ## Chrome Extension
 
 <https://chrome.google.com/webstore/detail/atom-file-icons-web/pljfkbaipkidhmaljaaakibigbcmmpnc>
 
-## Firefox Extension
+## Firefox Extension (Not updated)
 
 <https://addons.mozilla.org/en-US/firefox/addon/atom-file-icons-web/>
 
@@ -30,6 +40,9 @@ Firefox!
 - Replaces **directories**:
     - With a common pattern: src, main, app, img, docs...
     - With a specific pattern: node_modules, .vscode, .git...
+- Settings:
+    - Icon size: Change the icon size on the fly
+    - Monochrome: Use monochrome icons
 
 ## File Icons
 
@@ -42,26 +55,15 @@ Firefox!
 ## Build
 
 ```
-git clone https://github.com/mallowigi/iconGenerator.git (TODO: use submodules)
+git clone https://github.com/mallowigi/iconGenerator.git
 npm install && cd iconGenerator && npm install
 npm run build
-npm run release (Chrome)
-npm run webext (Firefox)
 ```
 
 ## Scripts
 
-- `clean`: Clear up the `public` folder
-- `icons` and `folders`:
-    - Copy icons from `iconGenerator` to `public`
-    - Uses `assets/iconfont.ejs` and `assets/folderIconfont.ejs` to generate the `index.ts` that contains the imports of
-      the svg icons
-- `convert`: Generates `icon_associations.json` and `folder_associations.json` from `iconGenerator`'s xml files
-- `build`: Runs `clean`, `convert`, `public` and build the source files (TODO: use plasmo)
-- `prepare`: Runs `icons`, `folders` and `assets`
-- `public`: Runs `gulp prepare` - prepares the public folder
+- `build`: Runs `clean`, `convert`, `public` and build the source files
 - `dev`: Runs `build` with watch
-- `start`: Runs `dev` and serve contents of `public`
 - `release`: Build the extension for Chrome
 - `webext`: Build the extension for Firefox
 - `firefox`: Generate Firefox's Manifest and run `build` and `webext`

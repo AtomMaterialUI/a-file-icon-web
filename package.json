@@ -1,7 +1,7 @@
 {
   "name": "atom-material-icons-web",
   "version": "10.0.0",
-  "description": "Atom Material Icons for GitHub",
+  "description": "Atom Material Icons for Web",
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -67,7 +67,7 @@
   },
   "manifest": {
     "name": "Atom Material Icons",
-    "description": "Atom Material Icons for GitHub, BitBucket, Gitee and GitLab",
+    "description": "Atom Material Icons for Web (GitHub, BitBucket, Gitee, Azure and GitLab)",
     "author": "Elior Boukhobza (Mallowigi)",
     "homepage_url": "https://www.material-theme.com",
     "permissions": [
