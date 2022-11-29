@@ -2,7 +2,7 @@ import { AbstractProvider } from '~providers/AbstractProvider';
 
 export class PullRequestsProvider extends AbstractProvider {
   public get dirClass(): string {
-    return '.octicon-file-directory-fill';
+    return '.cYHWZr';
   }
 
   public get fileClass(): string {

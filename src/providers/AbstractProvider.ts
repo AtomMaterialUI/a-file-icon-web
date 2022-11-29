@@ -51,7 +51,7 @@ export abstract class AbstractProvider implements IconProvider {
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
-        const icon = await wrapSvg(svg, this.styles, `octicon ${this.dirClass}`);
+        const icon = await wrapSvg(svg, this.styles, `octicon ${this.dirClass.replace('.', '')}`);
 
         if ($icon?.parentNode) $icon.outerHTML = removeSize(icon);
       }

@@ -53,7 +53,7 @@ export class AzureProvider extends AbstractProvider {
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
-        const icon = await wrapSvg(svg, this.styles, `octicon ${this.dirClass}`);
+        const icon = await wrapSvg(svg, this.styles, `octicon ${this.dirClass.replace('.', '')}`);
 
         const newSVG = document.createElement('span');
         newSVG.innerHTML = removeSize(icon);
