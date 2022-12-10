@@ -25,11 +25,11 @@
   gap: 8px !important;
 }
 
-.rgh-quick-file-edit,
-.Box-row > div:first-child {
-  display: flex;
-  width: auto !important;
-}
+/*.rgh-quick-file-edit,*/
+/*.Box-row > div:first-child {*/
+/*  display: flex;*/
+/*  width: auto !important;*/
+/*}*/
 
 .atomIcon.octicon {
   display: flex;

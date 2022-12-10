@@ -7,7 +7,7 @@ import { GlobalStyles } from '~Global.styled';
 import { FabPopup } from '~content/FabPopup';
 import { Fab } from '~content/Fab';
 import { createProvider } from '~providers/ProviderFactory';
-import { useMonochrome, useIconSize } from '~common/selectors';
+import { useMonochrome, useIconSize, useFab } from '~common/selectors';
 import { changeCssVariable } from '~associations/utils';
 import { CSS_VAR_MONOCHROME, CSS_VAR_ICON_SIZE } from '~common/constants';
 
@@ -47,6 +47,7 @@ const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMonochrome } = useMonochrome();
   const { iconSize } = useIconSize();
+  const { showFab } = useFab();
 
   const close = useCallback(() => {
     setIsOpen(false);
@@ -117,7 +118,7 @@ const App = () => {
     <CacheProvider value={styleCache}>
       <Global styles={GlobalStyles} />
 
-      <Fab onClick={toggle} />
+      {showFab && <Fab onClick={toggle} />}
 
       {isOpen && <FabPopup />}
     </CacheProvider>

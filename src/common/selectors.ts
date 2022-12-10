@@ -1,5 +1,13 @@
 import { useStorage } from '@plasmohq/storage/hook';
-import { MONOCHROME, ICON_SIZE, ICON_COLOR, CSS_VAR_ICON_SIZE, CSS_VAR_MONOCHROME, ALERT } from '~common/constants';
+import {
+  MONOCHROME,
+  ICON_SIZE,
+  ICON_COLOR,
+  CSS_VAR_ICON_SIZE,
+  CSS_VAR_MONOCHROME,
+  ALERT,
+  FAB,
+} from '~common/constants';
 import { changeCssVariable } from '~associations/utils';
 import { useEffect, useRef, useState } from 'react';
 
@@ -90,5 +98,36 @@ export const useAlert = () => {
   return {
     isAlertVisible,
     showAlert,
+  };
+};
+
+export const useFab = () => {
+  const { showAlert } = useAlert();
+  const [showFab, setShowFab] = useStorage<boolean>({ key: FAB, area: 'sync' }, true);
+  const [localShowFab, setLocalShowFab] = useState(showFab);
+  let timeoutRef = useRef<NodeJS.Timeout>(null);
+
+  const handleChange = (v) => {
+    setLocalShowFab(v);
+    changeCssVariable(CSS_VAR_ICON_SIZE, `${v}px`);
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      setShowFab(v);
+      showAlert();
+    }, 600);
+  };
+
+  useEffect(() => {
+    setLocalShowFab(showFab);
+  }, [showFab]);
+
+  return {
+    showFab,
+    localShowFab,
+    setShowFab: handleChange,
   };
 };
