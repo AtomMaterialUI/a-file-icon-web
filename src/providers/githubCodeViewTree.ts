@@ -1,8 +1,8 @@
 import { AbstractProvider } from '~providers/AbstractProvider';
 
-export class PullRequestsProvider extends AbstractProvider {
+export class GitHubCodeViewTreeProvider extends AbstractProvider {
   public get dirClass(): string {
-    return '.octicon-file-directory-fill';
+    return '.PRIVATE_TreeView-directory-icon';
   }
 
   public get fileClass(): string {
@@ -10,15 +10,15 @@ export class PullRequestsProvider extends AbstractProvider {
   }
 
   public get iconClass(): string {
-    return '.ActionList-item-visual svg';
+    return '.PRIVATE_TreeView-item-visual';
   }
 
   public get itemsClass(): string {
-    return '.ActionList-item';
+    return '.PRIVATE_TreeView-item-content';
   }
 
   public get nameClass(): string {
-    return '.ActionList-item-label';
+    return '.PRIVATE_TreeView-item-content-text';
   }
 
   public get svgClass(): string | undefined {

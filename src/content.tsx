@@ -62,7 +62,9 @@ const App = () => {
 
     const provider = createProvider(target);
     mapCache.set(target, provider);
-    if (!provider) return;
+    if (!provider) {
+      return;
+    }
 
     provider.injectIcons();
   }, []);
@@ -106,7 +108,9 @@ const App = () => {
     if (isOpen) {
       const listener = (event: MouseEvent) => {
         const target = event.target as HTMLElement;
-        if (!target.closest('plasmo-csui')) close();
+        if (!target.closest('plasmo-csui')) {
+          close();
+        }
       };
 
       document.addEventListener('click', listener);
