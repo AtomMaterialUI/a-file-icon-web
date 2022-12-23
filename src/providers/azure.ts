@@ -1,5 +1,4 @@
 import { AbstractProvider } from '~providers/AbstractProvider';
-import { iconSize } from '~common/storage';
 import { getFolderAssociation, getFolderIconName, getFolderIcon } from '~associations/folders';
 import { wrapSvg, removeSize } from '~associations/utils';
 import { getAssociation, getFileIconName, getFileIcon } from '~associations/files';
@@ -37,8 +36,6 @@ export class AzureProvider extends AbstractProvider {
   injectIcons = async () => {
     const $items = select.all(this.itemsClass, this.target);
     const isDark = select('html').dataset['colorMode'] === 'dark';
-    const size = Number(await iconSize() || 20);
-    // const color = await iconColor();
 
     $items.forEach(async (item, index) => {
       const isFile = select.exists(this.fileClass, item);

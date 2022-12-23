@@ -2,7 +2,6 @@ import { getAssociation, getFileIconName, getFileIcon } from '~associations/file
 import { removeSize, wrapSvg } from '~associations/utils';
 import { getFolderAssociation, getFolderIconName, getFolderIcon } from '~associations/folders';
 import select from 'select-dom';
-import { iconSize } from '~common/storage';
 
 export type IconProvider = {
   dirClass: string;
@@ -35,8 +34,6 @@ export abstract class AbstractProvider implements IconProvider {
   injectIcons = async () => {
     const $items = select.all(this.itemsClass, this.target);
     const isDark = select('html').dataset['colorMode'] === 'dark';
-    const size = Number(await iconSize() || 20);
-    // const color = await iconColor();
 
     $items.forEach(async (item, index) => {
       const isFile = select.exists(this.fileClass, item);
@@ -53,7 +50,9 @@ export abstract class AbstractProvider implements IconProvider {
         const svg = getFolderIcon(className);
         const icon = await wrapSvg(svg, this.styles, `octicon ${this.dirClass.replace('.', '')}`);
 
-        if ($icon?.parentNode) $icon.outerHTML = removeSize(icon);
+        if ($icon?.parentNode) {
+          $icon.outerHTML = removeSize(icon);
+        }
       }
       else if (isFile || isSvg) {
         let assoc = getAssociation(name);
@@ -62,7 +61,9 @@ export abstract class AbstractProvider implements IconProvider {
         const svg = getFileIcon(className, isDark);
         const icon = await wrapSvg(svg, this.styles, `octicon ${this.fileClass}`);
 
-        if ($icon?.parentNode) $icon.outerHTML = removeSize(icon);
+        if ($icon?.parentNode) {
+          $icon.outerHTML = removeSize(icon);
+        }
       }
     });
   };
