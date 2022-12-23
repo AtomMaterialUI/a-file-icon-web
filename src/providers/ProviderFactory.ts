@@ -20,7 +20,7 @@ export const createProvider = (target: ParentNode): IconProvider => {
   else if (window.location.hostname.includes('gitee')) {
     return new GiteeProvider(target);
   }
-  else if (window.location.hostname.includes('azure')) {
+  else if (window.location.hostname.includes('azure') && select.exists('.repos-file-explorer-header', target)) {
     return new AzureProvider(target);
   }
     // else if (window.location.hostname.includes('codesandbox')) {
