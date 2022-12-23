@@ -56,6 +56,8 @@
 }
 
 #__bolt-splitter-fixed-pane0 .bolt-table-container .fabric-icon:not(.bolt-tree-expand-button)::before,
+#__bolt-splitter-fixed-pane1 .bolt-table-container .fabric-icon:not(.bolt-tree-expand-button)::before,
+#__bolt-splitter-fixed-pane2 .bolt-table-container .fabric-icon:not(.bolt-tree-expand-button)::before,
 .repos-files-hub-page .bolt-table-container .fabric-icon:not(.bolt-tree-expand-button)::before {
   display: none;
 }
