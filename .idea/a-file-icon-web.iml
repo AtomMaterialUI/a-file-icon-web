@@ -21,6 +21,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.plasmo" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/iconGenerator/examples" />
+      <excludeFolder url="file://$MODULE_DIR$/iconGenerator/examples/files" />
     </content>
     <content url="file://$MODULE_DIR$/iconGenerator/examples/files" />
     <orderEntry type="inheritedJdk" />
