@@ -1,6 +1,6 @@
 {
   "name": "atom-material-icons-web",
-  "version": "12.0.1",
+  "version": "12.0.2",
   "description": "Atom Material Icons for Web",
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
   "license": "MIT",
@@ -43,7 +43,7 @@
     "@babel/preset-env": "7.20.2",
     "@babel/runtime": "7.20.13",
     "@plasmohq/prettier-plugin-sort-imports": "3.6.1",
-    "@plasmohq/storage": "0.13.1",
+    "@plasmohq/storage": "1.0.0",
     "@types/chrome": "0.0.210",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
