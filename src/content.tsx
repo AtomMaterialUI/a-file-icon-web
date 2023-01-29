@@ -39,8 +39,6 @@ export const config: PlasmoContentScript = {
   ],
 };
 
-const mapCache = new Map();
-
 let oldHref = window.location.href;
 
 const App = () => {
@@ -58,10 +56,7 @@ const App = () => {
   }, []);
 
   const apply = useCallback((target: ParentNode) => {
-    // if (mapCache.has(target)) return;
-
     const provider = createProvider(target);
-    mapCache.set(target, provider);
     if (!provider) {
       return;
     }
@@ -74,7 +69,6 @@ const App = () => {
       mutations.forEach((mutation) => {
         if (oldHref !== window.location.href) {
           oldHref = window.location.href;
-          mapCache.clear();
         }
         if (mutation.type === 'childList') {
           const target = mutation.target as ParentNode;
@@ -89,8 +83,6 @@ const App = () => {
       subtree: true,
     });
 
-    // applying on body in case the list is already present
-    setTimeout(() => apply(document.body), 100);
   }, [apply]);
 
   useEffect(() => {
@@ -99,6 +91,8 @@ const App = () => {
 
     document.addEventListener('turbo:load', init);
     init();
+    // applying on body in case the list is already present
+    setTimeout(() => apply(document.body), 100);
 
     return () => document.removeEventListener('turbo:load', init);
   }, [isMonochrome, iconSize]);

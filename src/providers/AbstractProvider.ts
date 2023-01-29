@@ -2,6 +2,7 @@ import { getAssociation, getFileIconName, getFileIcon } from '~associations/file
 import { removeSize, wrapSvg } from '~associations/utils';
 import { getFolderAssociation, getFolderIconName, getFolderIcon } from '~associations/folders';
 import select from 'select-dom';
+import debounce from 'lodash.debounce';
 
 export type IconProvider = {
   dirClass: string;
@@ -31,11 +32,16 @@ export abstract class AbstractProvider implements IconProvider {
 
   abstract get styles(): string;
 
-  injectIcons = async () => {
+  #injectIcons = async () => {
     const $items = select.all(this.itemsClass, this.target);
     const isDark = select('html').dataset['colorMode'] === 'dark';
 
     $items.forEach(async (item, index) => {
+      // Skip icon if already processed
+      if (item.dataset['processed'] === 'true') {
+        return;
+      }
+
       const isFile = select.exists(this.fileClass, item);
       const isDir = select.exists(this.dirClass, item);
       const isSvg = select.exists(this.svgClass, item);
@@ -65,6 +71,11 @@ export abstract class AbstractProvider implements IconProvider {
           $icon.outerHTML = removeSize(icon);
         }
       }
+
+      // Set a flag to avoid processing the icon again later
+      item.dataset['processed'] = 'true';
     });
   };
+
+  injectIcons = debounce(this.#injectIcons, 1000);
 }
