@@ -1,6 +1,7 @@
 :root {
   --atom-icon-size: 20px;
   --atom-monochrome: none;
+  --toggle-width: 2rem;
 }
 
 .octicon-pencil,
@@ -33,6 +34,10 @@
 
 .atomIcon.octicon {
   display: flex;
+}
+
+.tree-browser-result .atomIcon.octicon {
+  display: inline-block;
 }
 
 /* GitHub CodeView */
