@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export const useMonochrome = () => {
   const { showAlert } = useAlert();
-  const [isMonochrome, setIsMonochrome] = useStorage({ key: MONOCHROME, area: 'sync' }, false);
+  const [isMonochrome, setIsMonochrome] = useStorage(MONOCHROME, false);
   const [localMonochrome, setLocalMonochrome] = useState(isMonochrome);
   let timeoutRef = useRef<NodeJS.Timeout>(null);
 
@@ -44,7 +44,7 @@ export const useMonochrome = () => {
 
 export const useIconSize = () => {
   const { showAlert } = useAlert();
-  const [iconSize, setIconSize] = useStorage<number>({ key: ICON_SIZE, area: 'sync' }, 20);
+  const [iconSize, setIconSize] = useStorage<number>(ICON_SIZE, 20);
   const [localIconSize, setLocalIconSize] = useState(iconSize);
   let timeoutRef = useRef<NodeJS.Timeout>(null);
 
@@ -88,7 +88,9 @@ export const useAlert = () => {
 
   const showAlert = () => {
     setIsAlertVisible(true);
-    if (timeout.current) clearTimeout(timeout.current);
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
 
     timeout.current = setTimeout(() => {
       setIsAlertVisible(false);
@@ -103,7 +105,7 @@ export const useAlert = () => {
 
 export const useFab = () => {
   const { showAlert } = useAlert();
-  const [showFab, setShowFab] = useStorage<boolean>({ key: FAB, area: 'sync' }, true);
+  const [showFab, setShowFab] = useStorage<boolean>(FAB, true);
   const [localShowFab, setLocalShowFab] = useState(showFab);
   let timeoutRef = useRef<NodeJS.Timeout>(null);
 
