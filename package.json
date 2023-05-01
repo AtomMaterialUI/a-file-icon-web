@@ -5,7 +5,7 @@
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@emotion/cache": "11.10.5",
+    "@emotion/cache": "11.10.8",
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
     "compression": "1.7.4",
