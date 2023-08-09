@@ -1,6 +1,6 @@
 {
   "name": "atom-material-icons-web",
-  "version": "13.0.9",
+  "version": "13.0.10",
   "description": "Atom Material Icons for Web",
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "polka": "0.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "select-dom": "7.1.1",
+    "select-dom": "8.0.0",
     "sirv": "2.0.3",
     "sirv-cli": "2.0.2"
   },
