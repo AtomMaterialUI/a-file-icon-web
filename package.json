@@ -1,6 +1,6 @@
 {
   "name": "atom-material-icons-web",
-  "version": "13.0.10",
+  "version": "13.0.11",
   "description": "Atom Material Icons for Web",
   "author": "Elior Boukhobza <heliosaian@gmail.com>",
   "license": "MIT",
@@ -60,7 +60,7 @@
     "gulp-zip": "5.1.0",
     "node-fetch": "3.3.2",
     "npm-run-all": "4.1.5",
-    "prettier": "2.8.8",
+    "prettier": "3.3.2",
     "rimraf": "4.4.1",
     "typescript": "5.3.2",
     "underscore": "1.13.6",
