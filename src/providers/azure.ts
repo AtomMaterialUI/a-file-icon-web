@@ -2,7 +2,7 @@ import { AbstractProvider } from '~providers/AbstractProvider';
 import { getFolderAssociation, getFolderIconName, getFolderIcon } from '~associations/folders';
 import { wrapSvg, removeSize } from '~associations/utils';
 import { getAssociation, getFileIconName, getFileIcon } from '~associations/files';
-import select from 'select-dom';
+import { $$, $, elementExists } from 'select-dom';
 
 export class AzureProvider extends AbstractProvider {
   public get dirClass(): string {
@@ -34,16 +34,16 @@ export class AzureProvider extends AbstractProvider {
   }
 
   injectIcons = async () => {
-    const $items = select.all(this.itemsClass, this.target);
-    const isDark = select('html').dataset['colorMode'] === 'dark';
+    const $items = $$(this.itemsClass, this.target);
+    const isDark = $('html').dataset['colorMode'] === 'dark';
 
     $items.forEach(async (item, index) => {
-      const isFile = select.exists(this.fileClass, item);
-      const isDir = select.exists(this.dirClass, item);
-      const isSvg = select.exists(this.svgClass, item);
+      const isFile = elementExists(this.fileClass, item);
+      const isDir = elementExists(this.dirClass, item);
+      const isSvg = elementExists(this.svgClass, item);
 
-      const name = select(this.nameClass, item)?.textContent?.trim();
-      const $icon = select(this.iconClass, item);
+      const name = $(this.nameClass, item)?.textContent?.trim();
+      const $icon = $(this.iconClass, item);
 
       if (isDir) {
         let assoc = getFolderAssociation(name);

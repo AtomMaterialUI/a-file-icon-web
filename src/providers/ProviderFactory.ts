@@ -1,5 +1,5 @@
 import { GitHubCodeViewProvider } from '~providers/githubCodeView';
-import select from 'select-dom';
+import { elementExists } from 'select-dom';
 import type { IconProvider } from '~providers/AbstractProvider';
 import { GitHubSearchProvider } from '~providers/search';
 import { GitHubProvider } from '~providers/github';
@@ -20,25 +20,25 @@ export const createProvider = (target: ParentNode): IconProvider => {
   else if (window.location.hostname.includes('gitee')) {
     return new GiteeProvider(target);
   }
-  else if (window.location.hostname.includes('azure') && select.exists('.repos-file-explorer-header')) {
+  else if (window.location.hostname.includes('azure') && elementExists('.repos-file-explorer-header')) {
     return new AzureProvider(target);
   }
     // else if (window.location.hostname.includes('codesandbox')) {
     //   return new CodeSandboxProvider(target);
   // }
-  else if (select.exists('.tree-browser-result > .octicon', target)) {
+  else if (elementExists('.tree-browser-result > .octicon', target)) {
     return new GitHubSearchProvider(target);
   }
-  else if (select.exists('.ActionList-item-visual > .octicon', target)) {
+  else if (elementExists('.ActionList-item-visual > .octicon', target)) {
     return new PullRequestsProvider(target);
   }
-  else if (select.exists('.PRIVATE_TreeView-item-content', target)) {
+  else if (elementExists('.PRIVATE_TreeView-item-content', target)) {
     return new GitHubCodeViewTreeProvider(target);
   }
-  else if (select.exists('.react-directory-filename-column', target)) {
+  else if (elementExists('.react-directory-filename-column', target)) {
     return new GitHubCodeViewProvider(target);
   }
-  else if (select.exists('.js-navigation-item > [role="gridcell"]', target)) {
+  else if (elementExists('.js-navigation-item > [role="gridcell"]', target)) {
     return new GitHubProvider(target);
   }
   return null;

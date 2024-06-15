@@ -1,8 +1,8 @@
 import { getAssociation, getFileIconName, getFileIcon } from '~associations/files';
 import { removeSize, wrapSvg } from '~associations/utils';
 import { getFolderAssociation, getFolderIconName, getFolderIcon } from '~associations/folders';
-import select from 'select-dom';
-import debounce from 'lodash.debounce';
+import { $, elementExists, $$ } from 'select-dom';
+import * as debounce from 'lodash.debounce';
 
 export type IconProvider = {
   dirClass: string;
@@ -11,7 +11,7 @@ export type IconProvider = {
   itemsClass: string;
   nameClass: string;
   svgClass?: string;
-  injectIcons();
+  injectIcons: Function;
 }
 
 export abstract class AbstractProvider implements IconProvider {
@@ -33,21 +33,21 @@ export abstract class AbstractProvider implements IconProvider {
   abstract get styles(): string;
 
   #injectIcons = async () => {
-    const $items = select.all(this.itemsClass, this.target);
-    const isDark = select('html').dataset['colorMode'] === 'dark';
+    const $items = $$(this.itemsClass, this.target);
+    const isDark = $('html').dataset['colorMode'] === 'dark';
 
-    $items.forEach(async (item, index) => {
+    $items.forEach(async (item) => {
       // Skip icon if already processed
       if (item.dataset['processed'] === 'true') {
         return;
       }
 
-      const isFile = select.exists(this.fileClass, item);
-      const isDir = select.exists(this.dirClass, item);
-      const isSvg = select.exists(this.svgClass, item);
+      const isFile = elementExists(this.fileClass, item);
+      const isDir = elementExists(this.dirClass, item);
+      const isSvg = elementExists(this.svgClass, item);
 
-      const name = select(this.nameClass, item)?.textContent?.trim();
-      const $icon = select(this.iconClass, item);
+      const name = $(this.nameClass, item)?.textContent?.trim();
+      const $icon = $(this.iconClass, item);
 
       if (isDir) {
         let assoc = getFolderAssociation(name);
