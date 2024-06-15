@@ -6,9 +6,9 @@ import { GlobalStyles } from '~Global.styled';
 import { FabPopup } from '~content/FabPopup';
 import { Fab } from '~content/Fab';
 import { createProvider } from '~providers/ProviderFactory';
-import { useMonochrome, useIconSize, useFab, useIconPacks } from '~common/selectors';
+import { useMonochrome, useIconSize, useFab, useIconPacks, useIconColor } from '~common/selectors';
 import { changeCssVariable } from '~associations/utils';
-import { CSS_VAR_MONOCHROME, CSS_VAR_ICON_SIZE } from '~common/constants';
+import { CSS_VAR_MONOCHROME, CSS_VAR_ICON_SIZE, CSS_VAR_ICON_COLOR } from '~common/constants';
 
 const styleElement = document.createElement('style');
 
@@ -44,6 +44,7 @@ const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMonochrome } = useMonochrome();
   const { iconSize } = useIconSize();
+  const { accentColor } = useIconColor();
   const { iconPacks } = useIconPacks();
   const { showFab } = useFab();
 
@@ -60,6 +61,7 @@ const App = () => {
       isMonochrome,
       iconSize,
       iconPacks,
+      accentColor,
     };
     const provider = createProvider(target, settings);
     if (!provider) {
@@ -67,7 +69,7 @@ const App = () => {
     }
 
     provider.injectIcons();
-  }, [isMonochrome, iconSize, iconPacks]);
+  }, [isMonochrome, iconSize, iconPacks, accentColor]);
 
   const init = useCallback(() => {
     const observer = new MutationObserver((mutations) => {
@@ -93,6 +95,7 @@ const App = () => {
   useEffect(() => {
     changeCssVariable(CSS_VAR_MONOCHROME, isMonochrome ? 'grayscale(1)' : 'none');
     changeCssVariable(CSS_VAR_ICON_SIZE, `${iconSize}px`);
+    changeCssVariable(CSS_VAR_ICON_COLOR, accentColor);
 
     document.addEventListener('turbo:load', init);
     init();
@@ -100,7 +103,7 @@ const App = () => {
     setTimeout(() => apply(document.body), 100);
 
     return () => document.removeEventListener('turbo:load', init);
-  }, [isMonochrome, iconSize]);
+  }, [isMonochrome, iconSize, iconPacks, accentColor]);
 
   useEffect(() => {
     // close on clicking on the document

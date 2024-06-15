@@ -7,3 +7,4 @@ export const FAB = 'atom:fab';
 
 export const CSS_VAR_ICON_SIZE = '--atom-icon-size';
 export const CSS_VAR_MONOCHROME = '--atom-monochrome';
+export const CSS_VAR_ICON_COLOR = '--atom-icon-color';

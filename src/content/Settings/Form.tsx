@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import { Checkbox, Range } from '~common/Components';
-import { useMonochrome, useIconSize, useFab } from '~common/selectors';
+import { Checkbox, Range, ColorPicker } from '~common/Components';
+import { useMonochrome, useIconSize, useFab, useIconColor, useIconPacks } from '~common/selectors';
+import { IconPacks } from '~common/Components/IconPacks';
 
 const Section = styled.section`
   display: block;
@@ -11,7 +12,8 @@ const Form = () => {
   const { localMonochrome, setIsMonochrome } = useMonochrome();
   const { localIconSize, setIconSize } = useIconSize();
   const { localShowFab, setShowFab } = useFab();
-  // const { accentColor, setAccentColor } = useIconColor();
+  const { accentColor, setAccentColor } = useIconColor();
+  const { iconPacks, setIconPacks } = useIconPacks();
 
   return (
     <>
@@ -42,14 +44,21 @@ const Form = () => {
         />
       </section>
 
-      {/*<section>*/}
-      {/*  <ColorPicker*/}
-      {/*    value={accentColor ?? null}*/}
-      {/*    setValue={setAccentColor}*/}
-      {/*    text='Icon Color'*/}
-      {/*    id='iconColor'*/}
-      {/*  />*/}
-      {/*</section>*/}
+      <section>
+        <ColorPicker
+          value={accentColor ?? null}
+          setValue={setAccentColor}
+          text='Folder Icon Color'
+          id='iconColor'
+        />
+      </section>
+
+      <section>
+        <IconPacks
+          value={iconPacks}
+          setValue={setIconPacks}
+        />
+      </section>
     </>
   );
 };

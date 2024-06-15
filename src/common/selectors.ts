@@ -8,6 +8,7 @@ import {
   ALERT,
   FAB,
   ICON_PACKS,
+  CSS_VAR_ICON_COLOR,
 } from '~common/constants';
 import { changeCssVariable } from '~associations/utils';
 import { useEffect, useRef, useState } from 'react';
@@ -76,6 +77,8 @@ export const useIconSize = () => {
 };
 
 export const useIconPacks = () => {
+  const { showAlert } = useAlert();
+  let timeoutRef = useRef<NodeJS.Timeout>(null);
   const [iconPacks, setIconPacks] = useStorage<IconPack[]>(ICON_PACKS, [
     IconPack.ANGULAR2,
     IconPack.NEST,
@@ -87,18 +90,47 @@ export const useIconPacks = () => {
     IconPack.TESTS,
   ]);
 
+  const handleChange = (v: IconPack[]) => {
+    setIconPacks(v);
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      setIconPacks(v);
+      showAlert();
+    }, 600);
+  };
+
   return {
     iconPacks,
-    setIconPacks,
+    setIconPacks: handleChange,
   };
 };
 
 export const useIconColor = () => {
+  const { showAlert } = useAlert();
   const [accentColor, setAccentColor] = useStorage<string | null>(ICON_COLOR, null);
+  let timeoutRef = useRef<NodeJS.Timeout>(null);
+
+  const handleChange = (v: string) => {
+    setAccentColor(v);
+    changeCssVariable(CSS_VAR_ICON_COLOR, `${v}`);
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      setAccentColor(v);
+      showAlert();
+    }, 600);
+  };
 
   return {
     accentColor,
-    setAccentColor,
+    setAccentColor: handleChange,
   };
 };
 

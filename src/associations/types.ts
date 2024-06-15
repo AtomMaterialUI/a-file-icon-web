@@ -32,5 +32,6 @@ export type FolderIconAssociation = IconAssociation & {
 export type AtomSettings = {
   isMonochrome: boolean;
   iconSize: number;
+  accentColor: string;
   iconPacks: IconPack[];
 }
