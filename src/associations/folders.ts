@@ -47,11 +47,7 @@ const makeFolderIconAssociation = (json: RawFolderIconAssociation): FolderIconAs
 };
 
 export function getFolderAssociation(name: string): FolderIconAssociation {
-  const regexps = iconAssociations.associations.associations.regex as RawFolderIconAssociation[];
-
-  // if (!name) {
-  //   debugger;
-  // }
+  const regexps = iconAssociations.associations.associations.regex.map(i => i.value) as RawFolderIconAssociation[];
 
   const cached = searchInCache(name);
   if (cached) {

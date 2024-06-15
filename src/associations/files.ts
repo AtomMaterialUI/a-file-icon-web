@@ -47,7 +47,7 @@ const makeFileIconAssociation = (json: RawFileIconAssociation): FileIconAssociat
 };
 
 export function getAssociation(name: string): FileIconAssociation {
-  const regexps = iconAssociations.associations.associations.regex as RawFileIconAssociation[];
+  const regexps = iconAssociations.associations.associations.regex.map(i => i.value) as RawFileIconAssociation[];
 
   const cached = searchInCache(name);
   if (cached) {
