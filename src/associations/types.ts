@@ -1,4 +1,4 @@
-import type { IconPack } from '~associations/IconPack';
+import type { IconPack, IconPacks } from '~associations/IconPack';
 
 export enum IconType {
   FILE = 'FILE',
@@ -33,5 +33,5 @@ export type AtomSettings = {
   isMonochrome: boolean;
   iconSize: number;
   accentColor: string;
-  iconPacks: IconPack[];
+  iconPacks: IconPacks;
 }

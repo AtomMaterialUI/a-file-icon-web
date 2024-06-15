@@ -12,7 +12,7 @@ import {
 } from '~common/constants';
 import { changeCssVariable } from '~associations/utils';
 import { useEffect, useRef, useState } from 'react';
-import { IconPack } from '~associations/IconPack';
+import { type IconPacks } from '~associations/IconPack';
 
 export const useMonochrome = () => {
   const { showAlert } = useAlert();
@@ -79,18 +79,21 @@ export const useIconSize = () => {
 export const useIconPacks = () => {
   const { showAlert } = useAlert();
   let timeoutRef = useRef<NodeJS.Timeout>(null);
-  const [iconPacks, setIconPacks] = useStorage<IconPack[]>(ICON_PACKS, [
-    IconPack.ANGULAR2,
-    IconPack.NEST,
-    IconPack.NEXTJS,
-    IconPack.NGRX,
-    IconPack.RAILS,
-    IconPack.RECOIL,
-    IconPack.REDUX,
-    IconPack.TESTS,
-  ]);
+  const [iconPacks, setIconPacks] = useStorage<IconPacks>(ICON_PACKS,
+    {
+      angular: false,
+      angular2: true,
+      nest: true,
+      nextjs: true,
+      ngrx: true,
+      recoil: true,
+      rails: true,
+      redux: true,
+      tests: true,
+    },
+  );
 
-  const handleChange = (v: IconPack[]) => {
+  const handleChange = (v: IconPacks) => {
     setIconPacks(v);
 
     if (timeoutRef.current) {

@@ -12,6 +12,7 @@
     "compression": "1.7.4",
     "js-yaml": "4.1.0",
     "lodash.debounce": "4.0.8",
+    "lodash.capitalize": "^4.2.1",
     "plasmo": "0.87.2",
     "polka": "0.5.2",
     "react": "18.3.1",

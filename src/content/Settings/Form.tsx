@@ -54,6 +54,7 @@ const Form = () => {
       </section>
 
       <section>
+        <label>Icon Packs:</label>
         <IconPacks
           value={iconPacks}
           setValue={setIconPacks}
