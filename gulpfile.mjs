@@ -1,9 +1,9 @@
-const gulp = require('gulp');
-const rename = require('gulp-rename');
-const copy = require('gulp-copy');
-const zip = require('gulp-zip');
-const iconFont = require('gulp-iconfont');
-const consolidate = require('gulp-consolidate');
+import gulp from 'gulp';
+import rename from 'gulp-rename';
+import copy from 'gulp-copy';
+import consolidate from 'gulp-consolidate';
+import iconFont from 'gulp-iconfont';
+import zip from 'gulp-zip';
 
 gulp.task('icons', () => {
   return gulp.src('iconGenerator/assets/icons/files/*.svg')
