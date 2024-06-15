@@ -9,37 +9,38 @@ import { GiteeProvider } from '~providers/gitee';
 import { PullRequestsProvider } from '~providers/pullRequests';
 import { AzureProvider } from '~providers/azure';
 import { GitHubCodeViewTreeProvider } from '~providers/githubCodeViewTree';
+import type { AtomSettings } from '~associations/types';
 
-export const createProvider = (target: ParentNode): IconProvider => {
+export const createProvider = (target: ParentNode, settings: AtomSettings): IconProvider => {
   if (window.location.hostname.includes('bitbucket')) {
-    return new BitBucketProvider(target);
+    return new BitBucketProvider(target, settings);
   }
   else if (window.location.hostname.includes('gitlab')) {
-    return new GitLabProvider(target);
+    return new GitLabProvider(target, settings);
   }
   else if (window.location.hostname.includes('gitee')) {
-    return new GiteeProvider(target);
+    return new GiteeProvider(target, settings);
   }
   else if (window.location.hostname.includes('azure') && elementExists('.repos-file-explorer-header')) {
-    return new AzureProvider(target);
+    return new AzureProvider(target, settings);
   }
     // else if (window.location.hostname.includes('codesandbox')) {
     //   return new CodeSandboxProvider(target);
   // }
   else if (elementExists('.tree-browser-result > .octicon', target)) {
-    return new GitHubSearchProvider(target);
+    return new GitHubSearchProvider(target, settings);
   }
   else if (elementExists('.ActionList-item-visual > .octicon', target)) {
-    return new PullRequestsProvider(target);
+    return new PullRequestsProvider(target, settings);
   }
   else if (elementExists('.PRIVATE_TreeView-item-content', target)) {
-    return new GitHubCodeViewTreeProvider(target);
+    return new GitHubCodeViewTreeProvider(target, settings);
   }
   else if (elementExists('.react-directory-filename-column', target)) {
-    return new GitHubCodeViewProvider(target);
+    return new GitHubCodeViewProvider(target, settings);
   }
   else if (elementExists('.js-navigation-item > [role="gridcell"]', target)) {
-    return new GitHubProvider(target);
+    return new GitHubProvider(target, settings);
   }
   return null;
 };

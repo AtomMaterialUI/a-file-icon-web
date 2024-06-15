@@ -1,3 +1,5 @@
+import type { IconPack } from '~associations/IconPack';
+
 export enum IconType {
   FILE = 'FILE',
   FOLDER = 'FOLDER'
@@ -17,6 +19,7 @@ export type FileIconAssociation = IconAssociation & {
   iconType: IconType.FILE;
   iconColor: string;
   url?: string;
+  iconPack?: IconPack;
 }
 
 export type FolderIconAssociation = IconAssociation & {
@@ -24,4 +27,10 @@ export type FolderIconAssociation = IconAssociation & {
   folderColor: string;
   folderIconColor: string;
   iconType: IconType.FOLDER;
+}
+
+export type AtomSettings = {
+  isMonochrome: boolean;
+  iconSize: number;
+  iconPacks: IconPack[];
 }

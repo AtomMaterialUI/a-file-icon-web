@@ -1,6 +1,6 @@
 import iconAssociations from '../../public/folder_associations.json';
 import * as icons from '../../public/icons/folders/index';
-import type { FolderIconAssociation } from '~associations/types';
+import type { FolderIconAssociation, AtomSettings } from '~associations/types';
 import { IconType } from '~associations/types';
 import { NodeLinkedList } from '~associations/NodeLinkedList';
 
@@ -46,8 +46,18 @@ const makeFolderIconAssociation = (json: RawFolderIconAssociation): FolderIconAs
   };
 };
 
-export function getFolderAssociation(name: string): FolderIconAssociation {
-  const regexps = iconAssociations.associations.associations.regex.map(i => i.value) as RawFolderIconAssociation[];
+function searchInCache(name: string): FolderIconAssociation | null {
+  return cache.find((assoc: FolderIconAssociation) => {
+    return assoc.priority >= 100 && assoc.pattern.test(name);
+  });
+}
+
+function findAssociation() {
+  return iconAssociations.associations.associations.regex.map(i => i.value) as RawFolderIconAssociation[];
+}
+
+export function getFolderAssociation(name: string, settings: AtomSettings): FolderIconAssociation {
+  const regexps = findAssociation();
 
   const cached = searchInCache(name);
   if (cached) {
@@ -56,14 +66,10 @@ export function getFolderAssociation(name: string): FolderIconAssociation {
 
   let foundAssoc = makeFolderIconAssociation(regexps.find(assoc => new RegExp(assoc.pattern.replace('^', ''), 'g')
     .test(name.toLowerCase())));
-  cache.put(foundAssoc);
+  if (foundAssoc) {
+    cache.put(foundAssoc);
+  }
   return foundAssoc ?? DEFAULT;
-}
-
-function searchInCache(name): FolderIconAssociation | null {
-  return cache.find((assoc: FolderIconAssociation) => {
-    return assoc.priority >= 100 && assoc.pattern.test(name);
-  });
 }
 
 export function getFolderIconName(assoc: FolderIconAssociation = DEFAULT) {
@@ -73,6 +79,6 @@ export function getFolderIconName(assoc: FolderIconAssociation = DEFAULT) {
     .replace('-', '_')}`;
 }
 
-export function getFolderIcon(iconName) {
+export function getFolderIcon(iconName: string) {
   return icons[`folder_${iconName}`];
 }

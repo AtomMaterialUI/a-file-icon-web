@@ -1,8 +1,9 @@
 import iconAssociations from '../../public/icon_associations.json';
 import { NodeLinkedList } from '~associations/NodeLinkedList';
-import type { FileIconAssociation } from '~associations/types';
+import type { FileIconAssociation, AtomSettings } from '~associations/types';
 import { IconType } from '~associations/types';
 import * as icons from '../../public/icons/files/index';
+import type { IconPack } from '~associations/IconPack';
 
 type RawFileIconAssociation = {
   fileNames: string;
@@ -13,6 +14,7 @@ type RawFileIconAssociation = {
   priority: string;
   iconColor: string;
   url?: string;
+  iconPack?: IconPack;
 }
 
 const cache = new NodeLinkedList<FileIconAssociation>();
@@ -43,10 +45,23 @@ const makeFileIconAssociation = (json: RawFileIconAssociation): FileIconAssociat
     pattern: new RegExp(json.pattern),
     priority: parseInt(json.priority, 10),
     url: json.url,
+    iconPack: json.iconPack,
   };
 };
 
-export function getAssociation(name: string): FileIconAssociation {
+function findAssociation(regexps: RawFileIconAssociation[], name: string, { iconPacks }: AtomSettings) {
+  return regexps
+    .filter(assoc => !assoc.iconPack || assoc.iconPack in iconPacks)
+    .find(assoc => new RegExp(assoc.pattern).test(name));
+}
+
+function searchInCache(name: string): FileIconAssociation | null {
+  return cache.find((assoc: FileIconAssociation) => {
+    return assoc.priority >= 100 && assoc.pattern.test(name);
+  });
+}
+
+export function getAssociation(name: string, settings: AtomSettings): FileIconAssociation {
   const regexps = iconAssociations.associations.associations.regex.map(i => i.value) as RawFileIconAssociation[];
 
   const cached = searchInCache(name);
@@ -54,15 +69,12 @@ export function getAssociation(name: string): FileIconAssociation {
     return cached;
   }
 
-  let foundAssoc = makeFileIconAssociation(regexps.find(assoc => new RegExp(assoc.pattern).test(name)));
-  cache.put(foundAssoc);
+  let association = findAssociation(regexps, name, settings);
+  let foundAssoc = makeFileIconAssociation(association);
+  if (foundAssoc) {
+    cache.put(foundAssoc);
+  }
   return foundAssoc ?? DEFAULT;
-}
-
-function searchInCache(name: string): FileIconAssociation | null {
-  return cache.find((assoc: FileIconAssociation) => {
-    return assoc.priority >= 100 && assoc.pattern.test(name);
-  });
 }
 
 export function getFileIconName(assoc: FileIconAssociation = DEFAULT) {
@@ -73,7 +85,7 @@ export function getFileIconName(assoc: FileIconAssociation = DEFAULT) {
   }`;
 }
 
-export function getFileIcon(iconName, isDark = false) {
+export function getFileIcon(iconName: string, isDark = false) {
   const darkIcon = icons[`file_${iconName}${isDark ? '_dark' : ''}`];
   return darkIcon ?? icons[`file_${iconName}`];
 }

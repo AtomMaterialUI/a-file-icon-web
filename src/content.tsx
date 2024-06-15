@@ -1,4 +1,3 @@
-import type { PlasmoContentScript } from 'plasmo';
 import { useCallback, useEffect, useState } from 'react';
 
 import createCache from '@emotion/cache';
@@ -7,7 +6,7 @@ import { GlobalStyles } from '~Global.styled';
 import { FabPopup } from '~content/FabPopup';
 import { Fab } from '~content/Fab';
 import { createProvider } from '~providers/ProviderFactory';
-import { useMonochrome, useIconSize, useFab } from '~common/selectors';
+import { useMonochrome, useIconSize, useFab, useIconPacks } from '~common/selectors';
 import { changeCssVariable } from '~associations/utils';
 import { CSS_VAR_MONOCHROME, CSS_VAR_ICON_SIZE } from '~common/constants';
 
@@ -21,7 +20,7 @@ const styleCache = createCache({
 
 export const getStyle = () => styleElement;
 
-export const config: PlasmoContentScript = {
+export const config = {
   css: [
     '../public/global.css',
   ],
@@ -45,6 +44,7 @@ const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isMonochrome } = useMonochrome();
   const { iconSize } = useIconSize();
+  const { iconPacks } = useIconPacks();
   const { showFab } = useFab();
 
   const close = useCallback(() => {
@@ -56,13 +56,18 @@ const App = () => {
   }, []);
 
   const apply = useCallback((target: ParentNode) => {
-    const provider = createProvider(target);
+    const settings = {
+      isMonochrome,
+      iconSize,
+      iconPacks,
+    };
+    const provider = createProvider(target, settings);
     if (!provider) {
       return;
     }
 
     provider.injectIcons();
-  }, []);
+  }, [isMonochrome, iconSize, iconPacks]);
 
   const init = useCallback(() => {
     const observer = new MutationObserver((mutations) => {

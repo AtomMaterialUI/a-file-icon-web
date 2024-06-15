@@ -7,9 +7,11 @@ import {
   CSS_VAR_MONOCHROME,
   ALERT,
   FAB,
+  ICON_PACKS,
 } from '~common/constants';
 import { changeCssVariable } from '~associations/utils';
 import { useEffect, useRef, useState } from 'react';
+import { IconPack } from '~associations/IconPack';
 
 export const useMonochrome = () => {
   const { showAlert } = useAlert();
@@ -17,7 +19,7 @@ export const useMonochrome = () => {
   const [localMonochrome, setLocalMonochrome] = useState(isMonochrome);
   let timeoutRef = useRef<NodeJS.Timeout>(null);
 
-  const handleChange = (v) => {
+  const handleChange = (v: boolean) => {
     setLocalMonochrome(v);
     changeCssVariable(CSS_VAR_MONOCHROME, v ? 'grayscale(1)' : 'none');
 
@@ -48,7 +50,7 @@ export const useIconSize = () => {
   const [localIconSize, setLocalIconSize] = useState(iconSize);
   let timeoutRef = useRef<NodeJS.Timeout>(null);
 
-  const handleIconChange = (v) => {
+  const handleIconChange = (v: number) => {
     setLocalIconSize(v);
     changeCssVariable(CSS_VAR_ICON_SIZE, `${v}px`);
 
@@ -70,6 +72,24 @@ export const useIconSize = () => {
     iconSize,
     localIconSize,
     setIconSize: handleIconChange,
+  };
+};
+
+export const useIconPacks = () => {
+  const [iconPacks, setIconPacks] = useStorage<IconPack[]>(ICON_PACKS, [
+    IconPack.ANGULAR2,
+    IconPack.NEST,
+    IconPack.NEXTJS,
+    IconPack.NGRX,
+    IconPack.RAILS,
+    IconPack.RECOIL,
+    IconPack.REDUX,
+    IconPack.TESTS,
+  ]);
+
+  return {
+    iconPacks,
+    setIconPacks,
   };
 };
 
@@ -109,7 +129,7 @@ export const useFab = () => {
   const [localShowFab, setLocalShowFab] = useState(showFab);
   let timeoutRef = useRef<NodeJS.Timeout>(null);
 
-  const handleChange = (v) => {
+  const handleChange = (v: boolean) => {
     setLocalShowFab(v);
     changeCssVariable(CSS_VAR_ICON_SIZE, `${v}px`);
 

@@ -3,6 +3,7 @@ import { removeSize, wrapSvg } from '~associations/utils';
 import { getFolderAssociation, getFolderIconName, getFolderIcon } from '~associations/folders';
 import { $, elementExists, $$ } from 'select-dom';
 import * as debounce from 'lodash.debounce';
+import type { AtomSettings } from '~associations/types';
 
 export type IconProvider = {
   dirClass: string;
@@ -11,11 +12,14 @@ export type IconProvider = {
   itemsClass: string;
   nameClass: string;
   svgClass?: string;
-  injectIcons: Function;
+  injectIcons: () => {};
 }
 
 export abstract class AbstractProvider implements IconProvider {
-  constructor(readonly target: ParentNode) {
+  private readonly settings: AtomSettings;
+
+  constructor(readonly target: ParentNode, settings: AtomSettings) {
+    this.settings = settings;
   }
 
   abstract get itemsClass(): string;
@@ -50,7 +54,7 @@ export abstract class AbstractProvider implements IconProvider {
       const $icon = $(this.iconClass, item);
 
       if (isDir) {
-        let assoc = getFolderAssociation(name);
+        let assoc = getFolderAssociation(name, this.settings);
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
@@ -61,7 +65,7 @@ export abstract class AbstractProvider implements IconProvider {
         }
       }
       else if (isFile || isSvg) {
-        let assoc = getAssociation(name);
+        let assoc = getAssociation(name, this.settings);
         let className = getFileIconName(assoc);
 
         const svg = getFileIcon(className, isDark);

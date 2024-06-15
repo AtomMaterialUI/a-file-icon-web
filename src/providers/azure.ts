@@ -46,7 +46,7 @@ export class AzureProvider extends AbstractProvider {
       const $icon = $(this.iconClass, item);
 
       if (isDir) {
-        let assoc = getFolderAssociation(name);
+        let assoc = getFolderAssociation(name, settings);
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
