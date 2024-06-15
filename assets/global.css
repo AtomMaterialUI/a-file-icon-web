@@ -12,6 +12,10 @@
   filter: var(--atom-monochrome);
 }
 
+.atomIcon svg [data-themed] {
+  fill: var(--atom-icon-color);
+}
+
 /* GitHub */
 .js-details-container .Box-row {
   display: flex;
