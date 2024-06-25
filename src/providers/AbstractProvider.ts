@@ -1,9 +1,11 @@
-import { getAssociation, getFileIconName, getFileIcon } from '~associations/files';
+import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
 import { removeSize, wrapSvg } from '~associations/utils';
-import { getFolderAssociation, getFolderIconName, getFolderIcon } from '~associations/folders';
-import { $, elementExists, $$ } from 'select-dom';
+import { getFolderAssociation, getFolderIcon, getFolderIconName } from '~associations/folders';
+import { $, $$, elementExists } from 'select-dom';
+import { Storage } from '@plasmohq/storage';
 import * as debounce from 'lodash.debounce';
-import type { AtomSettings } from '~associations/types';
+import type { IconPacks } from '~associations/IconPack';
+import { ICON_PACKS } from '~common/constants';
 
 export type IconProvider = {
   dirClass: string;
@@ -15,11 +17,10 @@ export type IconProvider = {
   injectIcons: () => {};
 }
 
-export abstract class AbstractProvider implements IconProvider {
-  private readonly settings: AtomSettings;
+const storage = new Storage();
 
-  constructor(readonly target: ParentNode, settings: AtomSettings) {
-    this.settings = settings;
+export abstract class AbstractProvider implements IconProvider {
+  constructor(readonly target: ParentNode) {
   }
 
   abstract get itemsClass(): string;
@@ -39,6 +40,7 @@ export abstract class AbstractProvider implements IconProvider {
   #injectIcons = async () => {
     const $items = $$(this.itemsClass, this.target);
     const isDark = $('html').dataset['colorMode'] === 'dark';
+    const iconPacks = await storage.get<IconPacks>(ICON_PACKS);
 
     $items.forEach(async (item) => {
       // Skip icon if already processed
@@ -54,7 +56,7 @@ export abstract class AbstractProvider implements IconProvider {
       const $icon = $(this.iconClass, item);
 
       if (isDir) {
-        let assoc = getFolderAssociation(name, this.settings);
+        let assoc = getFolderAssociation(name);
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
@@ -63,9 +65,8 @@ export abstract class AbstractProvider implements IconProvider {
         if ($icon?.parentNode) {
           $icon.outerHTML = removeSize(icon);
         }
-      }
-      else if (isFile || isSvg) {
-        let assoc = getAssociation(name, this.settings);
+      } else if (isFile || isSvg) {
+        let assoc = getAssociation(name, iconPacks);
         let className = getFileIconName(assoc);
 
         const svg = getFileIcon(className, isDark);

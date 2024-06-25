@@ -1,8 +1,8 @@
 import { AbstractProvider } from '~providers/AbstractProvider';
-import { getFolderAssociation, getFolderIconName, getFolderIcon } from '~associations/folders';
-import { wrapSvg, removeSize } from '~associations/utils';
-import { getAssociation, getFileIconName, getFileIcon } from '~associations/files';
-import { $$, $, elementExists } from 'select-dom';
+import { getFolderAssociation, getFolderIcon, getFolderIconName } from '~associations/folders';
+import { removeSize, wrapSvg } from '~associations/utils';
+import { getAssociation, getFileIcon, getFileIconName } from '~associations/files';
+import { $, $$, elementExists } from 'select-dom';
 
 export class AzureProvider extends AbstractProvider {
   public get dirClass(): string {
@@ -46,7 +46,7 @@ export class AzureProvider extends AbstractProvider {
       const $icon = $(this.iconClass, item);
 
       if (isDir) {
-        let assoc = getFolderAssociation(name, settings);
+        let assoc = getFolderAssociation(name);
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
@@ -57,13 +57,11 @@ export class AzureProvider extends AbstractProvider {
 
         if ($icon.hasChildNodes()) {
           $icon.replaceChild(newSVG, $icon.firstChild);
-        }
-        else {
+        } else {
           $icon.appendChild(newSVG);
         }
-      }
-      else if (isFile || isSvg) {
-        let assoc = getAssociation(name);
+      } else if (isFile || isSvg) {
+        let assoc = await getAssociation(name);
         let className = getFileIconName(assoc);
 
         const svg = getFileIcon(className, isDark);
@@ -74,8 +72,7 @@ export class AzureProvider extends AbstractProvider {
 
         if ($icon.hasChildNodes()) {
           $icon.replaceChild(newSVG, $icon.firstChild);
-        }
-        else {
+        } else {
           $icon.appendChild(newSVG);
         }
       }

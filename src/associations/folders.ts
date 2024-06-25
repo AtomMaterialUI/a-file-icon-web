@@ -1,6 +1,6 @@
 import iconAssociations from '../../public/folder_associations.json';
 import * as icons from '../../public/icons/folders/index';
-import type { FolderIconAssociation, AtomSettings } from '~associations/types';
+import type { FolderIconAssociation } from '~associations/types';
 import { IconType } from '~associations/types';
 import { NodeLinkedList } from '~associations/NodeLinkedList';
 
@@ -56,7 +56,7 @@ function findAssociation() {
   return iconAssociations.associations.associations.regex.map(i => i.value) as RawFolderIconAssociation[];
 }
 
-export function getFolderAssociation(name: string, settings: AtomSettings): FolderIconAssociation {
+export function getFolderAssociation(name: string): FolderIconAssociation {
   const regexps = findAssociation();
 
   const cached = searchInCache(name);

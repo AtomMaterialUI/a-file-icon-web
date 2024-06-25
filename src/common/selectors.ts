@@ -13,6 +13,7 @@ import {
 import { changeCssVariable } from '~associations/utils';
 import { useEffect, useRef, useState } from 'react';
 import { type IconPacks } from '~associations/IconPack';
+import { clearCache } from '~associations/files';
 
 export const useMonochrome = () => {
   const { showAlert } = useAlert();
@@ -95,6 +96,7 @@ export const useIconPacks = () => {
 
   const handleChange = (v: IconPacks) => {
     setIconPacks(v);
+    clearCache();
 
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);

@@ -6,9 +6,9 @@ import { GlobalStyles } from '~Global.styled';
 import { FabPopup } from '~content/FabPopup';
 import { Fab } from '~content/Fab';
 import { createProvider } from '~providers/ProviderFactory';
-import { useMonochrome, useIconSize, useFab, useIconPacks, useIconColor } from '~common/selectors';
+import { useFab, useIconColor, useIconPacks, useIconSize, useMonochrome } from '~common/selectors';
 import { changeCssVariable } from '~associations/utils';
-import { CSS_VAR_MONOCHROME, CSS_VAR_ICON_SIZE, CSS_VAR_ICON_COLOR } from '~common/constants';
+import { CSS_VAR_ICON_COLOR, CSS_VAR_ICON_SIZE, CSS_VAR_MONOCHROME } from '~common/constants';
 
 const styleElement = document.createElement('style');
 
@@ -71,18 +71,19 @@ const App = () => {
     provider.injectIcons();
   }, [isMonochrome, iconSize, iconPacks, accentColor]);
 
-  const init = useCallback(() => {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (oldHref !== window.location.href) {
-          oldHref = window.location.href;
-        }
-        if (mutation.type === 'childList') {
-          const target = mutation.target as ParentNode;
-          apply(target);
-        }
-      });
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (oldHref !== window.location.href) {
+        oldHref = window.location.href;
+      }
+      if (mutation.type === 'childList') {
+        const target = mutation.target as ParentNode;
+        apply(target);
+      }
     });
+  });
+
+  const init = useCallback(() => {
     observer.observe(document.body, {
       attributes: true,
       childList: true,
@@ -93,16 +94,18 @@ const App = () => {
   }, [apply]);
 
   useEffect(() => {
-    changeCssVariable(CSS_VAR_MONOCHROME, isMonochrome ? 'grayscale(1)' : 'none');
-    changeCssVariable(CSS_VAR_ICON_SIZE, `${iconSize}px`);
-    changeCssVariable(CSS_VAR_ICON_COLOR, accentColor);
-
     document.addEventListener('turbo:load', init);
     init();
     // applying on body in case the list is already present
     setTimeout(() => apply(document.body), 100);
 
     return () => document.removeEventListener('turbo:load', init);
+  }, []);
+
+  useEffect(() => {
+    changeCssVariable(CSS_VAR_MONOCHROME, isMonochrome ? 'grayscale(1)' : 'none');
+    changeCssVariable(CSS_VAR_ICON_SIZE, `${iconSize}px`);
+    changeCssVariable(CSS_VAR_ICON_COLOR, accentColor);
   }, [isMonochrome, iconSize, iconPacks, accentColor]);
 
   useEffect(() => {
@@ -122,11 +125,11 @@ const App = () => {
 
   return (
     <CacheProvider value={styleCache}>
-      <Global styles={GlobalStyles} />
+      <Global styles={GlobalStyles}/>
 
-      {showFab && <Fab onClick={toggle} />}
+      {showFab && <Fab onClick={toggle}/>}
 
-      {isOpen && <FabPopup />}
+      {isOpen && <FabPopup/>}
     </CacheProvider>
   );
 };
