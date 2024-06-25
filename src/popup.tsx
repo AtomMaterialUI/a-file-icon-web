@@ -12,8 +12,8 @@ const Container = styled.main`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: var(--bg, #263238);
-  color: var(--fg, #b0bec5);
+  background: var(--atom-bg, #263238);
+  color: var(--atom-g, #b0bec5);
 `;
 
 function delay(lazyComponent: Promise<any>): Promise<any> {
@@ -24,15 +24,13 @@ const Panel = lazy(() => delay(import('~popup/Panel/Panel')));
 
 const Popup = () => (
   <>
-    <Global styles={GlobalStyles} />
-    <Suspense fallback={<Loading />}>
+    <Global styles={GlobalStyles}/>
+    <Suspense fallback={<Loading/>}>
       <Container>
-        <Panel />
+        <Panel/>
       </Container>
     </Suspense>
   </>
 );
 
 export default Popup;
-
-

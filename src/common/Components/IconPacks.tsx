@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { IconPack, iconPacks } from '~associations/IconPack';
-import { Checkbox } from '~common/Components/Checkbox';
+import { IconButton } from '~common/Components/IconButton';
 
 const Section = styled.section`
   display: grid;
@@ -23,7 +23,7 @@ export const IconPacks = ({ value, setValue }) => {
   return (
     <Section>
       {iconPacks.map(({ icon, name, id }) => (
-        <Checkbox
+        <IconButton
           isChecked={!!value[id]}
           text={name}
           id={id}

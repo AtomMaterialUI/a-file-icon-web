@@ -20,10 +20,10 @@ const PanelContainer = styled.div`
   position: fixed;
   bottom: 5rem;
   right: 2rem;
-  width: 600px;
+  width: 400px;
   height: 600px;
-  background-color: var(--bg, #263238);
-  color: var(--fg, #b0bec5);
+  background-color: var(--atom-bg, #263238);
+  color: var(--atom-fg, #b0bec5);
   border: none;
   border-radius: 10px;
 
@@ -32,6 +32,6 @@ const PanelContainer = styled.div`
 
 export const FabPopup = () => (
   <PanelContainer>
-    <Panel />
+    <Panel/>
   </PanelContainer>
 );

@@ -25,8 +25,8 @@ const TopAlert = styled.div`
   min-width: 24rem;
   height: 2.5rem;
   padding: 0.625rem 0;
-  background-color: var(--accent);
-  color: var(--selFg);
+  background-color: var(--atom-accent);
+  color: var(--atom-selFg);
   text-align: center;
   font-size: 0.875rem;
   transition: all 0.25s ease;

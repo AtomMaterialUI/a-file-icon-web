@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import Settings from '~content/Settings/Settings';
 
 const StyledPanel = styled.div`
-  padding-top: 2.5rem;
+  padding-top: 1.5rem;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: [content] 100% [footer] 32px;
@@ -13,7 +13,7 @@ const StyledPanel = styled.div`
 
 const Panel = () => (
   <StyledPanel>
-    <Settings />
+    <Settings/>
   </StyledPanel>
 );
 

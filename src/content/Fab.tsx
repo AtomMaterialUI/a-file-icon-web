@@ -9,7 +9,7 @@ const FabStyles = styled.button`
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: var(--accent);
+  background-color: var(--atom-accent);
   color: white;
   border: none;
   cursor: pointer;
@@ -17,14 +17,14 @@ const FabStyles = styled.button`
   transition: opacity 0.2s ease-in-out;
 
   &:hover {
-    background-color: var(--accentT);
+    background-color: var(--atom-accentT);
     opacity: 0.8;
   }
 `;
 
 export const Fab = ({ onClick }) => (
-  <FabStyles title='Atom Material Icons Settings'
-             onClick={onClick} id='atom-fab'>
-    <img src={Logo} alt='Logo' />
+  <FabStyles title="Atom Material Icons Settings"
+             onClick={onClick} id="atom-fab">
+    <img src={Logo} alt="Logo"/>
   </FabStyles>
 );

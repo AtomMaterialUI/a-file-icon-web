@@ -17,7 +17,7 @@ const Title = styled.header`
   h1, h4 {
     font-weight: normal;
     font-style: normal;
-    color: var(--fg);
+    color: var(--atom-fg);
     text-rendering: optimizeLegibility;
     margin-top: 0.2rem;
     margin-bottom: 0.5rem;
@@ -44,7 +44,7 @@ const Title = styled.header`
 
   small {
     font-size: 60%;
-    color: var(--text);
+    color: var(--atom-text);
     line-height: 0;
     font-weight: 300;
     letter-spacing: 0.05em;
@@ -62,11 +62,11 @@ const Left = styled.div`
 `;
 
 const Right = styled.div`
-  background: var(--contrast);
+  background: var(--atom-contrast);
   border-radius: 20px;
   max-height: 300px;
   overflow: auto;
-  border: 1px solid var(--hl);
+  border: 1px solid var(--atom-hl);
 `;
 
 const Settings = () => (
@@ -80,7 +80,7 @@ const Settings = () => (
     </Title>
 
     <Grid>
-      <Form />
+      <Form/>
     </Grid>
   </Container>
 );

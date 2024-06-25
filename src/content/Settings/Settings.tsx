@@ -5,7 +5,6 @@ const Container = styled.main`
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  text-align: center;
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
@@ -14,10 +13,13 @@ const Container = styled.main`
 `;
 
 const Title = styled.header`
+  text-align: center;
+  margin-bottom: 1em;
+
   h1, h4 {
     font-weight: normal;
     font-style: normal;
-    color: var(--fg);
+    color: var(--atom-fg);
     text-rendering: optimizeLegibility;
     margin-top: 0.1rem;
     margin-bottom: 0.25rem;
@@ -44,7 +46,7 @@ const Title = styled.header`
 
   small {
     font-size: 60%;
-    color: var(--text);
+    color: var(--atom-text);
     line-height: 0;
     font-weight: 300;
     letter-spacing: 0.05em;
@@ -52,9 +54,11 @@ const Title = styled.header`
 `;
 
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-column-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
 `;
 
 const Settings = () => (
@@ -66,7 +70,7 @@ const Settings = () => (
     </Title>
 
     <Grid>
-      <Form />
+      <Form/>
     </Grid>
   </Container>
 );

@@ -3,7 +3,8 @@ import styled from '@emotion/styled';
 const Section = styled.section`
   display: flex;
   justify-content: space-between;
-  margin: 1rem auto;
+  margin: 0 auto;
+  gap: 1em;
 
   input[type="color"] {
     -webkit-appearance: none;
@@ -18,14 +19,14 @@ const Section = styled.section`
   }
 
   input[type="color"]::-webkit-color-swatch {
-    border-color: var(--border);
+    border-color: var(--atom-border);
     border-radius: 50%;
   }
 `;
 
 const Badge = styled.span<{ color: string }>`
   display: inline-block;
-  background-color: ${({ color }) => color ?? 'var(--accent)'};
+  background-color: ${({ color }) => color ?? 'var(--atom-accent)'};
   color: white;
   padding: 4px;
   border-radius: 4px;
@@ -42,7 +43,7 @@ export const ColorPicker = ({ id, value, setValue, text }) => {
       <div>
         <input
           id={id}
-          type='color'
+          type="color"
           value={value ?? '#009688'}
           onChange={handleChange}
         />

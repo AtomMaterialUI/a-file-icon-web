@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-const Section = styled.section`
+const Section = styled.div`
   display: block;
-  margin: 1rem auto;
+  //margin: 1rem auto;
 
   label {
     display: block;
@@ -19,7 +19,7 @@ const Section = styled.section`
     filter: none;
     position: absolute;
     opacity: 0;
-    background: var(--bg);
+    background: var(--atom-bg);
 
     & + label {
       position: relative;
@@ -34,15 +34,15 @@ const Section = styled.section`
         vertical-align: text-top;
         width: 16px;
         height: 16px;
-        background: var(--bg);
-        border: 2px solid var(--accent);
+        background: var(--atom-bg);
+        border: 2px solid var(--atom-accent);
         border-radius: 4px;
       }
     }
 
     &:hover {
       & + label:before {
-        background: var(--contrast);
+        background: var(--atom-contrast);
       }
     }
 
@@ -54,8 +54,8 @@ const Section = styled.section`
 
     &:checked {
       & + label:before {
-        background: var(--accent);
-        color: var(--bg);
+        background: var(--atom-accent);
+        color: var(--atom-bg);
       }
 
       & + label:after {
@@ -63,11 +63,11 @@ const Section = styled.section`
         position: absolute;
         left: 3px;
         top: 38%;
-        background: var(--bg);
+        background: var(--atom-bg);
         width: 2px;
         height: 2px;
-        box-shadow: 2px 0 0 var(--bg), 4px 0 0 var(--bg), 4px -2px 0 var(--bg), 4px -4px 0 var(--bg),
-        4px -6px 0 var(--bg), 4px -8px 0 var(--bg);
+        box-shadow: 2px 0 0 var(--atom-bg), 4px 0 0 var(--atom-bg), 4px -2px 0 var(--atom-bg), 4px -4px 0 var(--atom-bg),
+        4px -6px 0 var(--atom-bg), 4px -8px 0 var(--atom-bg);
         transform: rotate(45deg);
       }
     }

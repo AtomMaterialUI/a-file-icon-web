@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
-import { Checkbox, Range, ColorPicker } from '~common/Components';
-import { useMonochrome, useIconSize, useFab, useIconColor, useIconPacks } from '~common/selectors';
+import { Checkbox, ColorPicker, Range } from '~common/Components';
+import { useFab, useIconColor, useIconPacks, useIconSize, useMonochrome } from '~common/selectors';
 import { IconPacks } from '~common/Components/IconPacks';
 
-const Section = styled.section`
+const Section = styled.div`
   display: block;
-  margin: 2rem auto;
+  max-width: 20rem;
+  text-align: left;
 `;
 
 const Form = () => {
@@ -17,49 +18,49 @@ const Form = () => {
 
   return (
     <>
-      <section>
+      <Section>
         <Checkbox
           isChecked={localShowFab ?? true}
-          text='Show Settings Button'
-          id='showFab'
+          text="Show Settings Button"
+          id="showFab"
           setChecked={setShowFab}
         />
-      </section>
+      </Section>
 
-      <section>
+      <Section>
         <Checkbox
           isChecked={localMonochrome ?? false}
-          text='Monochrome'
-          id='isMonochrome'
+          text="Monochrome"
+          id="isMonochrome"
           setChecked={setIsMonochrome}
         />
-      </section>
+      </Section>
 
-      <section>
+      <Section>
         <Range
-          id='iconSize'
-          label='Icon Size'
+          id="iconSize"
+          label="Icon Size"
           value={localIconSize ?? 20}
           setValue={setIconSize}
         />
-      </section>
+      </Section>
 
-      <section>
+      <Section>
         <ColorPicker
           value={accentColor ?? null}
           setValue={setAccentColor}
-          text='Folder Icon Color'
-          id='iconColor'
+          text="Folder Icon Color"
+          id="iconColor"
         />
-      </section>
+      </Section>
 
-      <section>
+      <Section>
         <label>Icon Packs:</label>
         <IconPacks
           value={iconPacks}
           setValue={setIconPacks}
         />
-      </section>
+      </Section>
     </>
   );
 };

@@ -10,14 +10,14 @@ const StyledLoading = styled.div`
   padding: 0;
   max-width: 40rem;
   min-width: 24rem;
-  background: var(--bg, #263238);
+  background: var(--atom-bg, #263238);
 `;
 
 const LoadingText = styled.h4`
   font-weight: normal;
   font-style: normal;
   text-rendering: optimizeLegibility;
-  color: var(--fg, #b0bec5);
+  color: var(--atom-fg, #b0bec5);
   margin-top: 0;
   margin-bottom: 0;
   line-height: 1;
