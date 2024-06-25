@@ -5,7 +5,7 @@ import { IconButton } from '~common/Components/IconButton';
 const Section = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
+  gap: 1em;
 `;
 
 export const IconPacks = ({ value, setValue }) => {
@@ -14,7 +14,7 @@ export const IconPacks = ({ value, setValue }) => {
       ...value,
       [id]: value,
     };
-    setValue(newValue);
+    setValue(value);
   };
 
   // @ts-ignore
