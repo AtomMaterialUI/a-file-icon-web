@@ -14,47 +14,47 @@ export const iconPacks = [
   {
     name: 'Angular (Old)',
     id: IconPack.ANGULAR,
-    icon: '',
+    icon: 'angular.svg',
   },
   {
-    name: 'Angular 2',
+    name: 'Angular',
     id: IconPack.ANGULAR2,
-    icon: '',
+    icon: 'angular2.svg',
   },
   {
     name: 'NestJS',
     id: IconPack.NEST,
-    icon: '',
+    icon: 'nest.svg',
   },
   {
     name: 'NextJS',
     id: IconPack.NEXTJS,
-    icon: '',
+    icon: 'nextjs.svg',
   },
   {
     name: 'NGRX',
     id: IconPack.NGRX,
-    icon: '',
+    icon: 'ngrx.svg',
   },
   {
     name: 'Rails',
     id: IconPack.RAILS,
-    icon: '',
+    icon: 'rails.svg',
   },
   {
     name: 'Recoil',
     id: IconPack.RECOIL,
-    icon: '',
+    icon: 'recoil.svg',
   },
   {
     name: 'Redux',
     id: IconPack.REDUX,
-    icon: '',
+    icon: 'redux.svg',
   },
   {
     name: 'Tests',
     id: IconPack.TESTS,
-    icon: '',
+    icon: 'tests.svg',
   },
 ];
 

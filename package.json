@@ -8,12 +8,12 @@
     "@emotion/cache": "11.11.0",
     "@emotion/react": "11.11.4",
     "@emotion/styled": "11.11.5",
-    "@plasmohq/storage": "^1.10.0",
+    "@plasmohq/storage": "^1.11.0",
     "compression": "1.7.4",
     "js-yaml": "4.1.0",
     "lodash.debounce": "4.0.8",
     "lodash.capitalize": "^4.2.1",
-    "plasmo": "0.87.2",
+    "plasmo": "0.88.0",
     "polka": "0.5.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -43,11 +43,11 @@
     "@types/bun": "latest",
     "@ianvs/prettier-plugin-sort-imports": "4.2.1",
     "@types/chrome": "0.0.268",
-    "@types/node": "20.14.2",
+    "@types/node": "20.14.8",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "prettier": "3.3.2",
-    "typescript": "5.4.5",
+    "typescript": "5.5.2",
     "gulp": "5.0.0",
     "gulp-clean": "0.4.0",
     "gulp-clean-css": "4.3.0",
@@ -59,7 +59,7 @@
     "gulp-zip": "6.0.0",
     "node-fetch": "3.3.2",
     "underscore": "1.13.6",
-    "web-ext": "8.1.0"
+    "web-ext": "8.2.0"
   },
   "manifest": {
     "name": "Atom Material Icons",
@@ -80,6 +80,25 @@
       "https://gitee.com/*",
       "http://dev.azure.com/*",
       "https://dev.azure.com/*"
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/packs/*.svg"
+        ],
+        "matches": [
+          "http://github.com/*",
+          "https://github.com/*",
+          "http://bitbucket.org/*",
+          "https://bitbucket.org/*",
+          "http://gitlab.com/*",
+          "https://gitlab.com/*",
+          "http://gitee.com/*",
+          "https://gitee.com/*",
+          "http://dev.azure.com/*",
+          "https://dev.azure.com/*"
+        ]
+      }
     ]
   },
   "peerDependencies": {

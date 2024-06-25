@@ -1,27 +1,29 @@
-# Atom Material Icons Plugin for Web
+# Atom Material File Icons Extension
 
-<h1 align="center">
-  <br>
-    <img src="https://raw.githubusercontent.com/mallowigi/a-file-icon-idea/master/src/main/resources/META-INF/pluginIcon.svg?sanitize=true" alt="logo" width="200">
-  <br><br>
-  Atom Material File Icons for Web
-  <br>
-  <br>
-</h1>
+![logo](https://raw.githubusercontent.com/mallowigi/a-file-icon-idea/master/src/main/resources/META-INF/pluginIcon.svg?sanitize=true)
 
+This extension is a port of Atom File Icons for use in Google Chrome and Mozilla Firefox.
 
-This plugin is a port of the [Atom File Icons](https://github.com/file-icons/atom) for Google Chrome and Mozilla
-Firefox.
+It replaces the standard file and folder icons with more suitable options related to file types, frameworks, or programming languages.
 
-It replaces the icons and folder icons with better suited icons, related to the file type, framework or language.
+<!-- TOC -->
 
-Works on the following websites:
+* [Atom Material File Icons Extension](#atom-material-file-icons-extension)
+    * [Chrome Extension](#chrome-extension)
+    * [Firefox Extension (Not updated)](#firefox-extension-not-updated)
+    * [Supported Sites](#supported-sites)
+    * [Features](#features)
+        * [Icon Packs](#icon-packs)
+        * [File Icons](#file-icons)
+        * [Folder Icons](#folder-icons)
+    * [Development](#development)
+        * [Icon Generator](#icon-generator)
+        * [Gulp Prepare](#gulp-prepare)
+        * [Plasmo](#plasmo)
+        * [Releasing](#releasing)
+    * [Credits](#credits)
 
-- [GitHub](https://github.com)
-- [GitLab](https://gitlab.com)
-- [Bitbucket](https://bitbucket.org)
-- [Gitee](https://gitee.com)
-- [Azure](https://dev.azure.com)
+<!-- TOC -->
 
 ## Chrome Extension
 
@@ -30,6 +32,16 @@ Works on the following websites:
 ## Firefox Extension (Not updated)
 
 <https://addons.mozilla.org/en-US/firefox/addon/atom-file-icons-web/>
+
+## Supported Sites
+
+This extension works on the following websites:
+
+- [GitHub](https://github.com)
+- [GitLab](https://gitlab.com)
+- [Bitbucket](https://bitbucket.org)
+- [Gitee](https://gitee.com)
+- [Azure](https://dev.azure.com)
 
 ## Features
 
@@ -43,39 +55,104 @@ Works on the following websites:
 - Settings:
     - Icon size: Change the icon size on the fly
     - Monochrome: Use monochrome icons
+    - Folder Color: Change the color of regular folders
+    - Icon Packs: Enable specific icon packs
 
-## File Icons
+### Icon Packs
+
+Icon Packs allow customization of icons based on common file patterns in selected frameworks like "controller", "service", "model", "view",
+etc.
+
+Available icon packs:
+
+- **Angular**
+- **NestJS**
+- **NextJS**
+- **NgRx**
+- **Rails**
+- **Redux**
+- **Recoil**
+- **Tests**
+
+### File Icons
 
 ![File Icons](https://raw.githubusercontent.com/mallowigi/iconGenerator/master/assets/files.png)
 
-## Folder Icons
+### Folder Icons
 
 ![Folder Icons](https://raw.githubusercontent.com/mallowigi/iconGenerator/master/assets/folders.png)
 
-## Build
+## Development
 
-```
+### Icon Generator
+
+To build the extension, first clone the [iconGenerator](https://github.com/mallowigi/iconGenerator.git) repository containing all the icons.
+Set it up by following these steps:
+
+```shell
 git clone https://github.com/mallowigi/iconGenerator.git
 npm install && cd iconGenerator && npm install
 npm run build
 ```
 
-## Scripts
+After running these commands, the `iconGenerator` folder will contain all the icons and the `icon_associations.json`
+and `folder_associations.json` files, which describe the associations between file patterns and icons.
 
-- `build`: Runs `clean`, `convert`, `public` and build the source files
-- `dev`: Runs `build` with watch
-- `release`: Build the extension for Chrome
-- `webext`: Build the extension for Firefox
-- `firefox`: Generate Firefox's Manifest and run `build` and `webext`
-- `chrome`: Generate Chrome's Manifest and run `build` and `webext`
+To rerun the generator:
+
+```shell
+npm run convert
+```
+
+### Gulp Prepare
+
+Next, you need to generate the index file that loads all icons as React components. This is done thanks to the `Gulp` task runner.
+
+```shell
+npm run prepare
+```
+
+This process creates the `index.ts` file and places it in the `public/icons/files` and `public/icons/folders` directories.
+
+### Plasmo
+
+The project uses [Plasmo](https://www.plasmo.com/) for building and running web extensions. Plasmo simplifies web extension development by
+supporting the latest web technologies like Webpack, TypeScript, React, Vite, etc.
+
+To start the development server in watch mode and generate an extension stub:
+
+```shell
+npm run dev
+```
+
+Load the dev extension in your browser from `chrome://extensions` (or similar) using the `build/chrome-mv3-dev` directory. The extension
+will
+support hot reload and other features.
+
+To build the extension for production:
+
+```shell
+npm run build
+```
+
+This will create a zip file in the `dist` directory.
+
+### Releasing
+
+To release the extension:
+
+```shell
+npm run release # Build the chrome extension
+# or
+npm run webext # Build the firefox extension
+```
 
 ## Credits
 
-Special credits to:
+Special thanks to:
 
-- The [Material Theme UI plugin](https://www.material-theme.com) for the implementation
-- [Atom File Icons](https://github.com/file-icons/atom)
-  and [Sublime Text A File Icon](https://github.com/SublimeText/AFileIcon) for the idea
+- The [Material Theme UI plugin](https://www.material-theme.com)
+- [Atom File Icons](https://github.com/file-icons/atom) and [Sublime Text A File Icon](https://github.com/SublimeText/AFileIcon)
 - [Scientifics Study Vectors](https://www.svgrepo.com/svg/121720/atom) for the plugin icon
 - [File-Icons](https://github.com/file-icons/source/blob/master/charmap.md)
 - [FontAwesome 4.7.0](https://fontawesome.com/v4.7.0/cheatsheet/)

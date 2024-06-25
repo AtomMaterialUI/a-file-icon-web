@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { iconPacks } from '~associations/IconPack';
+import { IconPack, iconPacks } from '~associations/IconPack';
 import { Checkbox } from '~common/Components/Checkbox';
 
 const Section = styled.section`
@@ -9,13 +9,16 @@ const Section = styled.section`
 `;
 
 export const IconPacks = ({ value, setValue }) => {
-  const handleChange = (value, id) => {
+  const handleChange = (value: any, id: IconPack) => {
     const newValue = {
       ...value,
       [id]: value,
     };
-    setValue(value);
+    setValue(newValue);
   };
+
+  // @ts-ignore
+  const assetsFolderUrl = chrome.runtime.getURL('assets/packs/');
 
   return (
     <Section>
@@ -24,6 +27,7 @@ export const IconPacks = ({ value, setValue }) => {
           isChecked={!!value[id]}
           text={name}
           id={id}
+          icon={`${assetsFolderUrl}${icon}`}
           setChecked={(e) => handleChange(e, id)}
         />
       ))}

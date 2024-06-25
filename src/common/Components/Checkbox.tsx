@@ -67,7 +67,7 @@ const Section = styled.section`
         width: 2px;
         height: 2px;
         box-shadow: 2px 0 0 var(--bg), 4px 0 0 var(--bg), 4px -2px 0 var(--bg), 4px -4px 0 var(--bg),
-          4px -6px 0 var(--bg), 4px -8px 0 var(--bg);
+        4px -6px 0 var(--bg), 4px -8px 0 var(--bg);
         transform: rotate(45deg);
       }
     }
@@ -86,8 +86,16 @@ const Section = styled.section`
   }
 `;
 
-export const Checkbox = ({ id, isChecked, setChecked, text }) => {
-  const handleChange = (e) => {
+interface Props {
+  id: string;
+  isChecked: boolean;
+  setChecked: (isChecked: boolean) => void;
+  text: string;
+  icon?: string;
+}
+
+export const Checkbox = ({ id, isChecked, setChecked, text, icon }: Props) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
   };
 
@@ -95,11 +103,14 @@ export const Checkbox = ({ id, isChecked, setChecked, text }) => {
     <Section>
       <input
         id={id}
-        type='checkbox'
+        type="checkbox"
         checked={isChecked}
         onChange={handleChange}
       />
-      <label htmlFor={id}>{text}</label>
+      <label htmlFor={id}>
+        {icon && <img src={icon} alt={text} width={24} height={24}/>}
+        {text}
+      </label>
     </Section>
   );
 };
