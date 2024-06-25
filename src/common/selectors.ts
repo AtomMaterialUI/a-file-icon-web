@@ -1,14 +1,14 @@
 import { useStorage } from '@plasmohq/storage/hook';
 import {
-  MONOCHROME,
-  ICON_SIZE,
-  ICON_COLOR,
+  ALERT,
+  CSS_VAR_ICON_COLOR,
   CSS_VAR_ICON_SIZE,
   CSS_VAR_MONOCHROME,
-  ALERT,
   FAB,
+  ICON_COLOR,
   ICON_PACKS,
-  CSS_VAR_ICON_COLOR,
+  ICON_SIZE,
+  MONOCHROME,
 } from '~common/constants';
 import { changeCssVariable } from '~associations/utils';
 import { useEffect, useRef, useState } from 'react';

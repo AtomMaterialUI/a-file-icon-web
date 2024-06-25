@@ -1,19 +1,13 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-const Root = styled.div`
-  input {
-    display: block;
-    background-image: none;
-  }
+interface ButtonProps {
+  isChecked: boolean;
+}
 
-  input[type='checkbox'] {
-    display: none;
-  }
-`;
-
-const Button = styled.button`
+const Button = styled.button(({ isChecked }: ButtonProps) => css`
   display: flex;
-  border: 1px solid var(--atom-button);
+  border: ${isChecked ? '2px solid var(--atom-accent)' : '2px solid transparent'};
   border-radius: 4px;
   background-color: var(--atom-button);
   padding: 8px;
@@ -29,11 +23,7 @@ const Button = styled.button`
   &:hover {
     background-color: var(--atom-hl);
   }
-
-  [checked] + & {
-    border: 2px solid var(--atom-accent)
-  }
-`;
+`);
 
 interface Props {
   id: string;
@@ -53,19 +43,11 @@ export const IconButton = ({ id, isChecked, setChecked, text, icon }: Props) => 
   };
 
   return (
-    <Root>
-      <label htmlFor={id}>
-        <input
-          id={id}
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleChange}
-        />
-        <Button onClick={toggle}>
-          {icon && <img src={icon} alt={text} width={24} height={24}/>}
-          {text}
-        </Button>
-      </label>
-    </Root>
+    <div>
+      <Button onClick={toggle} isChecked={!!isChecked}>
+        {icon && <img src={icon} alt={text} width={24} height={24}/>}
+        {text}
+      </Button>
+    </div>
   );
 };

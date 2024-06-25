@@ -8,13 +8,13 @@ const Section = styled.section`
   gap: 1em;
 `;
 
-export const IconPacks = ({ value, setValue }) => {
+export const IconPacks = ({ config, setConfig }) => {
   const handleChange = (value: any, id: IconPack) => {
-    const newValue = {
-      ...value,
+    const newConfig = {
+      ...config,
       [id]: value,
     };
-    setValue(value);
+    setConfig(newConfig);
   };
 
   // @ts-ignore
@@ -22,15 +22,18 @@ export const IconPacks = ({ value, setValue }) => {
 
   return (
     <Section>
-      {iconPacks.map(({ icon, name, id }) => (
-        <IconButton
-          isChecked={!!value[id]}
-          text={name}
-          id={id}
-          icon={`${assetsFolderUrl}${icon}`}
-          setChecked={(e) => handleChange(e, id)}
-        />
-      ))}
+      {iconPacks.map(({ icon, name, id }) => {
+        return (
+          <IconButton
+            isChecked={config[id]}
+            text={name}
+            id={id}
+            key={id}
+            icon={`${assetsFolderUrl}${icon}`}
+            setChecked={(e) => handleChange(e, id)}
+          />
+        );
+      })}
     </Section>
   );
 };
