@@ -54,6 +54,7 @@ export abstract class AbstractProvider implements IconProvider {
 
       const name = $(this.nameClass, item)?.textContent?.trim();
       const $icon = $(this.iconClass, item);
+      const $fallbackIcon = $('.atomIcon', item);
 
       if (isDir) {
         let assoc = getFolderAssociation(name);
@@ -65,15 +66,26 @@ export abstract class AbstractProvider implements IconProvider {
         if ($icon?.parentNode) {
           $icon.outerHTML = removeSize(icon);
         }
-      } else if (isFile || isSvg) {
+      } else {
         let assoc = getAssociation(name, iconPacks);
         let className = getFileIconName(assoc);
 
         const svg = getFileIcon(className, isDark);
-        const icon = await wrapSvg(svg, this.styles, `octicon ${this.fileClass}`);
+        const icon = await wrapSvg(svg, this.styles, `octicon`);
+        if (name === 'crud.controller.ts') {
+          console.log('icon', icon);
+          console.log('$icon', $icon);
+        }
 
         if ($icon?.parentNode) {
           $icon.outerHTML = removeSize(icon);
+        } else if ($fallbackIcon) {
+          $fallbackIcon.outerHTML = removeSize(icon);
+        }
+
+        if (name === 'crud.controller.ts') {
+          console.log('icon2', icon);
+          console.log('$icon2', $icon);
         }
       }
 
