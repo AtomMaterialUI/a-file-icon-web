@@ -66,7 +66,6 @@ function searchInCache(name: string): FileIconAssociation | null {
 }
 
 export function getAssociation(name: string, iconPacks?: IconPacks): FileIconAssociation {
-  console.log('iconPacks', iconPacks);
   const regexps = iconAssociations.associations.associations.regex.map(i => i.value) as RawFileIconAssociation[];
 
   const cached = searchInCache(name);

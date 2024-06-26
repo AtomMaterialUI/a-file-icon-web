@@ -9,6 +9,7 @@ import { createProvider } from '~providers/ProviderFactory';
 import { useFab, useIconColor, useIconPacks, useIconSize, useMonochrome } from '~common/selectors';
 import { changeCssVariable } from '~associations/utils';
 import { CSS_VAR_ICON_COLOR, CSS_VAR_ICON_SIZE, CSS_VAR_MONOCHROME } from '~common/constants';
+import type { IconProvider } from '~providers/AbstractProvider';
 
 const styleElement = document.createElement('style');
 
@@ -42,6 +43,7 @@ let oldHref = window.location.href;
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [provider, setProvider] = useState<IconProvider>();
   const { isMonochrome } = useMonochrome();
   const { iconSize } = useIconSize();
   const { accentColor } = useIconColor();
@@ -57,19 +59,12 @@ const App = () => {
   }, []);
 
   const apply = useCallback((target: ParentNode) => {
-    const settings = {
-      isMonochrome,
-      iconSize,
-      iconPacks,
-      accentColor,
-    };
-    const provider = createProvider(target, settings);
-    if (!provider) {
-      return;
-    }
+    const myProvider = createProvider(target);
+    if (!myProvider) return;
 
-    provider.injectIcons();
-  }, [isMonochrome, iconSize, iconPacks, accentColor]);
+    myProvider.injectIcons();
+    setProvider(myProvider);
+  }, []);
 
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -83,6 +78,7 @@ const App = () => {
     });
   });
 
+  // On init, observe the body for changes
   const init = useCallback(() => {
     observer.observe(document.body, {
       attributes: true,
@@ -90,24 +86,34 @@ const App = () => {
       characterData: true,
       subtree: true,
     });
+  }, []);
 
-  }, [apply]);
-
+  // useMountEffect
   useEffect(() => {
     document.addEventListener('turbo:load', init);
     init();
     // applying on body in case the list is already present
     setTimeout(() => apply(document.body), 100);
 
-    return () => document.removeEventListener('turbo:load', init);
-  }, []);
+    return () => {
+      document.removeEventListener('turbo:load', init);
+      observer.disconnect();
+    };
+  }, [apply, init]);
 
+  // When the icon size or color changes, update the CSS variables
   useEffect(() => {
     changeCssVariable(CSS_VAR_MONOCHROME, isMonochrome ? 'grayscale(1)' : 'none');
     changeCssVariable(CSS_VAR_ICON_SIZE, `${iconSize}px`);
     changeCssVariable(CSS_VAR_ICON_COLOR, accentColor);
-  }, [isMonochrome, iconSize, iconPacks, accentColor]);
+  }, [isMonochrome, iconSize, accentColor]);
 
+  // When the icon packs change, update the provider
+  useEffect(() => {
+    provider?.injectIcons();
+  }, [iconPacks]);
+
+  // Listen for clicks outside the popup to close it
   useEffect(() => {
     // close on clicking on the document
     if (isOpen) {
