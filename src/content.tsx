@@ -43,7 +43,7 @@ let oldHref = window.location.href;
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [provider, setProvider] = useState<IconProvider>();
+  const [providers, setProviders] = useState<Set<IconProvider>>(new Set());
   const { isMonochrome } = useMonochrome();
   const { iconSize } = useIconSize();
   const { accentColor } = useIconColor();
@@ -63,7 +63,7 @@ const App = () => {
     if (!myProvider) return;
 
     myProvider.injectIcons();
-    setProvider(myProvider);
+    setProviders(providers => new Set([...providers, myProvider]));
   }, []);
 
   const observer = new MutationObserver((mutations) => {
@@ -110,7 +110,7 @@ const App = () => {
 
   // When the icon packs change, update the provider
   useEffect(() => {
-    provider?.injectIcons();
+    providers.forEach(provider => provider?.injectIcons());
   }, [iconPacks]);
 
   // Listen for clicks outside the popup to close it

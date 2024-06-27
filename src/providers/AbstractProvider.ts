@@ -44,9 +44,9 @@ export abstract class AbstractProvider implements IconProvider {
 
     $items.forEach(async (item) => {
       // Skip icon if already processed
-      if (item.dataset['processed'] === 'true') {
-        return;
-      }
+      // if (item.dataset['processed'] === 'true') {
+      //   return;
+      // }
 
       const isFile = elementExists(this.fileClass, item);
       const isDir = elementExists(this.dirClass, item);
@@ -72,20 +72,11 @@ export abstract class AbstractProvider implements IconProvider {
 
         const svg = getFileIcon(className, isDark);
         const icon = await wrapSvg(svg, this.styles, `octicon`);
-        if (name === 'crud.controller.ts') {
-          console.log('icon', icon);
-          console.log('$icon', $icon);
-        }
 
         if ($icon?.parentNode) {
           $icon.outerHTML = removeSize(icon);
         } else if ($fallbackIcon) {
           $fallbackIcon.outerHTML = removeSize(icon);
-        }
-
-        if (name === 'crud.controller.ts') {
-          console.log('icon2', icon);
-          console.log('$icon2', $icon);
         }
       }
 
