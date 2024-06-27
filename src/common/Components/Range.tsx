@@ -76,7 +76,7 @@ type Props = {
 }
 
 export const Range: FC<Props> = ({ label, value, setValue, id, min = 10, max = 30 }) => {
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(parseInt(event.target.value));
   };
 

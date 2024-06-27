@@ -35,10 +35,6 @@ interface Props {
 }
 
 export const IconButton = ({ id, isChecked, setChecked, text, icon }: Props) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
-  };
-
   const toggle = () => {
     setChecked(!isChecked);
   };

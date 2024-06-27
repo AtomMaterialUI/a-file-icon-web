@@ -11,7 +11,6 @@ const StyledFooter = styled.footer`
 `;
 
 export const Footer = () => {
-  // get current year
   const year = new Date().getFullYear();
   return (
     <StyledFooter>

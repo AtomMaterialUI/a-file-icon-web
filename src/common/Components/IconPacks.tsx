@@ -9,7 +9,7 @@ const Section = styled.section`
 `;
 
 export const IconPacks = ({ config, setConfig }) => {
-  const handleChange = (value: any, id: IconPack) => {
+  const handleChange = (value: boolean, id: IconPack) => {
     const newConfig = {
       ...config,
       [id]: value,

@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
-import { Checkbox, ColorPicker, Range } from '~common/Components';
 import { useFab, useIconColor, useIconPacks, useIconSize, useMonochrome } from '~common/selectors';
 import { IconPacks } from '~common/Components/IconPacks';
+import { Checkbox } from '~common/Components/Checkbox';
+import { ColorPicker } from '~common/Components/ColorPicker';
+import { Range } from '~common/Components/Range';
 
 const Section = styled.div`
   display: block;

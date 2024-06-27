@@ -2,10 +2,8 @@ import { getAssociation, getFileIcon, getFileIconName } from '~associations/file
 import { removeSize, wrapSvg } from '~associations/utils';
 import { getFolderAssociation, getFolderIcon, getFolderIconName } from '~associations/folders';
 import { $, $$, elementExists } from 'select-dom';
-import { Storage } from '@plasmohq/storage';
 import * as debounce from 'lodash.debounce';
-import type { IconPacks } from '~associations/IconPack';
-import { ICON_PACKS } from '~common/constants';
+import { localIconPaths } from '~common/storage';
 
 export type IconProvider = {
   dirClass: string;
@@ -16,8 +14,6 @@ export type IconProvider = {
   svgClass?: string;
   injectIcons: () => {};
 }
-
-const storage = new Storage();
 
 export abstract class AbstractProvider implements IconProvider {
   constructor(readonly target: ParentNode) {
@@ -40,7 +36,7 @@ export abstract class AbstractProvider implements IconProvider {
   #injectIcons = async () => {
     const $items = $$(this.itemsClass, this.target);
     const isDark = $('html').dataset['colorMode'] === 'dark';
-    const iconPacks = await storage.get<IconPacks>(ICON_PACKS);
+    const iconPacks = await localIconPaths();
 
     $items.forEach(async (item) => {
       // Skip icon if already processed

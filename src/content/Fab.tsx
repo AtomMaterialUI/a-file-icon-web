@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-// import logo
 import Logo from 'url:../assets/logo.svg';
 
 const FabStyles = styled.button`
