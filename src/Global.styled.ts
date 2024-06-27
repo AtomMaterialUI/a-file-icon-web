@@ -72,7 +72,8 @@ export const GlobalStyles = css`
   html,
   body {
     background: var(--atom-bg, #263238);
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     transition: all .5s;
     margin: 0;
     height: 100%;
@@ -83,7 +84,7 @@ export const GlobalStyles = css`
     color: var(--atom-fg);
     min-width: 450px;
     min-height: 300px;
-    max-height: 400px;
+    max-height: 800px;
   }
 
   h1, h2, h3, h4, h5, h6 {

@@ -1,8 +1,9 @@
 import { Global } from '@emotion/react';
 import styled from '@emotion/styled';
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { GlobalStyles } from '~Global.styled';
 import { Loading } from '~popup/Loading/Loading';
+import Panel from '~popup/Panel/Panel';
 
 const Container = styled.main`
   width: 100vw;
@@ -19,8 +20,6 @@ const Container = styled.main`
 function delay(lazyComponent: Promise<any>): Promise<any> {
   return new Promise(resolve => setTimeout(resolve, 500)).then(() => lazyComponent);
 }
-
-const Panel = lazy(() => delay(import('~popup/Panel/Panel')));
 
 const Popup = () => (
   <>

@@ -57,18 +57,6 @@ const Grid = styled.div`
   grid-column-gap: 20px;
 `;
 
-const Left = styled.div`
-  text-align: left;
-`;
-
-const Right = styled.div`
-  background: var(--atom-contrast);
-  border-radius: 20px;
-  max-height: 300px;
-  overflow: auto;
-  border: 1px solid var(--atom-hl);
-`;
-
 const Settings = () => (
   <Container>
     <Title>

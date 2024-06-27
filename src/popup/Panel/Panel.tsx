@@ -15,9 +15,9 @@ const StyledPanel = styled.div`
 
 const Panel = () => (
   <StyledPanel>
-    <Alert />
-    <Settings />
-    <Footer />
+    <Alert/>
+    <Settings/>
+    <Footer/>
   </StyledPanel>
 );
 

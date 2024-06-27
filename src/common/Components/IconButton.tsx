@@ -10,6 +10,7 @@ const Button = styled.button(({ isChecked }: ButtonProps) => css`
   border: ${isChecked ? '2px solid var(--atom-accent)' : '2px solid transparent'};
   border-radius: 4px;
   background-color: var(--atom-button);
+  color: var(--atom-foreground);
   padding: 8px;
   flex-direction: column;
   justify-content: center;
