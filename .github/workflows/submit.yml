@@ -24,8 +24,11 @@ jobs:
       - name: Install
         run: bun install
 
-      - name: Build and zip extension artifact
+      - name: Build chrome artifact
         run: bun run build -- --zip
+
+      - name: Build firefox artifact
+        run: bun run build -- --zip --target=firefox-mv3
 
 #      - name: Create Release
 #        uses: softprops/action-gh-release@v1
