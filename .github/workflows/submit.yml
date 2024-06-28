@@ -24,15 +24,23 @@ jobs:
       - name: Install
         run: bun install
 
-#      - uses: pnpm/action-setup@v2.2.2
-#        with:
-#          version: 7.11.0
-#          run_install: true
-
       - name: Build and zip extension artifact
         run: bun run build -- --zip
+
+#      - name: Create Release
+#        uses: softprops/action-gh-release@v1
+#        with:
+#          generate_release_notes: true
+#          body: |
+#            ## Changelog
+#            Please see the [changelog](https://github.com/microvoid/notion-ai-anywhere/blob/main/CHANGELOG.md)
+#          files: |
+#            build/chrome-mv3-prod.zip
+#            build/firefox-mv2-prod.zip
+#            build/edge-mv3-prod.zip
 
       - name: Browser Platform Publish
         uses: PlasmoHQ/bpp@v3
         with:
           keys: ${{ secrets.BPP_KEYS }}
+          chrome-file: build/chrome-mv3-prod.zip
