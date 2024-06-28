@@ -9,6 +9,10 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
 
+      - name: Clone Another Repository
+        run: |
+          git clone https://github.com/AtomMaterialUI/iconGenerator
+
       - name: Use Node.js
         uses: actions/setup-node@v3.4.1
         with:
