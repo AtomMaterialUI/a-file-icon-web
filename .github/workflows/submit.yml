@@ -1,5 +1,9 @@
 name: "Submit to Web Store"
 on:
+  push:
+    branches:
+      - main
+      - master
   workflow_dispatch:
 
 jobs:
