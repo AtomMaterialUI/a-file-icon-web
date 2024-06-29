@@ -1,9 +1,7 @@
 name: "Submit to Web Store"
 on:
-  push:
-    branches:
-      - main
-      - master
+  release:
+    types: [published]
   workflow_dispatch:
 
 jobs:
@@ -52,4 +50,5 @@ jobs:
           keys: ${{ secrets.BPP_KEYS }}
           chrome-file: build/chrome-mv3-prod.zip
           firefox-file: build/firefox-mv3-prod.zip
+          edge-file: build/edge-mv3-prod.zip
           verbose: true
