@@ -14,7 +14,7 @@ jobs:
           git clone https://github.com/AtomMaterialUI/iconGenerator
 
       - name: Use Node.js
-        uses: actions/setup-node@v3.4.1
+        uses: actions/setup-node@v4.0.2
         with:
           node-version: 22.x
 
@@ -46,6 +46,6 @@ jobs:
         uses: PlasmoHQ/bpp@v3
         with:
           keys: ${{ secrets.BPP_KEYS }}
-#          chrome-file: build/chrome-mv3-prod.zip
+          chrome-file: build/chrome-mv3-prod.zip
           firefox-file: build/firefox-mv3-prod.zip
           verbose: true
