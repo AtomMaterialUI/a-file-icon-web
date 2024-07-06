@@ -29,9 +29,13 @@ It replaces the standard file and folder icons with more suitable options relate
 
 <https://chrome.google.com/webstore/detail/atom-file-icons-web/pljfkbaipkidhmaljaaakibigbcmmpnc>
 
-## Firefox Extension (Not updated)
+## Firefox Extension
 
 <https://addons.mozilla.org/en-US/firefox/addon/atom-file-icons-web/>
+
+## Edge Extension
+
+<https://microsoftedge.microsoft.com/addons/detail/atom-material-icons/ajfcnjlggplaibcmaannbijmblhiiiee>
 
 ## Supported Sites
 
