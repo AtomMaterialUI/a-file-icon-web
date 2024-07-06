@@ -10,7 +10,8 @@ It replaces the standard file and folder icons with more suitable options relate
 
 * [Atom Material File Icons Extension](#atom-material-file-icons-extension)
     * [Chrome Extension](#chrome-extension)
-    * [Firefox Extension (Not updated)](#firefox-extension-not-updated)
+    * [Firefox Extension](#firefox-extension)
+    * [Edge Extension](#edge-extension)
     * [Supported Sites](#supported-sites)
     * [Features](#features)
         * [Icon Packs](#icon-packs)
