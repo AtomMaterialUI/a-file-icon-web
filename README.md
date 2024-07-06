@@ -134,24 +134,6 @@ Load the dev extension in your browser from `chrome://extensions` (or similar) u
 will
 support hot reload and other features.
 
-To build the extension for production:
-
-```shell
-npm run build
-```
-
-This will create a zip file in the `dist` directory.
-
-### Releasing
-
-To release the extension:
-
-```shell
-npm run release # Build the chrome extension
-# or
-npm run webext # Build the firefox extension
-```
-
 ## Credits
 
 Special thanks to:
