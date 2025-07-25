@@ -6,7 +6,9 @@ import iconFont from 'gulp-iconfont';
 import zip from 'gulp-zip';
 
 gulp.task('icons', () => {
-  return iconFont('iconGenerator/assets/icons/files/*.svg', {
+  return gulp.src('iconGenerator/assets/icons/files/*.svg')
+    .pipe(copy('public', { prefix: 2 }))
+    .pipe(iconFont('iconGenerator/assets/icons/files/*.svg', {
     fontName: 'icons',
     formats: ['eot', 'woff', 'ttf'],
     normalize: true,
@@ -24,7 +26,9 @@ gulp.task('icons', () => {
 });
 
 gulp.task('folders', () => {
-  return iconFont('iconGenerator/assets/icons/folders/*.svg', {
+  return gulp.src('iconGenerator/assets/icons/folders/*.svg')
+    .pipe(copy('public', { prefix: 2 }))
+    .pipe(iconFont('iconGenerator/assets/icons/folders/*.svg', {
     fontName: 'folders',
     formats: ['eot', 'woff', 'ttf'],
     normalize: true,
@@ -53,7 +57,7 @@ gulp.task('assets', () => {
 gulp.task('prepare', gulp.series('icons', 'folders', 'assets'));
 
 gulp.task('copy', () => {
-  return gulp.src(['*.*', '!release.zip', 'assets/*.css', 'public/**/*'], { allowEmpty: true })
+  return gulp.src(['*.*', '!release.zip', 'dist/*.css', 'public/**/*'], { allowEmpty: true })
     .pipe(copy('release'));
 });
 
