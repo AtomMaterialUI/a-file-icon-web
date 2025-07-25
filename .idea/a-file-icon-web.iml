@@ -23,6 +23,8 @@
       <excludeFolder url="file://$MODULE_DIR$/iconGenerator/examples" />
       <excludeFolder url="file://$MODULE_DIR$/iconGenerator/examples/files" />
       <excludeFolder url="file://$MODULE_DIR$/iconGenerator/assets/icons/ui" />
+      <excludeFolder url="file://$MODULE_DIR$/.fleet" />
+      <excludeFolder url="file://$MODULE_DIR$/screens" />
     </content>
     <content url="file://$MODULE_DIR$/iconGenerator/examples/files" />
     <orderEntry type="inheritedJdk" />

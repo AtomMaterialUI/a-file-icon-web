@@ -53,7 +53,7 @@ gulp.task('assets', () => {
 gulp.task('prepare', gulp.series('icons', 'folders', 'assets'));
 
 gulp.task('copy', () => {
-  return gulp.src(['*.*', '!release.zip', 'dist/*.css', 'public/**/*'], { allowEmpty: true })
+  return gulp.src(['*.*', '!release.zip', 'assets/*.css', 'public/**/*'], { allowEmpty: true })
     .pipe(copy('release'));
 });
 

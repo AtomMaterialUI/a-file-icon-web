@@ -9,9 +9,6 @@
       "css": [
         "public/global.css"
       ],
-      "js": [
-        "public/bundle.js"
-      ],
       "matches": [
         "http://github.com/*",
         "https://github.com/*",
@@ -45,7 +42,7 @@
     "https://gitee.com/*"
   ],
   "short_name": "Atom File Icons Web",
-  "version": "7.0.0",
+  "version": "14.0.0",
   "web_accessible_resources": [
     {
       "resources": [
