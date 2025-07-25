@@ -1,4 +1,4 @@
-name: "Publish to All Browsers"
+name: "Publish to Firefox Add-ons"
 on:
   release:
     types: [published]
@@ -26,9 +26,6 @@ jobs:
       - name: Install
         run: bun install
 
-      - name: Build chrome artifact
-        run: bun run build -- --zip
-
       - name: Build firefox artifact
         run: bun run build -- --zip --target=firefox-mv3
 
@@ -36,7 +33,5 @@ jobs:
         uses: PlasmoHQ/bpp@v3
         with:
           keys: ${{ secrets.SUBMIT_KEYS }}
-          chrome-file: build/chrome-mv3-prod.zip
           firefox-file: build/firefox-mv3-prod.zip
-          edge-file: build/edge-mv3-prod.zip
           verbose: true
