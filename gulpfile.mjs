@@ -9,14 +9,14 @@ gulp.task('icons', () => {
   return gulp.src('iconGenerator/assets/icons/files/*.svg')
     .pipe(copy('public', { prefix: 2 }))
     .pipe(iconFont('iconGenerator/assets/icons/files/*.svg', {
-    fontName: 'icons',
-    formats: ['eot', 'woff', 'ttf'],
-    normalize: true,
-    fontHeight: 1000,
-    centerHorizontally: true,
-    appendCodepoints: true,
-    prependUnicode: false,
-  })
+      fontName: 'icons',
+      formats: ['eot', 'woff', 'ttf'],
+      normalize: true,
+      fontHeight: 1000,
+      centerHorizontally: true,
+      appendCodepoints: true,
+      prependUnicode: false,
+    }))
     .on('glyphs', function (glyphs, options) {
       gulp.src('assets/iconfont.ejs', {})
         .pipe(consolidate('underscore', { glyphs: glyphs }))
@@ -29,14 +29,14 @@ gulp.task('folders', () => {
   return gulp.src('iconGenerator/assets/icons/folders/*.svg')
     .pipe(copy('public', { prefix: 2 }))
     .pipe(iconFont('iconGenerator/assets/icons/folders/*.svg', {
-    fontName: 'folders',
-    formats: ['eot', 'woff', 'ttf'],
-    normalize: true,
-    fontHeight: 1000,
-    centerHorizontally: true,
-    appendCodepoints: true,
-    prependUnicode: false,
-  })
+      fontName: 'folders',
+      formats: ['eot', 'woff', 'ttf'],
+      normalize: true,
+      fontHeight: 1000,
+      centerHorizontally: true,
+      appendCodepoints: true,
+      prependUnicode: false,
+    }))
     .on('glyphs', function (glyphs, options) {
       gulp.src('assets/folderIconfont.ejs', {})
         .pipe(consolidate('underscore', { glyphs: glyphs }))
