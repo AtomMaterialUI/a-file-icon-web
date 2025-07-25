@@ -26,6 +26,9 @@ jobs:
       - name: Install
         run: bun install
 
+      - name: Build chrome artifact
+        run: bun run build -- --zip
+
       - name: Build firefox artifact
         run: bun run build -- --zip --target=firefox-mv3
 
