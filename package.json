@@ -8,6 +8,7 @@
     "preconvert": "rimraf public",
     "convert": "npm --prefix iconGenerator run convert",
     "prepare": "gulp prepare",
+    "prebuild": "bun run prepare",
     "build": "bun run plasmo:build",
     "build:firefox": "bun run plasmo:build --target=firefox-mv2",
     "predev": "bun run prepare",
