@@ -27,6 +27,7 @@
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
     "@plasmohq/storage": "^1.15.0",
+    "caniuse-lite": "^1.0.30001727",
     "plasmo": "0.90.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -36,24 +37,25 @@
   },
   "devDependencies": {
     "@types/bun": "1.2.19",
-    "@ianvs/prettier-plugin-sort-imports": "4.3.0",
-    "@types/chrome": "0.0.268",
-    "@types/node": "20.14.9",
-    "@types/react": "18.3.3",
-    "@types/react-dom": "18.3.0",
+    "@parcel/runtime-js": "^2.15.4",
+    "@ianvs/prettier-plugin-sort-imports": "4.5.1",
+    "@types/chrome": "0.1.1",
+    "@types/node": "24.1.0",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
     "polka": "0.5.2",
     "rimraf": "^6.0.1",
-    "prettier": "3.3.2",
-    "typescript": "5.5.2",
-    "compression": "1.7.4",
-    "gulp": "5.0.0",
-    "gulp-copy": "4.0.1",
-    "gulp-iconfont": "11.0.1",
-    "gulp-rename": "2.0.0",
-    "gulp-sass": "5.1.0",
-    "gulp-zip": "6.0.0",
-    "underscore": "1.13.6",
-    "web-ext": "8.2.0"
+    "prettier": "3.6.2",
+    "typescript": "5.8.3",
+    "compression": "1.8.1",
+    "gulp": "5.0.1",
+    "gulp-copy": "5.0.0",
+    "gulp-iconfont": "12.0.0",
+    "gulp-rename": "2.1.0",
+    "gulp-sass": "6.0.1",
+    "gulp-zip": "6.1.0",
+    "underscore": "1.13.7",
+    "web-ext": "8.9.0"
   },
   "manifest": {
     "name": "Atom Material Icons",
@@ -101,7 +103,7 @@
     ]
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.8.3"
   },
   "optionalDependencies": {
     "lodash.template": "4.5.0",
