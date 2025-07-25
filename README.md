@@ -10,7 +10,8 @@ It replaces the standard file and folder icons with more suitable options relate
 
 * [Atom Material File Icons Extension](#atom-material-file-icons-extension)
     * [Chrome Extension](#chrome-extension)
-    * [Firefox Extension (Not updated)](#firefox-extension-not-updated)
+    * [Firefox Extension](#firefox-extension)
+    * [Edge Extension](#edge-extension)
     * [Supported Sites](#supported-sites)
     * [Features](#features)
         * [Icon Packs](#icon-packs)
@@ -29,9 +30,13 @@ It replaces the standard file and folder icons with more suitable options relate
 
 <https://chrome.google.com/webstore/detail/atom-file-icons-web/pljfkbaipkidhmaljaaakibigbcmmpnc>
 
-## Firefox Extension (Not updated)
+## Firefox Extension
 
 <https://addons.mozilla.org/en-US/firefox/addon/atom-file-icons-web/>
+
+## Edge Extension
+
+<https://microsoftedge.microsoft.com/addons/detail/atom-material-icons/ajfcnjlggplaibcmaannbijmblhiiiee>
 
 ## Supported Sites
 
@@ -128,24 +133,6 @@ npm run dev
 Load the dev extension in your browser from `chrome://extensions` (or similar) using the `build/chrome-mv3-dev` directory. The extension
 will
 support hot reload and other features.
-
-To build the extension for production:
-
-```shell
-npm run build
-```
-
-This will create a zip file in the `dist` directory.
-
-### Releasing
-
-To release the extension:
-
-```shell
-npm run release # Build the chrome extension
-# or
-npm run webext # Build the firefox extension
-```
 
 ## Credits
 
