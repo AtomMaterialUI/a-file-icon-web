@@ -8,7 +8,7 @@ import zip from 'gulp-zip';
 gulp.task('icons', () => {
   return gulp.src('iconGenerator/assets/icons/files/*.svg')
     .pipe(copy('public', { prefix: 2 }))
-    .pipe(iconFont('iconGenerator/assets/icons/files/*.svg', {
+    .pipe(iconFont({
       fontName: 'icons',
       formats: ['eot', 'woff', 'ttf'],
       normalize: true,
@@ -28,7 +28,7 @@ gulp.task('icons', () => {
 gulp.task('folders', () => {
   return gulp.src('iconGenerator/assets/icons/folders/*.svg')
     .pipe(copy('public', { prefix: 2 }))
-    .pipe(iconFont('iconGenerator/assets/icons/folders/*.svg', {
+    .pipe(iconFont({
       fontName: 'folders',
       formats: ['eot', 'woff', 'ttf'],
       normalize: true,
