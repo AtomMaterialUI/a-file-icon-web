@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ProjectTreeColorEnhanced">
+    <files />
+    <colors>
+      <color id="1" lightValue="#f4b5b5" darkValue="#442d2d" name="Color 1" enabled="true" />
+      <color id="2" lightValue="#f2c9a6" darkValue="#443529" name="Color 2" enabled="true" />
+      <color id="3" lightValue="#f4efac" darkValue="#44432a" name="Color 3" enabled="true" />
+      <color id="4" lightValue="#bfe9c1" darkValue="#314131" name="Color 4" enabled="true" />
+      <color id="5" lightValue="#aeebf0" darkValue="#2b4143" name="Color 5" enabled="true" />
+      <color id="6" lightValue="#b2d7f2" darkValue="#2c3a44" name="Color 6" enabled="true" />
+      <color id="7" lightValue="#d7b7ef" darkValue="#3a2e43" name="Color 7" enabled="true" />
+      <color id="8" lightValue="#e4e4e4" darkValue="#403c3c" name="Color 8" enabled="true" />
+    </colors>
+    <option name="marksForCollapsedHighlights" value="Dots" />
+  </component>
   <component name="ProjectTreeColorHighlighter">
     <files>
       <node color="2" path="$PROJECT_DIR$/iconGenerator" />
