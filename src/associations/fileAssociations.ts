@@ -20,7 +20,7 @@ type CompiledFileIconAssociation = RawFileIconAssociation & { regex: RegExp };
 const DEFAULT: FileIconAssociation = {
   fileNames: '',
   name: 'Default',
-  pattern: new RegExp(''),
+  pattern: /(?:)/,
   iconColor: '78909C',
   iconType: IconType.FILE,
   enabled: true,
@@ -52,7 +52,7 @@ const makeFileIconAssociation = (json?: RawFileIconAssociation): FileIconAssocia
     iconType: IconType.FILE,
     name: json.name,
     pattern: new RegExp(json.pattern),
-    priority: parseInt(json.priority, 10),
+    priority: Number.parseInt(json.priority, 10),
     url: json.url,
     iconPack: json.iconPack,
   };

@@ -19,6 +19,10 @@
     "plasmo:buddy": "plasmo build --source-maps --bundle-buddy",
     "package": "plasmo package",
     "package:firefox": "plasmo package --target=firefox-mv2",
+    "lint": "biome lint src",
+    "format": "biome format --write src",
+    "check": "biome check src",
+    "test": "bun test",
     "refreshtoken": "gcp-refresh-token"
   },
   "dependencies": {
@@ -38,19 +42,20 @@
     "sirv-cli": "3.0.1"
   },
   "devDependencies": {
-    "@types/bun": "1.2.19",
-    "@parcel/runtime-js": "^2.15.4",
+    "@biomejs/biome": "1.9.4",
     "@ianvs/prettier-plugin-sort-imports": "4.5.1",
+    "@parcel/runtime-js": "^2.15.4",
+    "@types/bun": "1.2.19",
     "@types/chrome": "0.1.1",
     "@types/node": "24.1.0",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
-    "polka": "0.5.2",
-    "rimraf": "^6.0.1",
-    "prettier": "3.6.2",
-    "typescript": "5.8.3",
     "compression": "1.8.1",
-    "gcp-refresh-token": "^0.9.2"
+    "gcp-refresh-token": "^0.9.2",
+    "polka": "0.5.2",
+    "prettier": "3.6.2",
+    "rimraf": "^6.0.1",
+    "typescript": "5.8.3"
   },
   "manifest": {
     "name": "Atom Material Icons",
@@ -99,5 +104,8 @@
   },
   "peerDependencies": {
     "typescript": "^5.8.3"
-  }
+  },
+  "trustedDependencies": [
+    "@biomejs/biome"
+  ]
 }

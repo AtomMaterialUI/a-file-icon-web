@@ -23,7 +23,7 @@ const DEFAULT: FolderIconAssociation = {
   icon: '/default.svg',
   iconType: IconType.FOLDER,
   name: 'Default',
-  pattern: new RegExp(''),
+  pattern: /(?:)/,
   priority: 1,
 };
 
@@ -52,7 +52,7 @@ const makeFolderIconAssociation = (json?: RawFolderIconAssociation): FolderIconA
     name: json.name,
     pattern: new RegExp(json.pattern),
     iconType: IconType.FOLDER,
-    priority: parseInt(json.priority, 10),
+    priority: Number.parseInt(json.priority, 10),
     folderIconColor: json.folderIconColor,
     folderColor: json.folderColor,
   };

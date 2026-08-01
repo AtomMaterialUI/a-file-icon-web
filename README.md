@@ -21,6 +21,8 @@ It replaces the standard file and folder icons with more suitable options relate
         * [Icon Generator](#icon-generator)
       * [Prepare Icons](#prepare-icons)
         * [Plasmo](#plasmo)
+        * [Scripts](#scripts)
+        * [Testing](#testing)
         * [Releasing](#releasing)
     * [Credits](#credits)
 
@@ -89,15 +91,20 @@ Available icon packs:
 
 ## Development
 
-### Icon Generator
-
-To build the extension, first clone the [iconGenerator](https://github.com/mallowigi/iconGenerator.git) repository containing all the icons.
-Set it up by following these steps:
+The project is managed with [Bun](https://bun.sh/) (see `.bun-version`). After cloning, install the dependencies:
 
 ```shell
-git clone https://github.com/mallowigi/iconGenerator.git
-npm install && cd iconGenerator && npm install
-npm run build
+bun install
+```
+
+### Icon Generator
+
+The icons live in the [iconGenerator](https://github.com/mallowigi/iconGenerator.git) repository, which is included here
+as a **git submodule** at `iconGenerator/`. Initialize and build it with:
+
+```shell
+git submodule update --init --recursive
+cd iconGenerator && npm install && npm run build
 ```
 
 After running these commands, the `iconGenerator` folder will contain all the icons and the `icon_associations.json`
@@ -134,6 +141,26 @@ npm run dev
 Load the dev extension in your browser from `chrome://extensions` (or similar) using the `build/chrome-mv3-dev` directory. The extension
 will
 support hot reload and other features.
+
+### Scripts
+
+| Command                                             | Description                                                               |
+|-----------------------------------------------------|---------------------------------------------------------------------------|
+| `bun run dev`                                       | Start Plasmo in watch mode (`bun run dev:firefox` for Firefox MV2).       |
+| `bun run build`                                     | Build the production extension (`bun run build:firefox` for Firefox MV2). |
+| `bun run prepare`                                   | Regenerate the icon `index.ts` barrels and copy assets into `public/`.    |
+| `bun run test`                                      | Run the unit tests with `bun test`.                                       |
+| `bun run lint` / `bun run format` / `bun run check` | Lint, format, and check with [Biome](https://biomejs.dev/).               |
+
+### Testing
+
+Unit tests use the built-in [Bun test runner](https://bun.sh/docs/cli/test) and live alongside the code (e.g.
+`src/associations/*.test.ts`). They cover the pure icon-association logic (pattern matching, caching, and icon-pack
+filtering).
+
+```shell
+bun test
+```
 
 ## Credits
 
