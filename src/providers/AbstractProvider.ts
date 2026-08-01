@@ -39,15 +39,13 @@ export abstract class AbstractProvider implements IconProvider {
     const isDark = $('html').dataset['colorMode'] === 'dark';
     const iconPacks = await localIconPaths();
 
-    $items.forEach(async (item) => {
+    $items.forEach((item) => {
       // Skip icon if already processed
       if (item.dataset['processed'] === 'true') {
         return;
       }
 
-      const isFile = elementExists(this.fileClass, item);
       const isDir = elementExists(this.dirClass, item);
-      const isSvg = elementExists(this.svgClass, item);
 
       const name = $(this.nameClass, item)?.textContent?.trim();
       const $icon = $(this.iconClass, item);
@@ -58,7 +56,7 @@ export abstract class AbstractProvider implements IconProvider {
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
-        const icon = await wrapSvg(svg, this.styles, `octicon ${this.dirClass.replace('.', '')}`);
+        const icon = wrapSvg(svg, this.styles, `octicon ${this.dirClass.replace('.', '')}`);
 
         if ($icon?.parentNode) {
           $icon.outerHTML = removeSize(icon);
@@ -68,7 +66,7 @@ export abstract class AbstractProvider implements IconProvider {
         let className = getFileIconName(assoc);
 
         const svg = getFileIcon(className, isDark);
-        const icon = await wrapSvg(svg, this.styles, `octicon`);
+        const icon = wrapSvg(svg, this.styles, `octicon`);
 
         if ($icon?.parentNode) {
           $icon.outerHTML = removeSize(icon);

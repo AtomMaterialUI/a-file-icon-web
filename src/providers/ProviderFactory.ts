@@ -19,11 +19,7 @@ export const createProvider = (target: ParentNode): IconProvider => {
     return new GiteeProvider(target);
   } else if (window.location.hostname.includes('azure') && elementExists('.repos-file-explorer-header')) {
     return new AzureProvider(target);
-  }
-    // else if (window.location.hostname.includes('codesandbox')) {
-    //   return new CodeSandboxProvider(target);
-  // }
-  else if (elementExists('.tree-browser-result > .octicon', target)) {
+  } else if (elementExists('.tree-browser-result > .octicon', target)) {
     return new GitHubSearchProvider(target);
   } else if (elementExists('.ActionList-item-visual > .octicon', target)) {
     return new PullRequestsProvider(target);
