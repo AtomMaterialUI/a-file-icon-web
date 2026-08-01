@@ -10,7 +10,9 @@
     "./**/*.tsx"
   ],
   "compilerOptions": {
-    "types": [],
+    "types": [
+      "@types/bun"
+    ],
     "paths": {
       "~*": [
         "./src/*"
