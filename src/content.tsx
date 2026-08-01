@@ -5,7 +5,7 @@ import { CacheProvider, Global } from '@emotion/react';
 import { GlobalStyles } from '~Global.styled';
 import { FabPopup } from '~content/FabPopup';
 import { Fab } from '~content/Fab';
-import { createProvider } from '~providers/ProviderFactory';
+import { createProviders } from '~providers/ProviderFactory';
 import { useFab, useIconColor, useIconPacks, useIconSize, useMonochrome } from '~common/selectors';
 import { changeCssVariable } from '~associations/utils';
 import { CSS_VAR_ICON_COLOR, CSS_VAR_ICON_SIZE, CSS_VAR_MONOCHROME } from '~common/constants';
@@ -66,11 +66,11 @@ const App = () => {
   }, []);
 
   const apply = useCallback((target: ParentNode) => {
-    const myProvider = createProvider(target);
-    if (!myProvider) return;
+    const matched = createProviders(target);
+    if (matched.length === 0) return;
 
-    myProvider.injectIcons();
-    setProviders(providers => new Set([...providers, myProvider]));
+    matched.forEach(provider => provider.injectIcons());
+    setProviders(providers => new Set([...providers, ...matched]));
   }, []);
 
   // Observe the page for DOM changes and (re)inject icons on mount.
