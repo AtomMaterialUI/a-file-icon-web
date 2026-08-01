@@ -19,7 +19,7 @@ It replaces the standard file and folder icons with more suitable options relate
         * [Folder Icons](#folder-icons)
     * [Development](#development)
         * [Icon Generator](#icon-generator)
-        * [Gulp Prepare](#gulp-prepare)
+      * [Prepare Icons](#prepare-icons)
         * [Plasmo](#plasmo)
         * [Releasing](#releasing)
     * [Credits](#credits)
@@ -109,9 +109,10 @@ To rerun the generator:
 npm run convert
 ```
 
-### Gulp Prepare
+### Prepare Icons
 
-Next, you need to generate the index file that loads all icons as React components. This is done thanks to the `Gulp` task runner.
+Next, you need to generate the index file that loads all icons as React components. This is done by a
+small [Bun](https://bun.sh/) script (`scripts/prepare.ts`).
 
 ```shell
 npm run prepare

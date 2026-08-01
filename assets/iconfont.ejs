@@ -1,3 +1,0 @@
-<% _.each(glyphs, function(glyph) { %>
-export * as file_<%= glyph.name.replaceAll(/-/g, '_') %> from 'data-text:./<%= glyph.name %>.svg';
-<% }); %>
