@@ -10,6 +10,7 @@ import { useFab, useIconColor, useIconPacks, useIconSize, useMonochrome } from '
 import { changeCssVariable } from '~associations/utils';
 import { CSS_VAR_ICON_COLOR, CSS_VAR_ICON_SIZE, CSS_VAR_MONOCHROME } from '~common/constants';
 import type { IconProvider } from '~providers/AbstractProvider';
+import type { PlasmoMountShadowHost } from 'plasmo';
 
 const styleElement = document.createElement('style');
 
@@ -20,6 +21,14 @@ const styleCache = createCache({
 });
 
 export const getStyle = () => styleElement;
+
+// Mount the CSUI shadow host inside <body>. Plasmo's default overlay behaviour
+// prepends it to <html> (before <head>), which GitHub's Turbo treats as a
+// tracked_element_mismatch and reacts to with a full page reload on every
+// navigation. Keeping the host within <body> avoids that.
+export const mountShadowHost: PlasmoMountShadowHost = ({ shadowHost }) => {
+  document.body.appendChild(shadowHost);
+};
 
 export const config = {
   css: [
