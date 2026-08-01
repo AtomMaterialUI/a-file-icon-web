@@ -37,7 +37,7 @@ export class AzureProvider extends AbstractProvider {
     const $items = $$(this.itemsClass, this.target);
     const isDark = $('html').dataset['colorMode'] === 'dark';
 
-    $items.forEach(async (item, index) => {
+    $items.forEach((item) => {
       const isFile = elementExists(this.fileClass, item);
       const isDir = elementExists(this.dirClass, item);
       const isSvg = elementExists(this.svgClass, item);
@@ -50,7 +50,7 @@ export class AzureProvider extends AbstractProvider {
         let className = getFolderIconName(assoc);
 
         const svg = getFolderIcon(className);
-        const icon = await wrapSvg(svg, this.styles, `octicon ${this.dirClass.replace('.', '')}`);
+        const icon = wrapSvg(svg, this.styles, `octicon ${this.dirClass.replace('.', '')}`);
 
         const newSVG = document.createElement('span');
         newSVG.innerHTML = removeSize(icon);
@@ -61,11 +61,11 @@ export class AzureProvider extends AbstractProvider {
           $icon.appendChild(newSVG);
         }
       } else if (isFile || isSvg) {
-        let assoc = await getAssociation(name);
+        let assoc = getAssociation(name);
         let className = getFileIconName(assoc);
 
         const svg = getFileIcon(className, isDark);
-        const icon = await wrapSvg(svg, this.styles, `octicon ${this.fileClass}`);
+        const icon = wrapSvg(svg, this.styles, `octicon ${this.fileClass}`);
 
         const newSVG = document.createElement('span');
         newSVG.innerHTML = removeSize(icon);
