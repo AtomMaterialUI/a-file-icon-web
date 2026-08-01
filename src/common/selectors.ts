@@ -141,7 +141,7 @@ export const useIconColor = () => {
 
 export const useAlert = () => {
   const [isAlertVisible, setIsAlertVisible] = useStorage<boolean>(ALERT, false);
-  const timeout = useRef<NodeJS.Timeout>();
+  const timeout = useRef<NodeJS.Timeout>(null);
 
   const showAlert = () => {
     setIsAlertVisible(true);
@@ -168,7 +168,6 @@ export const useFab = () => {
 
   const handleChange = (v: boolean) => {
     setLocalShowFab(v);
-    changeCssVariable(CSS_VAR_ICON_SIZE, `${v}px`);
 
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);

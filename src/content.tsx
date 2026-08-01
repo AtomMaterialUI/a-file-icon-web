@@ -39,8 +39,6 @@ export const config = {
   ],
 };
 
-let oldHref = window.location.href;
-
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [providers, setProviders] = useState<Set<IconProvider>>(new Set());
@@ -66,40 +64,34 @@ const App = () => {
     setProviders(providers => new Set([...providers, myProvider]));
   }, []);
 
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (oldHref !== window.location.href) {
-        oldHref = window.location.href;
-      }
-      if (mutation.type === 'childList') {
-        const target = mutation.target as ParentNode;
-        apply(target);
-      }
-    });
-  });
-
-  // On init, observe the body for changes
-  const init = useCallback(() => {
-    observer.observe(document.body, {
-      attributes: true,
-      childList: true,
-      characterData: true,
-      subtree: true,
-    });
-  }, []);
-
-  // useMountEffect
+  // Observe the page for DOM changes and (re)inject icons on mount.
   useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+          apply(mutation.target as ParentNode);
+        }
+      });
+    });
+
+    const init = () => {
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+    };
+
     document.addEventListener('turbo:load', init);
     init();
     // applying on body in case the list is already present
-    setTimeout(() => apply(document.body), 100);
+    const timeoutId = setTimeout(() => apply(document.body), 100);
 
     return () => {
+      clearTimeout(timeoutId);
       document.removeEventListener('turbo:load', init);
       observer.disconnect();
     };
-  }, [apply, init]);
+  }, [apply]);
 
   // When the icon size or color changes, update the CSS variables
   useEffect(() => {
@@ -108,9 +100,12 @@ const App = () => {
     changeCssVariable(CSS_VAR_ICON_COLOR, accentColor);
   }, [isMonochrome, iconSize, accentColor]);
 
-  // When the icon packs change, update the provider
+  // When the icon packs change, reset and re-inject so associations are re-evaluated
   useEffect(() => {
-    providers.forEach(provider => provider?.injectIcons());
+    providers.forEach((provider) => {
+      provider?.resetProcessed();
+      provider?.injectIcons();
+    });
   }, [iconPacks]);
 
   // Listen for clicks outside the popup to close it

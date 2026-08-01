@@ -12,7 +12,8 @@ export type IconProvider = {
   itemsClass: string;
   nameClass: string;
   svgClass?: string;
-  injectIcons: () => {};
+  injectIcons: () => void;
+  resetProcessed: () => void;
 }
 
 export abstract class AbstractProvider implements IconProvider {
@@ -40,9 +41,9 @@ export abstract class AbstractProvider implements IconProvider {
 
     $items.forEach(async (item) => {
       // Skip icon if already processed
-      // if (item.dataset['processed'] === 'true') {
-      //   return;
-      // }
+      if (item.dataset['processed'] === 'true') {
+        return;
+      }
 
       const isFile = elementExists(this.fileClass, item);
       const isDir = elementExists(this.dirClass, item);
@@ -82,4 +83,12 @@ export abstract class AbstractProvider implements IconProvider {
   };
 
   injectIcons = debounce(this.#injectIcons, 1000);
+
+  // Clears the processed flag so the next injection re-renders every item
+  // (used when settings such as icon packs change).
+  resetProcessed = () => {
+    $$(this.itemsClass, this.target).forEach((item) => {
+      delete item.dataset['processed'];
+    });
+  };
 }
