@@ -23,6 +23,10 @@
     "format": "biome format --write src",
     "check": "biome check src",
     "test": "bun test",
+    "release:patch": "npm version patch -m \"chore: release v%s\"",
+    "release:minor": "npm version minor -m \"chore: release v%s\"",
+    "release:major": "npm version major -m \"chore: release v%s\"",
+    "postversion": "git push --follow-tags && gh release create v$npm_package_version --title v$npm_package_version --generate-notes --verify-tag",
     "refreshtoken": "gcp-refresh-token"
   },
   "dependencies": {
