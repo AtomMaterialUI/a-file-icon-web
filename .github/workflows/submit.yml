@@ -1,7 +1,5 @@
 name: "Publish to All Browsers"
 on:
-  release:
-    types: [published]
   workflow_dispatch:
 
 jobs:
