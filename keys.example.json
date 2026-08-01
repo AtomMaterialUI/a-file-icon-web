@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/plasmo-corp/bpp/v3/keys.schema.json",
+  "chrome": {
+    "clientId": "YOUR_GCP_OAUTH_CLIENT_ID.apps.googleusercontent.com",
+    "clientSecret": "YOUR_GCP_OAUTH_CLIENT_SECRET",
+    "refreshToken": "YOUR_CHROME_REFRESH_TOKEN",
+    "extId": "YOUR_CHROME_EXTENSION_ID"
+  },
+  "firefox": {
+    "apiKey": "user:0000000:000",
+    "apiSecret": "YOUR_FIREFOX_API_SECRET",
+    "extId": "{00000000-0000-0000-0000-000000000000}"
+  },
+  "edge": {
+    "productId": "00000000-0000-0000-0000-000000000000",
+    "clientId": "00000000-0000-0000-0000-000000000000",
+    "accessTokenUrl": "https://login.microsoftonline.com/YOUR_TENANT_ID/oauth2/v2.0/token",
+    "clientSecret": "YOUR_EDGE_CLIENT_SECRET"
+  }
+}

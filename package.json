@@ -27,6 +27,8 @@
     "release:minor": "npm version minor -m \"chore: release v%s\"",
     "release:major": "npm version major -m \"chore: release v%s\"",
     "postversion": "git push --follow-tags && gh release create v$npm_package_version --title v$npm_package_version --generate-notes --verify-tag",
+    "release": "bun run scripts/release.ts",
+    "keys:build": "bun run scripts/build-keys.ts",
     "refreshtoken": "gcp-refresh-token"
   },
   "dependencies": {
@@ -47,6 +49,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@dotenvx/dotenvx": "^2.19.1",
     "@ianvs/prettier-plugin-sort-imports": "4.5.1",
     "@parcel/runtime-js": "^2.15.4",
     "@types/bun": "1.2.19",
